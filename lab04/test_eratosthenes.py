@@ -51,5 +51,3 @@ class Test(TestCase):
         lab04.eratosthenes(argument)
         self.assertEqual(expected, lab04.eratosthenes(argument),
                          "The number is a positive number larger than 1000.")
-
-#
