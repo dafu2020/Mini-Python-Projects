@@ -1,5 +1,6 @@
 import doctest
 
+
 # do unit test
 def eratosthenes(upperbound):
     """Calculate prime numbers
@@ -18,7 +19,6 @@ def eratosthenes(upperbound):
     [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
 
     """
-    # max_number = int(upperbound ** 0.5)
     # make a list from 0 to N
     number_list = list(range(0, upperbound + 1))
     prime_list = []
@@ -38,6 +38,22 @@ def eratosthenes(upperbound):
 
 
 def is_prime_number(number):
+    """ Prime number determiner
+    A function used to determine whether a number is a prime number.
+
+    :param number: a positive integer
+    :precondition: must be a positive integer
+    :postcondition: give boolean result of determination
+    :return: whether a number is prime number as a boolean result
+
+    >>> is_prime_number(1)
+    False
+    >>> is_prime_number(2)
+    True
+    >>> is_prime_number(9)
+    False
+
+    """
     if number < 2:
         return False
     if number == 2:
@@ -48,6 +64,40 @@ def is_prime_number(number):
         if number % i == 0:
             return False
     return True
+
+
+def cash_money(canadian_money):
+    """ Determine the amount of denominations
+    A function accepts an amount of Canadian money, and determines the fewest of each bill and coin needed to present.
+
+    :param canadian_money: a positive float that only has 2 decimal places
+    precondition: must be a positive float that only has 2 decimal places
+    postcondition: calculates the amount of each denomination that are required
+    :return: the amount of each denomination that are required as a list
+
+    >>> cash_money(66.53)
+    [0, 1, 0, 1, 1, 0, 1, 2, 0, 0, 3]
+
+    >>> cash_money(1150.67)
+    [11, 1, 0, 0, 0, 0, 0, 2, 1, 1, 2]
+
+    >>> cash_money(12763.23)
+    [127, 1, 0, 1, 0, 1, 1, 0, 2, 0, 3]
+    """
+
+    denomination_list = [10000, 5000, 2000, 1000, 500, 200, 100, 25, 10, 5, 1]
+
+    breakdown = []
+    canadian_money *= 100
+
+    for i in denomination_list:
+        if canadian_money // i == 0:
+            breakdown.append(0)
+        elif canadian_money // i != 0:
+            count = int(canadian_money // i)
+            canadian_money = canadian_money % i
+            breakdown.append(count)
+    return breakdown
 
 
 def main():
