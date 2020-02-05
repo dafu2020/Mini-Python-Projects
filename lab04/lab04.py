@@ -19,6 +19,7 @@ def eratosthenes(upperbound):
     [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
 
     """
+    # max_number = int(upperbound ** 0.5)
     # make a list from 0 to N
     number_list = list(range(0, upperbound + 1))
     prime_list = []
@@ -33,7 +34,11 @@ def eratosthenes(upperbound):
                     number_list.remove(j)
 
     result_list = sorted(prime_list + number_list)  # join and sort the list
-    result_list.remove(result_list[0])  # remove 1, which is not a prime number
+    if result_list[0] == 0:
+        result_list.remove(result_list[0])
+    if result_list[0] == 1:
+        result_list.remove(result_list[0])
+
     return result_list
 
 
