@@ -20,6 +20,8 @@ def statistics(number_list):
     >>> statistics([-1,-2,-3,-4,-5,-6])
     [6, -6, -1, -3.5, 5]
 
+    >>> statistics([1.0,1,2,2.0])
+    [4, 1.0, 2, 1.5, 1.0]
 
     """
 
