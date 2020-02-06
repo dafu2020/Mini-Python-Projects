@@ -1,7 +1,6 @@
 from unittest import TestCase
 import lab04
 
-
 class Test(TestCase):
 
     def test_cash_money_smallest(self):
