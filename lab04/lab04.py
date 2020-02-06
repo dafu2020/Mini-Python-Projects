@@ -1,10 +1,9 @@
 import doctest
 
 
-# do unit test
 def eratosthenes(upperbound):
     """Calculate prime numbers
-    A function mimic Sieve of Eratosthenes method to find all prime numbers up to any given limit.
+    A function mimic the Sieve of Eratosthenes method to find all prime numbers within the certain range.
 
     :param upperbound: a positive integer
     :precondition: must be a positive integer
@@ -19,7 +18,6 @@ def eratosthenes(upperbound):
     [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
 
     """
-    # max_number = int(upperbound ** 0.5)
     # make a list from 0 to N
     number_list = list(range(0, upperbound + 1))
     prime_list = []
@@ -28,7 +26,7 @@ def eratosthenes(upperbound):
         # find the primes
         if is_prime_number(i) is not False:
             prime_list.append(i)
-            # find the multiple of prime
+            # find the multiples of that prime
             for j in number_list:
                 if j % i == 0:
                     number_list.remove(j)
@@ -64,7 +62,7 @@ def is_prime_number(number):
     if number == 2:
         return True
     for i in range(2, number):
-        # if num(number) can be divided with no remainder by any number from 2 to num-1
+        # if num(number) can be divided with no remainder by any number from 2 to number-1 (one number before it)
         # then it is not a prime number
         if number % i == 0:
             return False
