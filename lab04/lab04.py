@@ -3,7 +3,7 @@ import doctest
 
 def eratosthenes(upperbound):
     """Calculate prime numbers
-    A function mimic the Sieve of Eratosthenes method to find all prime numbers within the certain range.
+    A function mimics the Sieve of Eratosthenes method to find all prime numbers within a certain range.
 
     :param upperbound: a positive integer
     :precondition: must be a positive integer
@@ -46,8 +46,8 @@ def is_prime_number(number):
 
     :param number: a positive integer
     :precondition: must be a positive integer
-    :postcondition: give boolean result of determination
-    :return: whether a number is prime number as a boolean result
+    :postcondition: give the boolean result of the determination
+    :return: whether a number is a prime number as a boolean result
 
     >>> is_prime_number(1)
     False
@@ -71,12 +71,12 @@ def is_prime_number(number):
 
 def cash_money(canadian_money):
     """ Determine the amount of denominations
-    A function accepts an amount of Canadian money, and determines the fewest of each bill and coin needed to present.
+    A function accepts an amount of Canadian money and determines the fewest of each bill and coin needed to present.
 
     :param canadian_money: a positive float that only has 2 decimal places
     precondition: must be a positive float that only has 2 decimal places
     postcondition: calculates the amount of each denomination that are required
-    :return: the amount of each denomination that are required as a list
+    :return: the amount of each denomination that is required as a list
 
     >>> cash_money(66.53)
     [0, 1, 0, 1, 1, 0, 1, 2, 0, 0, 3]

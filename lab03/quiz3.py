@@ -1,12 +1,12 @@
-#CINDY LU AND VIVIAN
+# CINDY LU AND VIVIAN
 
 def avg_best_3(a, b, c, d):
-    #this name should be fixed
+    # this name should be fixed
     num_list = [a, b, c, d]
     min_ = (min(num_list))
     num_list.remove(min_)
     avg_ = (num_list[0] + num_list[1] + num_list[2]) / 3
-    return avg_
+    return avg_  # we should not have this name
 
 
 def search(sentence, substring):

@@ -10,7 +10,6 @@ def dijkstra(my_list):
     strings: 'red', 'white', and 'blue'.
     :pre-condition: the list passed to the function will be a non-empty list of strings that are either "red", "blue", or "white".
     :post-condition: a sorted list.
-    :return:There is no return value.
 
     >>> my_list = ["red"]
     >>> dijkstra(my_list)

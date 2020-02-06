@@ -4,14 +4,14 @@ def base_conversion():
     """
 
     base_destination = int(input("Pls enter the destination base (between 2-9):"))
-    if 2 <= base_destination <= 9 :
+    if 2 <= base_destination <= 9:
         maximum_value = int(base_destination ** 4 - 1)
         print("the maximum value you can enter is:", maximum_value)
         # print("the maximum value you can enter is %d" % maximum_value)
 
         value_entered = int(input("Pls enter a base 10 number for base conversion(less or equal than maximum_value):"))
 
-        def remainder_calculation(value, base):
+        def remainder_calculation(value, base):  # this is not a helper function should be outside
             first_quotient = value // base
             first_remainder = value % base
 
@@ -21,7 +21,7 @@ def base_conversion():
             third_quotient = second_quotient // base
             third_remainder = second_quotient % base
 
-            forth_quotient = third_quotient // base
+            forth_quotient = third_quotient // base # quotient 4th actually not in use
             forth_remainder = third_quotient % base
 
             return int(str(forth_remainder) + str(third_remainder) + str(second_remainder) + str(first_remainder))
@@ -33,7 +33,6 @@ def base_conversion():
     else:
         print("error:please enter the correct base")
         quit()
-
 
 
 def main():

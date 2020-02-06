@@ -8,26 +8,16 @@ class Test(TestCase):
         argument = 1
         expected = []
         lab04.eratosthenes(argument)
-        self.assertEqual(expected, lab04.eratosthenes(argument),
-                         "The number is the smallest positive integer.")
+        self.assertEqual(expected, lab04.eratosthenes(argument), "The number is the smallest positive integer.")
 
-    def test_cash_money_less_then_10(self):
+    def test_eratosthenes_less_then_10(self):
         """Test the positive integer less than 10"""
         argument = 8
         expected = [2, 3, 5, 7]
         lab04.eratosthenes(argument)
-        self.assertEqual(expected, lab04.eratosthenes(argument),
-                         "The number is a positive number between 1 - 10.")
+        self.assertEqual(expected, lab04.eratosthenes(argument), "The number is a positive number between 1 - 10.")
 
-    def test_cash_money_less_then_100(self):
-        """Test the positive integer less than 100"""
-        argument = 50
-        expected = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
-        lab04.eratosthenes(argument)
-        self.assertEqual(expected, lab04.eratosthenes(argument),
-                         "The number is a positive number between 10 - 100.")
-
-    def test_cash_money_less_then_1000(self):
+    def test_eratosthenes_less_then_100(self):
         """Test the positive integer less than 1000"""
         argument = 501
         expected = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101,
@@ -36,10 +26,9 @@ class Test(TestCase):
                     331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443,
                     449, 457, 461, 463, 467, 479, 487, 491, 499]
         lab04.eratosthenes(argument)
-        self.assertEqual(expected, lab04.eratosthenes(argument),
-                         "The number is a positive number between 100 - 1000.")
+        self.assertEqual(expected, lab04.eratosthenes(argument), "The number is a positive number between 100 - 1000.")
 
-    def test_cash_money_larger_then_1000(self):
+    def test_eratosthenes_larger_then_100(self):
         """Test the positive integer larger than 1000"""
         argument = 608
         expected = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101,
@@ -49,5 +38,4 @@ class Test(TestCase):
                     449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577,
                     587, 593, 599, 601, 607]
         lab04.eratosthenes(argument)
-        self.assertEqual(expected, lab04.eratosthenes(argument),
-                         "The number is a positive number larger than 1000.")
+        self.assertEqual(expected, lab04.eratosthenes(argument), "The number is a positive number larger than 1000.")
