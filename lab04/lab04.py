@@ -3,7 +3,7 @@ import doctest
 
 def eratosthenes(upperbound):
     """Calculate prime numbers
-    A function mimics the Sieve of Eratosthenes method to find all prime numbers within a certain range.
+    A function mimics the Sieve of Eratosthenes method to find all prime numbers from zero to upperbound.
 
     :param upperbound: a positive integer
     :precondition: must be a positive integer
