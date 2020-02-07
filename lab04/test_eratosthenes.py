@@ -4,38 +4,39 @@ import lab04
 
 class Test(TestCase):
     def test_eratosthenes_zero(self):
-        """Test number zero"""
+        """Test number zero as the upperbound."""
         argument = 0
         expected = []
         lab04.eratosthenes(argument)
-        self.assertEqual(expected, lab04.eratosthenes(argument), "The number is zero.")
+        self.assertEqual(expected, lab04.eratosthenes(argument), "The upperbound number is zero.")
 
     def test_eratosthenes_one(self):
-        """Test the smallest positive integer, one"""
+        """Test the smallest positive integer, one as the upperbound."""
         argument = 1
         expected = []
         lab04.eratosthenes(argument)
-        self.assertEqual(expected, lab04.eratosthenes(argument), "The number is the smallest positive integer, one. ")
+        self.assertEqual(expected, lab04.eratosthenes(argument),
+                         "The upperbound number is the smallest positive integer, one. ")
 
     def test_eratosthenes_two(self):
-        """Test the two, the smallest prime number """
+        """Test number two, the upperbound number is the smallest prime number. """
         argument = 2
         expected = [2]
         lab04.eratosthenes(argument)
-        self.assertEqual(expected, lab04.eratosthenes(argument), "The number is the smallest prime number. ")
+        self.assertEqual(expected, lab04.eratosthenes(argument),
+                         "The upperbound number is the smallest prime number. ")
 
     def test_eratosthenes_thirty_one(self):
-        """Test the upper-bond number is primer number"""
+        """Test number thirty one, the upper-bond number that is a primer number."""
         argument = 31
         expected = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31]
         lab04.eratosthenes(argument)
         self.assertEqual(expected, lab04.eratosthenes(argument),
-                         "The number is a prime number, and an upperbound number.")
+                         "The upperbound number is a prime number.")
 
     def test_eratosthenes_one_hundred(self):
-        """Test the integer one hundred"""
+        """Test number one hundred, the upper-bond number that is a non-primer number."""
         argument = 100
         expected = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
         lab04.eratosthenes(argument)
-        self.assertEqual(expected, lab04.eratosthenes(argument), "The number is integer one hundred.")
-
+        self.assertEqual(expected, lab04.eratosthenes(argument), "The upperbound number is a non-primer number.")

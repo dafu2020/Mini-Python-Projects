@@ -82,14 +82,23 @@ def cash_money(canadian_money):
     postcondition: calculates the amount of each denomination that are required
     :return: the amount of each denomination that is required as a list
 
-    >>> cash_money(66.53)
-    [0, 1, 0, 1, 1, 0, 1, 2, 0, 0, 3]
+    >>> cash_money(0.00)
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-    >>> cash_money(1150.67)
-    [11, 1, 0, 0, 0, 0, 0, 2, 1, 1, 2]
+    >>> cash_money(0.02)
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2]
 
-    >>> cash_money(12763.23)
-    [127, 1, 0, 1, 0, 1, 1, 0, 2, 0, 3]
+    >>> cash_money(1.05)
+    [0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0]
+
+    >>> cash_money(10.27)
+    [0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2]
+
+    >>> cash_money(100.57)
+    [1, 0, 0, 0, 0, 0, 0, 2, 0, 1, 2]
+
+    >>> cash_money(188.41)
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     """
 
     denomination_list = [10000, 5000, 2000, 1000, 500, 200, 100, 25, 10, 5, 1]
