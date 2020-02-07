@@ -10,10 +10,12 @@ def eratosthenes(upperbound):
     :postcondition: calculates the correct prime numbers between [0, upperbound]
     :return: all primes between [0, upperbound] as a list.
 
-    >>> eratosthenes(30)
-    [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
-    >>> eratosthenes(10)
-    [2, 3, 5, 7]
+    >>> eratosthenes(1)
+    []
+    >>> eratosthenes(2)
+    [2]
+    >>> eratosthenes(31)
+    [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31]
     >>> eratosthenes(100)
     [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
 
@@ -32,12 +34,14 @@ def eratosthenes(upperbound):
                     number_list.remove(j)
 
     result_list = sorted(prime_list + number_list)  # join and sort the list
-    if result_list[0] == 0:
+    result_list.pop(0)
+    if len(result_list) == 0:
+        return []
+    elif result_list[0] == 1:
         result_list.remove(result_list[0])
-    if result_list[0] == 1:
-        result_list.remove(result_list[0])
-
-    return result_list
+        return result_list
+    else:
+        return result_list
 
 
 def is_prime_number(number):

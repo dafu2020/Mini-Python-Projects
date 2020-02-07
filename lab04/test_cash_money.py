@@ -11,7 +11,7 @@ class Test(TestCase):
         self.assertEqual(expected, lab04.cash_money(argument),
                          "The number is zero")
 
-    def test_cash_money_penn(self):
+    def test_cash_money_penny(self):
         """Test a penny"""
         argument = 0.01
         expected = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
@@ -57,7 +57,7 @@ class Test(TestCase):
         expected = [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0]
         lab04.cash_money(argument)
         self.assertEqual(expected, lab04.cash_money(argument),
-                         "The number is loonie")
+                         "The number is a loonie")
 
     def test_cash_money_loonie_and_dime(self):
         """Test a loonie and a dime """
@@ -81,7 +81,7 @@ class Test(TestCase):
         expected = [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
         lab04.cash_money(argument)
         self.assertEqual(expected, lab04.cash_money(argument),
-                         "The number is toonie")
+                         "The number is a fin")
 
     def test_cash_money_ten_bucks(self):
         """Test a ten dollar bill"""
@@ -137,4 +137,4 @@ class Test(TestCase):
         expected = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
         lab04.cash_money(argument)
         self.assertEqual(expected, lab04.cash_money(argument),
-                         "The number is one hundred dollar bill and fifty seven cents")
+                         "The number is a one hundred eighty eight dollar bills and forty one cents")
