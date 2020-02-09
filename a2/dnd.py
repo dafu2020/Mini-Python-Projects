@@ -189,12 +189,37 @@ def choose_inventory():
     if player_select == 1 or player_select == 2 or player_select == 3 or player_select == 4:
         inventory_list.append(inventory_dictionary[player_select])
         print(menu)
-        choose_inventory()
+        choose_inventory() #  print menu and ask for input one more time
     elif player_select == -1:
-        print("done")
         return inventory_list
     else:
         print("You are asking for something we do not carry, want to choose again?")
+        print(menu)
+        choose_inventory()  # print menu and ask for input one more time
 
 
 # choose_inventory()
+
+def combat_round(opponent_one, opponent_two):
+    """ Simulate a round ot combat
+    This function represents a single round of combat, each combatants gets a turn to do something
+    during a single round of combat.
+
+    :param opponent_one: a well-formed dictionaries containing a correct character
+    :param opponent_two: a well-formed dictionaries containing a correct character
+    :precondition: both parameters must be well-formed dictionaries that each containing a correct character
+    :return:
+    """
+    opponent_one_roll = roll_die(1, 12)
+    opponent_two_roll = roll_die(1, 12)
+
+    if opponent_one_roll == opponent_two_roll:
+        while opponent_one_roll == opponent_two_roll:
+            combat_round(opponent_one, opponent_two)
+            # If the characters roll the same number, roll again to get a winner. Keep rolling until someone rolls a
+    else:
+        if opponent_one_roll > opponent_two_roll:
+            opponent_one strike
+        elif opponent_two_roll > opponent_one_roll:
+            opponent_two strike
+
