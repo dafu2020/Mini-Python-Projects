@@ -224,6 +224,16 @@ def combat_round(opponent_one, opponent_two):
             opponent_two strike
 
 def main():
+    syllables =input("Please select the number of syllables for their character’s name: ")
+    character = create_character(syllables)
+    # assigning the return value to a local variable.
+    print_character(character)
+    choose_inventory()
+    print_character(character)
+    # (f) Hard-code a dictionary that contains a foe for your character. Pass both to the combat_round function,
+    # and show me a good round of combat, please!
+
+
 
 
 if __name__ == "__main__":
