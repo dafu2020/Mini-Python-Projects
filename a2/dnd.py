@@ -22,6 +22,7 @@ def roll_die(number_of_rolls, number_of_sides):
 def generate_vowel():
     """ Random vowel generator
 
+    :postcondition: randomly select a single vowel.
     :return: a randomly selected single vowel as a string.
     """
     # vowel_list = ['i', 'I', 'ɛ', 'æ', 'ɜ', 'ɘ', 'u', 'ʊ', 'ɔ', 'ɒ', 'ʌ', 'ɑ']
@@ -33,6 +34,7 @@ def generate_vowel():
 def generate_consonant():
     """ Random consonant generator
 
+    :postcondition: randomly select a single consonant.
     :return: a randomly selected single consonant as a string.
     """
     # consonant_list = ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ',
@@ -72,13 +74,72 @@ def generate_name(syllables):
     count = 0
     name_result = ''
     while count < syllables:
-        # print(generate_syllable())
         syllables_generated = generate_syllable()
         name_result += syllables_generated
         count += 1
     return name_result
 
 
-print(generate_name(3))
+# print(generate_name(3))
+
+def create_character(syllables):
+    """ Create a Dungeons and Dragons character
+
+    :param syllables:
+    :return:
+    """
+    if syllables != isinstance(1, int):
+        # isinstance (1, int) is a boolean expression to test if syllables is not a positive non-zero integer
+        print("Warning: this is not a correct input, please enter a positive integer.")
+        return None
+    else:
+        inventory_list = []
+        character_dictionary = {
+            'Name': generate_name(syllables),
+            'Strength': roll_die(3, 6),
+            'Intelligence': roll_die(3, 6),
+            'Wisdom': roll_die(3, 6),
+            'Dexterity': roll_die(3, 6),
+            'Constitution': roll_die(3, 6),
+            'Charisma': roll_die(3, 6),
+            'inventory': inventory_list,
+            'experience points': 0,
+            'class': select_class(),
+            'Race': select_race(),
+            'HP': [maximum HP, current HP]
+        }
+        return character_dictionary
+        # 3f) Each of these attributes is initialized by rolling three six- sided dice. We call this 3d6 in D&D.
+        # 3 o) HP??
+
+
+def select_class():
+    """ Select a class
+    Select a class from the twelve classes in Dungeons & Dragons.
+
+    :return: prints out a list of classes to the user and asks the user to select the class they want to play
+    """
+    print("the class you can choose is: Barbarian, Bard, Cleric, Druid, "
+          "Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock, Wizard")
+    user_class = str(input("please enter the class you deserved: ").strip().lower().capitalize())
+    # print(user_class)
+
+    return user_class
+
+
+# select_class()
+def select_race():
+    """ Select a race
+    Select a race from the nine classes in Dungeons & Dragons.
+
+    :return: prints out a list of races to the user and asks the user to select the race they want to play
+    """
+    print("the race you can choose is: Dragonborn, Dwarf, Elf, Gnome, Half-Elf, Halfling, Half-Orc, Human, Tiefling ")
+    user_race = str(input("please enter the race you deserved: ").strip().lower().capitalize())
+    print(user_race)
+
+    return user_race
+
+# select_race()
 
 
