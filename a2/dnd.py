@@ -1,5 +1,4 @@
 import random
-import doctest
 
 
 def roll_die(number_of_rolls, number_of_sides):
@@ -117,15 +116,15 @@ def select_class():
     """ Select a class
     Select a class from the twelve classes in Dungeons & Dragons.
 
-    :postcondition: prints out a list of classes to the user and asks the user to select the class they want to play
-    :return: the race that the user desired as a string
+    :postcondition: prints out a list of classes to the player and asks the player to select the class they want to play
+    :return: the race that the player desired as a string
     """
     print("the class you can choose is: Barbarian, Bard, Cleric, Druid, "
           "Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock, Wizard")
-    user_class = str(input("please enter the class you desired: ").strip().lower().capitalize())
-    # print(user_class)
+    player_class = str(input("please enter the class you desired: ").strip().lower().capitalize())
+    # print(player_class)
 
-    return user_class
+    return player_class
 
 
 # select_class()
@@ -133,14 +132,14 @@ def select_race():
     """ Select a race
     Select a race from the nine classes in Dungeons & Dragons.
 
-    :postcondition: prints out a list of races to the user and asks the user to select the race they want to play
-    :return: the race that the user desired as a string
+    :postcondition: prints out a list of races to the player and asks the player to select the race they want to play
+    :return: the race that the player desired as a string
     """
     print("the race you can choose is: Dragonborn, Dwarf, Elf, Gnome, Half-Elf, Halfling, Half-Orc, Human, Tiefling ")
-    user_race = str(input("please enter the race you desired: ").strip().lower().capitalize())
-    print(user_race)
+    player_race = str(input("please enter the race you desired: ").strip().lower().capitalize())
+    print(player_race)
 
-    return user_race
+    return player_race
 
 
 # select_race()
@@ -157,3 +156,45 @@ def print_character(character):
     # 4) can it work????
 
 
+def choose_inventory():
+    """Choose inventory items
+    This function prints a list of goods to the screen and ask the player what they want to buy.
+
+    :precondition: must accepts a well-formed character object.
+    :postcondition: must print a list of goods to the screen and ask the player what they want to buy.
+    """
+    menu = ("Welcome to the Olde Tyme Merchant!\n"
+            " \n"
+            "Here is what we have for sale:\n"
+            " \n"
+            "1. sword\n"
+            "2. dagger\n"
+            "3. chalice of becoming\n"
+            "4. orb of discovery\n"
+            "5. and so on and so on...\n"
+            " ")
+
+    print(menu)
+    player_select = input("What would you like to buy (-1 to finish):").strip()
+
+    inventory_dictionary = {
+        "1": "sword",
+        "2": "dagger",
+        "3": "chalice of becoming",
+        "4": "orb of discover",
+        "5": " and so on and so on..."
+    }
+
+    inventory_list = []
+    if player_select == 1 or player_select == 2 or player_select == 3 or player_select == 4:
+        inventory_list.append(inventory_dictionary[player_select])
+        print(menu)
+        choose_inventory()
+    elif player_select == -1:
+        print("done")
+        return inventory_list
+    else:
+        print("You are asking for something we do not carry, want to choose again?")
+
+
+# choose_inventory()
