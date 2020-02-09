@@ -223,3 +223,8 @@ def combat_round(opponent_one, opponent_two):
         elif opponent_two_roll > opponent_one_roll:
             opponent_two strike
 
+def main():
+
+
+if __name__ == "__main__":
+    main()
