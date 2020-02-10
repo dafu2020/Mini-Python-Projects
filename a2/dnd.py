@@ -2,21 +2,26 @@ import random
 
 
 def roll_die(number_of_rolls, number_of_sides):
-    """
+    """Die rolling simulator
+    This function simulator the process of rolling a die, return the sum of the individual rolls.
 
-    :param number_of_rolls: positive non-zero integers
-    :param number_of_sides: positive non-zero integers
-    :return: the result of the die rolling simulation as a integer
+    :param number_of_rolls: a positive non-zero integer.
+    :param number_of_sides: a positive non-zero integer.
+    :precondition: must be positive non-zero integers.
+    :postcondition: return the sum of the individual rolls.
+    :return: the sum of the individual rolls as an integer.
     """
     count = 0
+    roll_sum = 0
     while count < number_of_rolls:
         roll_result = random.randint(1, number_of_sides)
-        count += 1
         print(roll_result)
-        return roll_result
+        count += 1
+        roll_sum += roll_result
+    return roll_sum
 
 
-# return the result of the last roll?? or return the  result of all the rolls (like dictionary)?
+# print(roll_die(2, 6))
 
 def generate_vowel():
     """ Random vowel generator
@@ -24,7 +29,6 @@ def generate_vowel():
     :postcondition: randomly select a single vowel.
     :return: a randomly selected single vowel as a string.
     """
-    # vowel_list = ['i', 'I', 'ɛ', 'æ', 'ɜ', 'ɘ', 'u', 'ʊ', 'ɔ', 'ɒ', 'ʌ', 'ɑ']
     vowel_list = ['a', 'e', 'i', 'o', 'u', 'y']
     vowel_result = random.choice(vowel_list)
     return vowel_result
@@ -36,8 +40,6 @@ def generate_consonant():
     :postcondition: randomly select a single consonant.
     :return: a randomly selected single consonant as a string.
     """
-    # consonant_list = ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ',
-    # '', 'h', 'x', 'tʃ', '', 'm', 'n', 'ŋ', 'l', 'r', 'w', 'j']
     consonant_list = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n',
                       'p', 'q', 'r', 's', 't', 'v', 'x', 'z', 'w', 'y']
 
@@ -219,9 +221,9 @@ def combat_round(opponent_one, opponent_two):
             # If the characters roll the same number, roll again to get a winner. Keep rolling until someone rolls a
     else:
         if opponent_one_roll > opponent_two_roll:
-            opponent_one strike
+
         elif opponent_two_roll > opponent_one_roll:
-            opponent_two strike
+
 
 def main():
     syllables =input("Please select the number of syllables for their character’s name: ")
