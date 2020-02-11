@@ -97,12 +97,12 @@ def create_character(syllables):
         inventory_list = []
         character = {
             'Name': generate_name(syllables),
-            'Strength': roll_die(1, 6)+roll_die(1, 6)+roll_die(1, 6),
-            'Intelligence': roll_die(1, 6)+roll_die(1, 6)+roll_die(1, 6),
-            'Wisdom': roll_die(1, 6)+roll_die(1, 6)+roll_die(1, 6),
-            'Dexterity':roll_die(1, 6)+roll_die(1, 6)+roll_die(1, 6),
-            'Constitution': roll_die(1, 6)+roll_die(1, 6)+roll_die(1, 6),
-            'Charisma': roll_die(1, 6)+roll_die(1, 6)+roll_die(1, 6),
+            'Strength': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
+            'Intelligence': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
+            'Wisdom': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
+            'Dexterity': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
+            'Constitution': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
+            'Charisma': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
             'inventory': inventory_list,
             'experience points': 0,
             'class': select_class(),
@@ -169,7 +169,6 @@ def print_character(character):
     print(character)
 
 
-
 def choose_inventory():
     """Choose inventory items
     This function prints a list of goods to the screen and ask the player what they want to buy.
@@ -192,11 +191,11 @@ def choose_inventory():
     player_select = input("What would you like to buy (-1 to finish):").strip()
 
     inventory_dictionary = {
-        '1':'sword',
-        '2':'dagger',
-        '3':'Iris(sword)',
-        '4':'a stack of cash from Rihanna',
-        '5':'Black Unicorn Relic Steel Sword'
+        '1': 'sword',
+        '2': 'dagger',
+        '3': 'Iris(sword)',
+        '4': 'a stack of cash from Rihanna',
+        '5': 'Black Unicorn Relic Steel Sword'
     }
 
     inventory_list = []
@@ -225,7 +224,7 @@ def combat_round(opponent_one, opponent_two):
     :param opponent_one: a well-formed dictionaries containing a correct character
     :param opponent_two: a well-formed dictionaries containing a correct character
     :precondition: both parameters must be well-formed dictionaries that each containing a correct character
-    :return:
+    :postcondition: the modified opponent_one and opponent_2 as two separated dictionaries.
     """
     opponent_one_roll = roll_die(1, 12)
     opponent_two_roll = roll_die(1, 12)
@@ -234,6 +233,8 @@ def combat_round(opponent_one, opponent_two):
         try:
             opponent_one_roll = roll_die(1, 12)
             opponent_two_roll = roll_die(1, 12)
+            continue
+        except opponent_one_roll != opponent_two_roll:
             continue
     else:
         while opponent_one_roll > opponent_two_roll:
@@ -261,7 +262,7 @@ def combat_round(opponent_one, opponent_two):
 
 
 def main():
-    syllables =input("Please select the number of syllables for their character’s name: ")
+    syllables = input("Please select the number of syllables for their character’s name: ")
     character = create_character(syllables)
     # assigning the return value to a local variable.
     print_character(character)
@@ -269,8 +270,6 @@ def main():
     print_character(character)
     # (f) Hard-code a dictionary that contains a foe for your character. Pass both to the combat_round function,
     # and show me a good round of combat, please!
-
-
 
 
 if __name__ == "__main__":
