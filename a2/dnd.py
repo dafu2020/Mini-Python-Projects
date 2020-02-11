@@ -111,14 +111,22 @@ def create_character(syllables):
         }
 
         if character['class'] == 'Barbarian':
-            character['HP'] =  [roll_die(1, 12), roll_die(1, 12)]
+            max_hp = roll_die(1, 12)
+            current_hp = max_hp
+            character['HP'] = [max_hp, current_hp]
         elif character['class'] == 'Fighter' or character['class'] == 'Paladin' or character['class'] == 'Ranger':
-            character['HP'] = [roll_die(1, 10), roll_die(1, 10)]
+            max_hp = roll_die(1, 10)
+            current_hp = max_hp
+            character['HP'] = [max_hp, current_hp]
         elif character['class'] == 'Sorcerer' or character['class'] == 'Wizard':
-            character['HP'] = [roll_die(1, 6), roll_die(1, 6)]
+            max_hp = roll_die(1, 6)
+            current_hp = max_hp
+            character['HP'] = [max_hp, current_hp]
         else:
-            character['HP'] = [roll_die(1, 8), roll_die(1, 8)]
-            # how to make sure max hp and current hp are same -> not 'HP': [6, 2]
+            max_hp = roll_die(1, 8)
+            current_hp = max_hp
+            character['HP'] = [max_hp, current_hp]
+            # if enter sth other than the 12 classes
 
         return character
 
@@ -175,36 +183,37 @@ def choose_inventory():
             " \n"
             "1. sword\n"
             "2. dagger\n"
-            "3. chalice of becoming\n"
-            "4. orb of discovery\n"
-            "5. and so on and so on...\n"
+            "3. Iris(sword)\n"
+            "4. a stack of cash from Rihanna\n"
+            "5. Black Unicorn Relic Steel Sword\n"
             " ")
 
     print(menu)
     player_select = input("What would you like to buy (-1 to finish):").strip()
 
     inventory_dictionary = {
-        "1": "sword",
-        "2": "dagger",
-        "3": "chalice of becoming",
-        "4": "orb of discover",
-        "5": " and so on and so on..."
+        '1':'sword',
+        '2':'dagger',
+        '3':'Iris(sword)',
+        '4':'a stack of cash from Rihanna',
+        '5':'Black Unicorn Relic Steel Sword'
     }
 
     inventory_list = []
-    if player_select == 1 or player_select == 2 or player_select == 3 or player_select == 4:
-        inventory_list.append(inventory_dictionary[player_select])
-        print(menu)
-        choose_inventory() #  print menu and ask for input one more time
-    elif player_select == -1:
-        return inventory_list
+
+    while player_select != '-1':
+        try:
+            inventory_list.append(inventory_dictionary[player_select])
+            print(inventory_list)
+            print(menu)
+            player_select = input("What would you like to buy (-1 to finish):").strip()
+            continue
+        except isinstance(player_select, (float, str, list, dict, tuple)):
+            print("You are asking for something we do not carry, want to choose again?")
+            continue
     else:
-        print("You are asking for something we do not carry, want to choose again?")
-        print(menu)
-        choose_inventory()  # print menu and ask for input one more time
+        return inventory_list
 
-
-# choose_inventory()
 
 def combat_round(opponent_one, opponent_two):
     """ Simulate a round ot combat
