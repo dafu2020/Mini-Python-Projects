@@ -210,6 +210,8 @@ def choose_inventory():
             continue
         except isinstance(player_select, (float, str, list, dict, tuple)):
             print("You are asking for something we do not carry, want to choose again?")
+            print(menu)
+            player_select = input("What would you like to buy (-1 to finish):").strip()
             continue
     else:
         return inventory_list
