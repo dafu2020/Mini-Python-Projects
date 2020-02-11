@@ -218,7 +218,7 @@ def choose_inventory():
 
 
 def combat_round(opponent_one, opponent_two):
-    """ Simulate a round ot combat
+    """ Simulate a round of combat
     This function represents a single round of combat, each combatants gets a turn to do something
     during a single round of combat.
 
@@ -230,14 +230,34 @@ def combat_round(opponent_one, opponent_two):
     opponent_one_roll = roll_die(1, 12)
     opponent_two_roll = roll_die(1, 12)
 
-    if opponent_one_roll == opponent_two_roll:
-        while opponent_one_roll == opponent_two_roll:
-            combat_round(opponent_one, opponent_two)
-            # If the characters roll the same number, roll again to get a winner. Keep rolling until someone rolls a
+    while opponent_one_roll == opponent_two_roll:
+        try:
+            opponent_one_roll = roll_die(1, 12)
+            opponent_two_roll = roll_die(1, 12)
+            continue
     else:
-        if opponent_one_roll > opponent_two_roll:
-
-        elif opponent_two_roll > opponent_one_roll:
+        while opponent_one_roll > opponent_two_roll:
+            if opponent_one_roll > opponent_two.character['Dexterity']:
+                opponent_two.character['HP'[2]] -= opponent_one_roll
+                print('Attack succeeded.')
+                if opponent_two.character['HP'[2]] <= 0:
+                    print('Your opponent is dead, you are wanted for murder, RUN NOW!')
+                else:
+                    opponent_two_roll = roll_die(1, 12)
+                    continue
+            else:
+                continue
+        while opponent_two_roll > opponent_one_roll:
+            if opponent_two_roll > opponent_one.character['Dexterity']:
+                opponent_one.character['HP'[2]] -= opponent_two_roll
+                print('Attack succeeded.')
+                if opponent_one.character['HP'[2]] <= 0:
+                    print('Your opponent is dead, you are wanted for murder, RUN NOW!')
+                else:
+                    opponent_one_roll = roll_die(1, 12)
+                    continue
+            else:
+                continue
 
 
 def main():
