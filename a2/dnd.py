@@ -85,8 +85,8 @@ def create_character(syllables):
     :postcondition: return a dictionary which represents the character.
     :return: correctly return a Dungeons and Dragons character as a dictionary.
     """
-    if isinstance(syllables, (float, str, list, dict, tuple)):
-        # isinstance (1, int) is a boolean expression to test if syllables is not a positive non-zero integer
+    if type(syllables) != int:
+        # check if the type of the syllables is not a integer
         print("Warning: this is not a correct input, please enter a positive integer.")
         return None
     elif syllables == 0 or syllables < 0:
@@ -126,7 +126,6 @@ def create_character(syllables):
             max_hp = roll_die(1, 8)
             current_hp = max_hp
             character['HP'] = [max_hp, current_hp]
-            # if enter sth other than the 12 classes
 
         return character
 
@@ -135,27 +134,65 @@ def select_class():
     """ Select a class
     Select a class for user's character from the twelve classes in Dungeons & Dragons.
 
+    :precondition: user must enter a positive integer between 1 to 12.
     :postcondition: prints out a list of classes to the player and asks the player to select the class they want to play
     :return: the race that the player desired as a string
     """
-    print("the class you can choose is: Barbarian, Bard, Cleric, Druid, "
-          "Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock, Wizard")
-    player_class = str(input("please enter the class you desired: ").strip().lower().capitalize())
-
-    return player_class
+    my_dictionary = {
+        '1': 'Barbarian',
+        '2': 'Bard',
+        '3': 'Cleric',
+        '4': 'Druid',
+        '5': 'Fighter',
+        '6': 'Monk',
+        '7': 'Paladin',
+        '8': 'Ranger',
+        '9': 'Rogue',
+        '10': 'Sorcerer',
+        '11': 'Warlock',
+        '12': 'Wizard'
+    }
+    while True:
+        print("Please choose your class! ")
+        for x, y in my_dictionary.items():
+            print(x, y)
+        player_num = str(input("please enter the number of the class you desired: ").strip())
+        if player_num in my_dictionary:
+            player_class = my_dictionary[player_num]
+            return player_class
+        else:
+            continue
 
 
 def select_race():
     """ Select a race
     Select a race for user's character from the nine classes in Dungeons & Dragons.
 
+    :precondition: user must enter a positive integer between 1 to 9.
     :postcondition: prints out a list of races to the player and asks the player to select the race they want to play
     :return: the race that the player desired as a string
     """
-    print("the race you can choose is: Dragonborn, Dwarf, Elf, Gnome, Half-Elf, Halfling, Half-Orc, Human, Tiefling ")
-    player_race = str(input("please enter the race you desired: ").strip().lower().capitalize())
-
-    return player_race
+    my_dictionary = {
+        '1': 'Dragonborn',
+        '2': 'Dwarf',
+        '3': 'Elf',
+        '4': 'Gnome',
+        '5': 'Half-Elf',
+        '6': 'Halfling',
+        '7': 'Half-Orc',
+        '8': 'Human',
+        '9': 'Tiefling'
+    }
+    while True:
+        print("Please choose your class! ")
+        for x, y in my_dictionary.items():
+            print(x, y)
+        player_num = str(input("please enter the number of the class you desired: ").strip())
+        if player_num in my_dictionary:
+            player_race = my_dictionary[player_num]
+            return player_race
+        else:
+            continue
 
 
 def print_character(character):
@@ -166,7 +203,8 @@ def print_character(character):
     :precondition: character must be formed my the the create_character function.
     :postcondition: print the character list formatted by the create_character function.
     """
-    print(character)
+    for x, y in character.items():
+        print(x, y)
 
 
 def choose_inventory():
@@ -268,7 +306,6 @@ def combat_round(opponent_one, opponent_two):
 def main():
     syllables = input("Please select the number of syllables for their character’s name: ")
     character_input = create_character(syllables)
-    # assigning the return value to a local variable.
     print_character(character_input)
     choose_inventory()
     print_character(character_input)
