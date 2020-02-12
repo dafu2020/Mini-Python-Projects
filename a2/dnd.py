@@ -228,6 +228,8 @@ def combat_round(opponent_one, opponent_two):
     """
     opponent_one_roll = roll_die(1, 12)
     opponent_two_roll = roll_die(1, 12)
+    # print(opponent_one_roll)
+    # print(opponent_two_roll)
 
     while opponent_one_roll == opponent_two_roll:
         try:
@@ -238,38 +240,54 @@ def combat_round(opponent_one, opponent_two):
             continue
     else:
         while opponent_one_roll > opponent_two_roll:
-            if opponent_one_roll > opponent_two.character['Dexterity']:
-                opponent_two.character['HP'[2]] -= opponent_one_roll
-                print('Attack succeeded.')
-                if opponent_two.character['HP'[2]] <= 0:
+            if opponent_one_roll > opponent_two['Dexterity']:
+                opponent_two['HP'][1] -= opponent_one_roll
+                print('Your Attack succeeded.')
+                if opponent_two['HP'][1] <= 0:
                     print('Your opponent is dead, you are wanted for murder, RUN NOW!')
+                    break
                 else:
+                    print('Your opponent is still alive, and going to attack you now.')
                     opponent_two_roll = roll_die(1, 12)
-                    continue
+                continue
             else:
                 continue
         while opponent_two_roll > opponent_one_roll:
-            if opponent_two_roll > opponent_one.character['Dexterity']:
-                opponent_one.character['HP'[2]] -= opponent_two_roll
-                print('Attack succeeded.')
-                if opponent_one.character['HP'[2]] <= 0:
-                    print('Your opponent is dead, you are wanted for murder, RUN NOW!')
+            if opponent_two_roll > opponent_one['Dexterity']:
+                opponent_one['HP'][1] -= opponent_two_roll
+                print('Opponent Attack succeeded.')
+                if opponent_one['HP'][1] <= 0:
+                    print('OKIE, u just died!')
+                    break
                 else:
+                    print('You are still alive, now it is your turn!')
                     opponent_one_roll = roll_die(1, 12)
-                    continue
-            else:
                 continue
 
 
 def main():
     syllables = input("Please select the number of syllables for their character’s name: ")
-    character = create_character(syllables)
+    character_input = create_character(syllables)
     # assigning the return value to a local variable.
-    print_character(character)
+    print_character(character_input)
     choose_inventory()
-    print_character(character)
-    # (f) Hard-code a dictionary that contains a foe for your character. Pass both to the combat_round function,
-    # and show me a good round of combat, please!
+    print_character(character_input)
+    the_greatest_villain_of_all_time = {
+        'Name': 'Loki',
+        'Strength': 5,
+        'Intelligence': 20,
+        'Wisdom': 20,
+        'Dexterity': 6,
+        'Constitution': 20,
+        'Charisma': 6,
+        'inventory': ['The Scepter'],
+        'experience points': 0,
+        'class': 'sorcerer',
+        'Race': 'the Frost Giants in Jotunheim',
+        'HP': [20, 20]
+
+    }
+    combat_round(character_input, the_greatest_villain_of_all_time)
 
 
 if __name__ == "__main__":
