@@ -1,6 +1,9 @@
 import random
 
 
+# syllables
+# if HP< 0 should we modified it to 0?
+
 def roll_die(number_of_rolls, number_of_sides):
     """Die rolling simulator
     This function simulator the process of rolling a die, return the sum of the individual rolls.
@@ -89,12 +92,11 @@ def create_character(syllables):
         # check if the type of the syllables is not a integer
         print("Warning: this is not a correct input, please enter a positive integer.")
         return None
-    elif syllables == 0 or syllables < 0:
+    elif syllables <= 0:
         # check if syllables is a positive non-zero integer
         print("Warning: this is not a correct input, please enter a positive integer.")
         return None
     else:
-        inventory_list = []
         character = {
             'Name': generate_name(syllables),
             'Strength': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
@@ -103,11 +105,10 @@ def create_character(syllables):
             'Dexterity': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
             'Constitution': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
             'Charisma': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
-            'inventory': inventory_list,
+            'inventory': [],
             'experience points': 0,
             'class': select_class(),
             'Race': select_race(),
-
         }
 
         if character['class'] == 'Barbarian':
@@ -127,7 +128,7 @@ def create_character(syllables):
             current_hp = max_hp
             character['HP'] = [max_hp, current_hp]
 
-        return character
+    return character
 
 
 def select_class():
@@ -207,11 +208,12 @@ def print_character(character):
         print(x, y)
 
 
-def choose_inventory():
+def choose_inventory(character):
     """Choose inventory items
     This function prints a list of goods to the screen and ask the player what they want to buy.
 
-    :precondition: must accepts a well-formed character object.
+    :param character:a list formatted by the create_character function.
+    :precondition: character must be well formatted by the create_character function.
     :postcondition: must print a list of goods to the screen and ask the player what they want to buy.
     """
     menu = ("Welcome to the Olde Tyme Merchant!\n"
@@ -223,10 +225,11 @@ def choose_inventory():
             "3. Iris(sword)\n"
             "4. a stack of cash from Rihanna\n"
             "5. Black Unicorn Relic Steel Sword\n"
-            " ")
-
-    print(menu)
-    player_select = input("What would you like to buy (-1 to finish):").strip()
+            "6. Flamethrower\n"
+            "7. W870 Shotgun\n"
+            "8. mario‘s hat\n"
+            "9. Silence Glaive\n"
+            "10.Crystal Carillon")
 
     inventory_dictionary = {
         '1': 'sword',
@@ -239,25 +242,21 @@ def choose_inventory():
         '8': 'mario‘s hat',
         '9': 'Silence Glaive',
         '10': 'Crystal Carillon',
-
     }
 
     inventory_list = []
 
-    while player_select != '-1':
-        try:
+    while True:
+        print(menu)
+        player_select = input("What would you like to buy (-1 to finish):\n").strip()
+        if player_select in inventory_dictionary:
             inventory_list.append(inventory_dictionary[player_select])
-            print(inventory_list)
-            print(menu)
-            player_select = input("What would you like to buy (-1 to finish):").strip()
-            continue
-        except isinstance(player_select, (float, str, list, dict, tuple)):
+        elif player_select == '-1':
+            character['inventory'] = inventory_list
+            break
+        else:
             print("You are asking for something we do not carry, want to choose again?")
-            print(menu)
-            player_select = input("What would you like to buy (-1 to finish):").strip()
             continue
-    else:
-        return inventory_list
 
 
 def combat_round(opponent_one, opponent_two):
@@ -268,7 +267,7 @@ def combat_round(opponent_one, opponent_two):
     :param opponent_one: a well-formed dictionaries containing a correct character
     :param opponent_two: a well-formed dictionaries containing a correct character
     :precondition: both parameters must be well-formed dictionaries that each containing a correct character
-    :postcondition: the modified opponent_one and opponent_2 as two separated dictionaries.
+    :postcondition: the modified opponent_one and opponent_two as two separated dictionaries.
     """
     while True:
         opponent_one_roll = roll_die(1, 12)
@@ -323,6 +322,7 @@ def combat_round(opponent_one, opponent_two):
                     print('You attacked your opponent by', opponent_one_roll, 'points')
                     opponent_two['HP'][1] -= opponent_one_roll
                     if opponent_two['HP'][1] <= 0:
+                        opponent_two['HP'][1] = 0
                         print('Your opponent died.')
                     else:
                         print('Your opponent is still alive.')
@@ -336,6 +336,7 @@ def combat_round(opponent_one, opponent_two):
                     print('Your opponent attack you by', opponent_two_roll, 'points')
                     opponent_one['HP'][1] -= opponent_two_roll
                     if opponent_one['HP'][1] <= 0:
+                        opponent_one['HP'][1] = 0
                         print('You died')
                     else:
                         print('You are still alive!')
@@ -346,11 +347,13 @@ def combat_round(opponent_one, opponent_two):
 
 
 def main():
-    syllables = input("Please select the number of syllables for their character’s name: ")
+    syllables = int(input("Please select the number of syllables for their character’s name: "))
     character_input = create_character(syllables)
+    print('')
     print_character(character_input)
-    choose_inventory()
-    print_character(character_input)
+    choose_inventory(character_input)
+    print(character_input)
+    print('')
     the_greatest_villain_of_all_time = {
         'Name': 'Loki',
         'Strength': 5,
@@ -364,9 +367,15 @@ def main():
         'class': 'sorcerer',
         'Race': 'the Frost Giants in Jotunheim',
         'HP': [20, 20]
-
     }
+    print('')
+    print_character(the_greatest_villain_of_all_time)
+    print('')
     combat_round(character_input, the_greatest_villain_of_all_time)
+    print('')
+    print_character(character_input)
+    print('')
+    print_character(the_greatest_villain_of_all_time)
 
 
 if __name__ == "__main__":
