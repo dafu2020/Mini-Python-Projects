@@ -26,7 +26,7 @@ class Test(TestCase):
 
     @patch('random.randint', side_effect=[3, 3])
     def test_roll_die_single_roll_two_times(self, mock_randint):
-        actual = dnd.roll_die(3, 3)
+        actual = dnd.roll_die(2, 3)
         self.assertEqual(actual, 6)
 
     @patch('random.randint', side_effect=[3, 3, 3])

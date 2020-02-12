@@ -1,9 +1,6 @@
 import random
 
 
-# syllables
-# if HP< 0 should we modified it to 0?
-
 def roll_die(number_of_rolls, number_of_sides):
     """Die rolling simulator
     This function simulator the process of rolling a die, return the sum of the individual rolls.
@@ -99,8 +96,8 @@ def create_character(syllables):
     else:
         character = {
             'Name': generate_name(syllables),
-            'Strength': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
-            'Intelligence': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
+            'Strength': roll_die(3, 6),
+            'Intelligence': roll_die(3, 6),
             'Wisdom': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
             'Dexterity': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
             'Constitution': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
@@ -270,89 +267,70 @@ def combat_round(opponent_one, opponent_two):
     :postcondition: the modified opponent_one and opponent_two as two separated dictionaries.
     """
     while True:
-        opponent_one_roll = roll_die(1, 12)
-        opponent_two_roll = roll_die(1, 12)
+        opponent_one_roll = roll_die(1, 20)
+        opponent_two_roll = roll_die(1, 20)
+
         if opponent_one_roll == opponent_two_roll:
             continue
-        elif opponent_one_roll > opponent_two_roll:
-            if opponent_one_roll > opponent_two['Dexterity']:
-                opponent_two['HP'][1] -= opponent_one_roll
-                print('Your Attack succeeded.')
-                print('You attacked your opponent by', opponent_one_roll, 'points')
-                if opponent_two['HP'][1] <= 0:
-                    print('Your opponent is dead, you are wanted for murder, RUN NOW!')
-                    break
-                else:
-                    print('Your opponent is still alive, and going to attack you now.')
-                    opponent_two_roll = roll_die(1, 12)
-                    print('Your opponent attack you by', opponent_two_roll, 'points')
-                    opponent_one['HP'][1] -= opponent_two_roll
-                    if opponent_one['HP'][1] <= 0:
-                        print('You died')
+        else:
+            if opponent_one_roll > opponent_two_roll:
+                attack(opponent_one, opponent_two)
+            elif opponent_two_roll > opponent_one_roll:
+                attack(opponent_two, opponent_one)
+        break
+
+
+def attack(attacker, defender):
+    """ Simulate attack action
+
+    :param attacker: a well-formed dictionaries containing a correct character.
+    :param defender: a well-formed dictionaries containing a correct character.
+    :precondition: both parameters must be well-formed dictionaries that each containing a correct character.
+    :postcondition: the modified opponent_one and opponent_two as two separated dictionaries.
+    """
+    if attacker['HP'][1] > 0:
+        attacker_roll = roll_die(1, 20)
+        print(attacker['Name'], 'is attacking', defender['Name'], 'by', attacker_roll)
+        if attacker_roll > defender['Dexterity']:
+            defender['HP'][1] -= attacker_roll
+            if defender['HP'][1] <= 0:
+                print(defender['Name'], 'is dead')
+                defender['HP'][1] = 0
+            else:
+                print(attacker['Name'], 'missed')
+                defender_roll = roll_die(1, 20)
+                print(defender['Name'], 'is going to attack by', defender_roll)
+                if defender_roll > attacker['Dexterity']:
+                    attacker['HP'][1] -= defender_roll
+                    if attacker['HP'][1] <= 0:
+                        print(attacker['Name'], 'is dead')
+                        attacker['HP'][1] = 0
                     else:
-                        print('You are still alive!')
-                    break
-            elif opponent_one_roll <= opponent_two['Dexterity']:
-                print('You missed')
-                opponent_two_roll = roll_die(1, 12)
-                if opponent_two_roll > opponent_one['Dexterity']:
-                    print('your opponent attack you successfully.')
-                    opponent_one['HP'][1] -= opponent_two_roll
-                    print('Your opponent attack you by', opponent_two_roll, 'points')
-                    opponent_one['HP'][1] -= opponent_two_roll
-                    if opponent_one['HP'][1] <= 0:
-                        print('You died')
-                    else:
-                        print('You are still alive!')
-                    break
+                        print(attacker['Name'], 'is alive')
                 else:
-                    print('your opponent missed  as well, shame on both of you, go home')
-                    break
-        elif opponent_two_roll > opponent_one_roll:
-            if opponent_two_roll > opponent_one['Dexterity']:
-                opponent_one['HP'][1] -= opponent_two_roll
-                print('Your opponent attack succeeded.')
-                print('Your opponent attack you by', opponent_two_roll, 'points')
-                if opponent_one['HP'][1] <= 0:
-                    print('You are dead, sadly.')
-                    break
+                    print(defender['Name'], 'missed', attacker['Name'], 'is alive')
+        else:
+            defender_roll = roll_die(1, 20)
+            print(attacker['Name'], 'missed')
+            print(defender['Name'], 'is going to attack now by', defender_roll)
+            if defender_roll > attacker['Dexterity']:
+                attacker['HP'][1] -= defender_roll
+                if attacker['HP'][1] <= 0:
+                    print(attacker['Name'], 'is dead')
+                    attacker['HP'][1] = 0
                 else:
-                    print('You are still alive, it is your turn now.')
-                    opponent_one_roll = roll_die(1, 12)
-                    print('You attacked your opponent by', opponent_one_roll, 'points')
-                    opponent_two['HP'][1] -= opponent_one_roll
-                    if opponent_two['HP'][1] <= 0:
-                        opponent_two['HP'][1] = 0
-                        print('Your opponent died.')
-                    else:
-                        print('Your opponent is still alive.')
-                    break
-            elif opponent_two_roll <= opponent_one['Dexterity']:
-                print('Your opponent missed')
-                opponent_one_roll = roll_die(1, 12)
-                if opponent_one_roll > opponent_two['Dexterity']:
-                    print('your opponent attack you successfully.')
-                    opponent_two['HP'][1] -= opponent_one_roll
-                    print('Your opponent attack you by', opponent_two_roll, 'points')
-                    opponent_one['HP'][1] -= opponent_two_roll
-                    if opponent_one['HP'][1] <= 0:
-                        opponent_one['HP'][1] = 0
-                        print('You died')
-                    else:
-                        print('You are still alive!')
-                    break
-                else:
-                    print('You missed as well, shame on both of you, go home')
-                    break
+                    print(attacker['Name'], 'is alive')
+            else:
+                print(defender['Name'], 'missed', attacker['Name'], 'still alive')
 
 
 def main():
     syllables = int(input("Please select the number of syllables for their character’s name: "))
-    character_input = create_character(syllables)
+    character = create_character(syllables)
     print('')
-    print_character(character_input)
-    choose_inventory(character_input)
-    print(character_input)
+    print_character(character)
+    choose_inventory(character)
+    print_character(character)
     print('')
     the_greatest_villain_of_all_time = {
         'Name': 'Loki',
@@ -371,9 +349,9 @@ def main():
     print('')
     print_character(the_greatest_villain_of_all_time)
     print('')
-    combat_round(character_input, the_greatest_villain_of_all_time)
+    combat_round(character, the_greatest_villain_of_all_time)
     print('')
-    print_character(character_input)
+    print_character(character)
     print('')
     print_character(the_greatest_villain_of_all_time)
 
