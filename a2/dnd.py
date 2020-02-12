@@ -233,7 +233,13 @@ def choose_inventory():
         '2': 'dagger',
         '3': 'Iris(sword)',
         '4': 'a stack of cash from Rihanna',
-        '5': 'Black Unicorn Relic Steel Sword'
+        '5': 'Black Unicorn Relic Steel Sword',
+        '6': 'Flamethrower',
+        '7': 'W870 Shotgun',
+        '8': 'mario‘s hat',
+        '9': 'Silence Glaive',
+        '10': 'Crystal Carillon',
+
     }
 
     inventory_list = []
@@ -264,43 +270,79 @@ def combat_round(opponent_one, opponent_two):
     :precondition: both parameters must be well-formed dictionaries that each containing a correct character
     :postcondition: the modified opponent_one and opponent_2 as two separated dictionaries.
     """
-    opponent_one_roll = roll_die(1, 12)
-    opponent_two_roll = roll_die(1, 12)
-    # print(opponent_one_roll)
-    # print(opponent_two_roll)
-
-    while opponent_one_roll == opponent_two_roll:
-        try:
-            opponent_one_roll = roll_die(1, 12)
-            opponent_two_roll = roll_die(1, 12)
+    while True:
+        opponent_one_roll = roll_die(1, 12)
+        opponent_two_roll = roll_die(1, 12)
+        if opponent_one_roll == opponent_two_roll:
             continue
-        except opponent_one_roll != opponent_two_roll:
-            continue
-    else:
-        while opponent_one_roll > opponent_two_roll:
+        elif opponent_one_roll > opponent_two_roll:
             if opponent_one_roll > opponent_two['Dexterity']:
                 opponent_two['HP'][1] -= opponent_one_roll
                 print('Your Attack succeeded.')
+                print('You attacked your opponent by', opponent_one_roll, 'points')
                 if opponent_two['HP'][1] <= 0:
                     print('Your opponent is dead, you are wanted for murder, RUN NOW!')
                     break
                 else:
                     print('Your opponent is still alive, and going to attack you now.')
                     opponent_two_roll = roll_die(1, 12)
-                continue
-            else:
-                continue
-        while opponent_two_roll > opponent_one_roll:
-            if opponent_two_roll > opponent_one['Dexterity']:
-                opponent_one['HP'][1] -= opponent_two_roll
-                print('Opponent Attack succeeded.')
-                if opponent_one['HP'][1] <= 0:
-                    print('OKIE, u just died!')
+                    print('Your opponent attack you by', opponent_two_roll, 'points')
+                    opponent_one['HP'][1] -= opponent_two_roll
+                    if opponent_one['HP'][1] <= 0:
+                        print('You died')
+                    else:
+                        print('You are still alive!')
+                    break
+            elif opponent_one_roll <= opponent_two['Dexterity']:
+                print('You missed')
+                opponent_two_roll = roll_die(1, 12)
+                if opponent_two_roll > opponent_one['Dexterity']:
+                    print('your opponent attack you successfully.')
+                    opponent_one['HP'][1] -= opponent_two_roll
+                    print('Your opponent attack you by', opponent_two_roll, 'points')
+                    opponent_one['HP'][1] -= opponent_two_roll
+                    if opponent_one['HP'][1] <= 0:
+                        print('You died')
+                    else:
+                        print('You are still alive!')
                     break
                 else:
-                    print('You are still alive, now it is your turn!')
+                    print('your opponent missed  as well, shame on both of you, go home')
+                    break
+        elif opponent_two_roll > opponent_one_roll:
+            if opponent_two_roll > opponent_one['Dexterity']:
+                opponent_one['HP'][1] -= opponent_two_roll
+                print('Your opponent attack succeeded.')
+                print('Your opponent attack you by', opponent_two_roll, 'points')
+                if opponent_one['HP'][1] <= 0:
+                    print('You are dead, sadly.')
+                    break
+                else:
+                    print('You are still alive, it is your turn now.')
                     opponent_one_roll = roll_die(1, 12)
-                continue
+                    print('You attacked your opponent by', opponent_one_roll, 'points')
+                    opponent_two['HP'][1] -= opponent_one_roll
+                    if opponent_two['HP'][1] <= 0:
+                        print('Your opponent died.')
+                    else:
+                        print('Your opponent is still alive.')
+                    break
+            elif opponent_two_roll <= opponent_one['Dexterity']:
+                print('Your opponent missed')
+                opponent_one_roll = roll_die(1, 12)
+                if opponent_one_roll > opponent_two['Dexterity']:
+                    print('your opponent attack you successfully.')
+                    opponent_two['HP'][1] -= opponent_one_roll
+                    print('Your opponent attack you by', opponent_two_roll, 'points')
+                    opponent_one['HP'][1] -= opponent_two_roll
+                    if opponent_one['HP'][1] <= 0:
+                        print('You died')
+                    else:
+                        print('You are still alive!')
+                    break
+                else:
+                    print('You missed as well, shame on both of you, go home')
+                    break
 
 
 def main():
