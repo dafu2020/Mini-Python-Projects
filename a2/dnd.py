@@ -297,7 +297,7 @@ def attack(attacker, defender):
                 print(defender['Name'], 'is dead')
                 defender['HP'][1] = 0
             else:
-                print(attacker['Name'], 'missed')
+                print(defender['Name'], 'still alive')
                 defender_roll = roll_die(1, 20)
                 print(defender['Name'], 'is going to attack by', defender_roll)
                 if defender_roll > attacker['Dexterity']:
