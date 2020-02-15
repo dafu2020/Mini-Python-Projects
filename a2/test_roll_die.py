@@ -25,12 +25,12 @@ class Test(TestCase):
         self.assertLessEqual(actual, 100)
 
     @patch('random.randint', side_effect=[3, 3])
-    def test_roll_die_single_roll_two_times(self, mock_randint):
+    def test_roll_die_single_roll_two_times_same_value(self, mock_randint):
         actual = dnd.roll_die(2, 3)
         self.assertEqual(actual, 6)
 
     @patch('random.randint', side_effect=[3, 3, 3])
-    def test_roll_die_single_roll_three_times(self, mock_randint):
+    def test_roll_die_single_roll_three_times_same_value(self, mock_randint):
         actual = dnd.roll_die(3, 3)
         self.assertEqual(actual, 9)
 
@@ -39,4 +39,7 @@ class Test(TestCase):
         actual = dnd.roll_die(3, 3)
         self.assertEqual(actual, 6)
 
-
+    @patch('random.randint', side_effect=[3, 5, 2, 1, 4, 4, 2])
+    def test_roll_die_single_roll_multiple_times_random_value(self, mock_randint):
+        actual = dnd.roll_die(7, 6)
+        self.assertEqual(actual, 21)

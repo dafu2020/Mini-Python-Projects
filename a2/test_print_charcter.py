@@ -1,3 +1,6 @@
+"""
+Demonstrated unit tests for print_character function
+"""
 from unittest import TestCase
 import unittest.mock
 import io
@@ -8,7 +11,7 @@ class Test(TestCase):
     @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
     def test_character(self, mock_stdout):
         actual = {
-            'Name': 'lyli',
+            'Name': 'Somi',
             'Strength': 10,
             'Intelligence': 5,
             'Wisdom': 100,
@@ -21,7 +24,7 @@ class Test(TestCase):
             'Race': 'the Frost Giants in Jotunheim',
             'HP': [100, 20]}
         dnd.print_character(actual)
-        expected = 'Name lyli\nStrength 10\nIntelligence 5\nWisdom 100\nDexterity 9\nConstitution 20\nCharisma 9' \
+        expected = 'Name Somi\nStrength 10\nIntelligence 5\nWisdom 100\nDexterity 9\nConstitution 20\nCharisma 9' \
                    '\ninventory []\nexperience points 0\nclass sorcerer' \
                    '\nRace the Frost Giants in Jotunheim\nHP [100, 20]\n'
         self.assertEqual(mock_stdout.getvalue(), expected)

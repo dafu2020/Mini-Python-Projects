@@ -1,3 +1,6 @@
+"""
+Demonstrated unit tests for generate_consonant function
+"""
 from unittest import TestCase
 from unittest.mock import patch
 import dnd

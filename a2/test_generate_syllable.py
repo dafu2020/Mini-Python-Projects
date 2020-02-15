@@ -3,6 +3,7 @@ from unittest.mock import patch
 import dnd
 
 
+# this need to be fixed
 class Test(TestCase):
     @patch('random.choice', side_effect=['g', 'a'])
     def test_syllable_g_a(self, mock_choice):

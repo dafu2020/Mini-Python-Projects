@@ -1,3 +1,7 @@
+"""
+Function to simulate a text-based Dungeons and Dragons game.
+"""
+# do computational thinking
 import random
 
 
@@ -11,10 +15,18 @@ def roll_die(number_of_rolls, number_of_sides):
     :postcondition: return the sum of the individual rolls.
     :return: the sum of the individual rolls as an integer.
     """
+
+    # use while loop to calculate the sum of the points
+    # count start at zer0
     count = 0
+    # the sum of the points starts at zero
     roll_sum = 0
+
+    # loop ends when count reaches the number of rolls required
     while count < number_of_rolls:
+        # random generate a positive non-zero integer with upper limit (number of sides)
         roll_result = random.randint(1, number_of_sides)
+        # when we generate a point for one roll around, count goes up by 1
         count += 1
         roll_sum += roll_result
     return roll_sum
@@ -26,7 +38,10 @@ def generate_vowel():
     :postcondition: randomly select a single vowel.
     :return: a randomly selected single vowel as a string.
     """
+    # create the vowel list containing all the vowels
     vowel_list = ['a', 'e', 'i', 'o', 'u', 'y']
+
+    # random select a vowel from the above vowel list
     vowel_result = random.choice(vowel_list)
     return vowel_result
 
@@ -37,9 +52,11 @@ def generate_consonant():
     :postcondition: randomly select a single consonant.
     :return: a randomly selected single consonant as a string.
     """
+    # create the consonant list containing all the consonants
     consonant_list = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n',
                       'p', 'q', 'r', 's', 't', 'v', 'x', 'z', 'w', 'y']
 
+    # random select a consonant from the above consonant list
     consonant_result = random.choice(consonant_list)
     return consonant_result
 
@@ -54,6 +71,7 @@ def generate_syllable():
     :postcondition: concatenate the consonant and vowel in this exact order, to a two-letter syllable as a string.
     :return: the correctly concatenate two-letter syllable as a string.
     """
+    # combine one consonant with one vowel
     syllable_result = generate_consonant() + generate_vowel()
     return syllable_result
 
@@ -68,13 +86,18 @@ def generate_name(syllables):
     :return: correctly generate a name composed of the specified number of two-lettered syllables as a string
     """
 
+    # use the while loop to combine all the generated syllables together to a name
+    # count start at zero
     count = 0
     name_result = ''
+
+    # loop ends when the it reach the syllables required
     while count < syllables:
         syllables_generated = generate_syllable()
         name_result += syllables_generated
+        # every time it generated a new syllable and join it to the existing syllables, count goes up by one
         count += 1
-    return name_result
+    return name_result.capitalize()
 
 
 def create_character(syllables):
@@ -94,20 +117,23 @@ def create_character(syllables):
         print("Warning: this is not a correct input, please enter a positive integer.")
         return None
     else:
+        # when syllables is a positive non-zero integer
+        # form the a dictionary that contains all the character information called character
         character = {
             'Name': generate_name(syllables),
-            'Strength': roll_die(3, 6),
+            'Strength': roll_die(3, 6),  # roll three six-sided dice
             'Intelligence': roll_die(3, 6),
-            'Wisdom': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
-            'Dexterity': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
-            'Constitution': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
-            'Charisma': roll_die(1, 6) + roll_die(1, 6) + roll_die(1, 6),
+            'Wisdom': roll_die(3, 6),
+            'Dexterity': roll_die(3, 6),
+            'Constitution': roll_die(3, 6),
+            'Charisma': roll_die(3, 6),
             'inventory': [],
             'experience points': 0,
             'class': select_class(),
             'Race': select_race(),
         }
 
+        # add the HP to the character information dictionary according to the class the player chooses
         if character['class'] == 'Barbarian':
             max_hp = roll_die(1, 12)
             current_hp = max_hp
@@ -130,13 +156,14 @@ def create_character(syllables):
 
 def select_class():
     """ Select a class
-    Select a class for user's character from the twelve classes in Dungeons & Dragons.
+    Select a class for playerr's character from the twelve classes in Dungeons & Dragons.
 
-    :precondition: user must enter a positive integer between 1 to 12.
+    :precondition: player must enter a positive integer between 1 to 12.
     :postcondition: prints out a list of classes to the player and asks the player to select the class they want to play
     :return: the race that the player desired as a string
     """
-    my_dictionary = {
+    # form a dictionary that contains all classes in the Dungeons & Dragons world to corresponding number
+    class_dictionary = {
         '1': 'Barbarian',
         '2': 'Bard',
         '3': 'Cleric',
@@ -150,26 +177,31 @@ def select_class():
         '11': 'Warlock',
         '12': 'Wizard'
     }
+    # create a while loop that force the player to enter the correct number of the corresponding class
     while True:
         print("Please choose your class! ")
-        for x, y in my_dictionary.items():
+        # print the pairs in the dictionary for better visual display
+        for x, y in class_dictionary.items():
             print(x, y)
         player_num = str(input("please enter the number of the class you desired: ").strip())
-        if player_num in my_dictionary:
-            player_class = my_dictionary[player_num]
+        # when player enter the valid input, the number that pair with the corresponding class, the loop will stop
+        if player_num in class_dictionary:
+            player_class = class_dictionary[player_num]
             return player_class
+        # if player enter the invalid input, the loop will continue until they enter the valid input
         else:
             continue
 
 
 def select_race():
     """ Select a race
-    Select a race for user's character from the nine classes in Dungeons & Dragons.
+    Select a race for player's character from the nine classes in Dungeons & Dragons.
 
-    :precondition: user must enter a positive integer between 1 to 9.
+    :precondition: player must enter a positive integer between 1 to 9.
     :postcondition: prints out a list of races to the player and asks the player to select the race they want to play
     :return: the race that the player desired as a string
     """
+    # form a dictionary that contains all races in the Dungeons & Dragons world to corresponding number
     my_dictionary = {
         '1': 'Dragonborn',
         '2': 'Dwarf',
@@ -181,18 +213,23 @@ def select_race():
         '8': 'Human',
         '9': 'Tiefling'
     }
+    # create a while loop that force the player to enter the correct number of the corresponding race
     while True:
         print("Please choose your class! ")
+        # print the pairs in the dictionary for better visual display
         for x, y in my_dictionary.items():
             print(x, y)
         player_num = str(input("please enter the number of the class you desired: ").strip())
+        # when player enter the valid input, the number that pair with the corresponding race, the loop will stop
         if player_num in my_dictionary:
             player_race = my_dictionary[player_num]
             return player_race
+        # if player enter an invalid input, the loop will continue until they enter the valid input
         else:
             continue
 
 
+# we need doctest here
 def print_character(character):
     """Print character information
     This function print a list of the character's information which is generated by the create_character function.
@@ -201,6 +238,7 @@ def print_character(character):
     :precondition: character must be formed my the the create_character function.
     :postcondition: print the character list formatted by the create_character function.
     """
+    # print the pairs within the character dictionary vertically for better visual display
     for x, y in character.items():
         print(x, y)
 
@@ -213,6 +251,7 @@ def choose_inventory(character):
     :precondition: character must be well formatted by the create_character function.
     :postcondition: must print a list of goods to the screen and ask the player what they want to buy.
     """
+    # create a variable that containing all the guiding information
     menu = ("Welcome to the Olde Tyme Merchant!\n"
             " \n"
             "Here is what we have for sale:\n"
@@ -228,6 +267,7 @@ def choose_inventory(character):
             "9. Silence Glaive\n"
             "10.Crystal Carillon")
 
+    # create a dictionary that containing all the inventory
     inventory_dictionary = {
         '1': 'sword',
         '2': 'dagger',
@@ -241,16 +281,23 @@ def choose_inventory(character):
         '10': 'Crystal Carillon',
     }
 
+    # the actual inventory list of the player
     inventory_list = []
 
+    # create a while loop to ask the player to buy the things they desired until they enter -1 to exit the loop (store)
     while True:
         print(menu)
         player_select = input("What would you like to buy (-1 to finish):\n").strip()
+        # when the player enter the valid input, the number within the inventory_dictionary
+        # the corresponding item will be added the player inventory list
         if player_select in inventory_dictionary:
             inventory_list.append(inventory_dictionary[player_select])
+        # the player can enter -1 to terminate the shopping event
         elif player_select == '-1':
             character['inventory'] = inventory_list
             break
+        # if the player enters an invalid input
+        # error message will be print and force the player to enter the valid input in  order to process the game
         else:
             print("You are asking for something we do not carry, want to choose again?")
             continue
@@ -266,22 +313,27 @@ def combat_round(opponent_one, opponent_two):
     :precondition: both parameters must be well-formed dictionaries that each containing a correct character
     :postcondition: the modified opponent_one and opponent_two as two separated dictionaries.
     """
+    # create a while loop to force the players to roll different points
     while True:
         opponent_one_roll = roll_die(1, 20)
         opponent_two_roll = roll_die(1, 20)
-
+        # if the players rolls the same point
+        # make them roll one more time until they rolled different points
         if opponent_one_roll == opponent_two_roll:
             continue
         else:
+            # when player 1 rolls a higher number than player2, player1 will attack first
             if opponent_one_roll > opponent_two_roll:
                 attack(opponent_one, opponent_two)
+            # when player 2 rolls a higher  number than player1, player 2 will attack first
             elif opponent_two_roll > opponent_one_roll:
                 attack(opponent_two, opponent_one)
+        # the loop stops when the players roll different points
         break
 
 
 def attack(attacker, defender):
-    """ Simulate attack action
+    """ Initiate attack action
 
     :param attacker: a well-formed dictionaries containing a correct character.
     :param defender: a well-formed dictionaries containing a correct character.
@@ -289,45 +341,78 @@ def attack(attacker, defender):
     :postcondition: the modified opponent_one and opponent_two as two separated dictionaries.
     """
     if attacker['HP'][1] > 0:
+        # attacker roll die once to determine hit point
         attacker_roll = roll_die(1, 20)
         print(attacker['Name'], 'is attacking', defender['Name'], 'by', attacker_roll)
+
+        # if attacker hit point is bigger than defender Dexterity point
+        # attacker's hit point will be subtracts from the defender's current HP
         if attacker_roll > defender['Dexterity']:
             defender['HP'][1] -= attacker_roll
+
+            # when defender's current HP falls below zero, defender is died
             if defender['HP'][1] <= 0:
                 print(defender['Name'], 'is dead')
                 defender['HP'][1] = 0
+
+            # when defender's current HP is larger than zero, defender will fight back
             else:
                 print(defender['Name'], 'still alive')
+                # defender roll die once to determine hit point
                 defender_roll = roll_die(1, 20)
                 print(defender['Name'], 'is going to attack by', defender_roll)
+                # if defender's hit point is bigger than the attacker's dexterity point
+                # defender's hit point will be subtracted from the attacker's current HP
                 if defender_roll > attacker['Dexterity']:
                     attacker['HP'][1] -= defender_roll
+
+                    # when attacker's current HP falls below zero, attacker is died
                     if attacker['HP'][1] <= 0:
                         print(attacker['Name'], 'is dead')
                         attacker['HP'][1] = 0
+
+                    # when defender's current HP is larger than zero, attacker is still alive
                     else:
                         print(attacker['Name'], 'is alive')
+                # if defender's hit point is smaller than attacker's Dexterity point, defender missed
                 else:
                     print(defender['Name'], 'missed', attacker['Name'], 'is alive')
+
+        # if attacker's hit point is smaller than defender's Dexterity point, attacker missed
         else:
+            # defender then get the chance to roll die once to determine hit point to fightback attacker
             defender_roll = roll_die(1, 20)
             print(attacker['Name'], 'missed')
             print(defender['Name'], 'is going to attack now by', defender_roll)
+
+            # if defender's hit point is bigger than the attacker's dexterity point
+            # defender's hit point will be subtracted from the attacker's current HP
             if defender_roll > attacker['Dexterity']:
                 attacker['HP'][1] -= defender_roll
+
+                # when attacker's current HP falls below zero, attacker is died
                 if attacker['HP'][1] <= 0:
                     print(attacker['Name'], 'is dead')
                     attacker['HP'][1] = 0
+
+                # when defender's current HP is larger than zero, attacker is still alive
                 else:
                     print(attacker['Name'], 'is alive')
+
+            # if defender's hit point is smaller than attacker's Dexterity point, defender missed
             else:
                 print(defender['Name'], 'missed', attacker['Name'], 'still alive')
 
 
 def main():
+    """
+    Run the text-based Dungeons and Dragons game.
+
+    :return: the result of one round of the text-based Dungeons and Dragons game.
+    """
     syllables = int(input("Please select the number of syllables for their character’s name: "))
     character = create_character(syllables)
-    print('')
+
     print_character(character)
     choose_inventory(character)
     print_character(character)
