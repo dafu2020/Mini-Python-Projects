@@ -70,7 +70,7 @@ class Test(TestCase):
     @patch('builtins.input', side_effect=['11'])
     def test_Warlock(self, mock_input):
         actual = dnd.select_class()
-        expected = 'Barbarian'
+        expected = 'Warlock'
         self.assertEqual(expected, actual)
 
     @patch('builtins.input', side_effect=['12'])
