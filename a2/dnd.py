@@ -628,7 +628,7 @@ def main():
     print('\n   In combat:')
     # generate one round of combat between player character and opponent character
     combat_round(character, the_greatest_villain_of_all_time)
-    # print the states of player character and opponent character after one round of combat
+    # print the states of player character and opponent character after one round of a combat
     print('\n   After one round of combat: ')
     print_character(character)
     print('')
