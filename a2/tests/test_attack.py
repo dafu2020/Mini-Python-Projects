@@ -16,15 +16,15 @@ class Test(TestCase):
             'Name': 'Dududu',
             'Strength': 10,
             'Intelligence': 5,
-            'Wisdom': 100,
+            'Wisdom': 5,
             'Dexterity': 9,
-            'Constitution': 20,
+            'Constitution': 12,
             'Charisma': 9,
             'inventory': [],
             'experience points': 0,
             'class': 'sorcerer',
             'Race': 'Human',
-            'HP': [100, 20]}
+            'HP': [5, 5]}
         actual_2 = {
             'Name': 'Loki',
             'Strength': 5,
@@ -110,7 +110,7 @@ class Test(TestCase):
                    'Loki is going to attack by 6\nDududu is dead\n'
         self.assertEqual(mock_stdout.getvalue(), expected)
 
-    @patch('random.randint', side_effect=[6, 6])
+    @patch('random.randint', side_effect=[6, 4])
     @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
     def test_p1_attack_p2_alive_p2_attack_p1_alive(self, mock_stdout, mock_roll):
         actual_1 = {
@@ -118,14 +118,14 @@ class Test(TestCase):
             'Strength': 5,
             'Intelligence': 5,
             'Wisdom': 5,
-            'Dexterity': 5,
+            'Dexterity': 3,
             'Constitution': 5,
             'Charisma': 5,
             'inventory': [],
             'experience points': 0,
             'class': 'sorcerer',
             'Race': 'Human',
-            'HP': [8, 8]}
+            'HP': [5, 5]}
         actual_2 = {
             'Name': 'Loki',
             'Strength': 5,
@@ -141,7 +141,7 @@ class Test(TestCase):
             'HP': [20, 20]}
         dnd.attack(actual_1, actual_2)
         expected = 'Dududu is attacking Loki by 6\nLoki still alive\n' \
-                   'Loki is going to attack by 6\nDududu is alive\n'
+                   'Loki is going to attack by 4\nDududu is alive\n'
         self.assertEqual(mock_stdout.getvalue(), expected)
 
     @patch('random.randint', side_effect=[6, 2])
