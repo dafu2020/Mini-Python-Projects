@@ -3,34 +3,38 @@ from unittest.mock import patch
 import dnd
 
 
-# this need to be fixed
 class Test(TestCase):
-    @patch('random.choice', side_effect=['g', 'a'])
-    def test_syllable_g_a(self, mock_choice):
+    @patch('random.choice', side_effect=['b', 'a'])
+    def test_syllable_first_consonant_first_vowel(self, mock_choice):
         actual = dnd.generate_syllable()
-        self.assertEqual(actual, 'ga')
+        self.assertEqual(actual, 'ba')
+
+    @patch('random.choice', side_effect=['b', 'y'])
+    def test_syllable_first_consonant_last_vowel(self, mock_choice):
+        actual = dnd.generate_syllable()
+        self.assertEqual(actual, 'by')
+
+    @patch('random.choice', side_effect=['b', 'e'])
+    def test_syllable_first_consonant_random_vowel(self, mock_choice):
+        actual = dnd.generate_syllable()
+        self.assertEqual(actual, 'be')
 
     @patch('random.choice', side_effect=['y', 'y'])
-    def test_syllable_y_y(self, mock_choice):
+    def test_syllable_last_consonant_last_vowel(self, mock_choice):
         actual = dnd.generate_syllable()
         self.assertEqual(actual, 'yy')
 
-    @patch('random.choice', side_effect=['k', 'i'])
-    def test_syllable_g_a(self, mock_choice):
+    @patch('random.choice', side_effect=['y', 'a'])
+    def test_syllable_last_consonant_first_vowel(self, mock_choice):
         actual = dnd.generate_syllable()
-        self.assertEqual(actual, 'ki')
+        self.assertEqual(actual, 'ya')
+
+    @patch('random.choice', side_effect=['y', 'u'])
+    def test_syllable_last_consonant_random_vowel(self, mock_choice):
+        actual = dnd.generate_syllable()
+        self.assertEqual(actual, 'yu')
 
     @patch('random.choice', side_effect=['m', 'o'])
-    def test_syllable_g_a(self, mock_choice):
+    def test_syllable_random_consonant_random_vowel(self, mock_choice):
         actual = dnd.generate_syllable()
         self.assertEqual(actual, 'mo')
-
-    @patch('random.choice', side_effect=['n', 'u'])
-    def test_syllable_g_a(self, mock_choice):
-        actual = dnd.generate_syllable()
-        self.assertEqual(actual, 'nu')
-
-    @patch('random.choice', side_effect=['x', 'e'])
-    def test_syllable_g_a(self, mock_choice):
-        actual = dnd.generate_syllable()
-        self.assertEqual(actual, 'xe')

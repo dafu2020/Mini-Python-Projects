@@ -1,7 +1,7 @@
 """
 Function to simulate a text-based Dungeons and Dragons game.
 """
-
+import doctest
 import random
 
 
@@ -576,7 +576,7 @@ def attack(attacker, defender):
 
 def main():
     """
-    Run the text-based Dungeons and Dragons game.
+    Initiate the text-based Dungeons and Dragons game.
 
     :return: the result of one round of the text-based Dungeons and Dragons game.
     """
@@ -592,7 +592,7 @@ def main():
     # print the states of the modified character
     print_character(character)
 
-    print(' ')
+    print('')
     # create an opponent character
     the_greatest_villain_of_all_time = {
         'Name': 'Loki',
@@ -619,6 +619,8 @@ def main():
     print_character(character)
     print('')
     print_character(the_greatest_villain_of_all_time)
+
+    doctest.testmod()
 
 
 if __name__ == "__main__":

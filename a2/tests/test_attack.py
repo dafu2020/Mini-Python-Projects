@@ -8,6 +8,8 @@ import io
 import dnd
 
 
+# p1 = player one = opponent one
+# p2 = player two = opponent two
 class Test(TestCase):
     @patch('random.randint', side_effect=[2, 1])
     @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
