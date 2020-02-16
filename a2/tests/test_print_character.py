@@ -19,13 +19,13 @@ class Test(TestCase):
             'Constitution': 13,
             'Charisma': 9,
             'inventory': [],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'the Frost Giants in Jotunheim',
             'HP': [4, 4]}
         dnd.print_character(actual)
         expected = 'Name Somi\nStrength 10\nIntelligence 5\nWisdom 6\nDexterity 9\nConstitution 13\nCharisma 9' \
-                   '\ninventory []\nexperience points 0\nclass sorcerer' \
+                   '\ninventory []\nXP 0\nclass sorcerer' \
                    '\nRace the Frost Giants in Jotunheim\nHP [4, 4]\n'
         self.assertEqual(mock_stdout.getvalue(), expected)
 
@@ -40,13 +40,13 @@ class Test(TestCase):
             'Constitution': 20,
             'Charisma': 6,
             'inventory': ['The Scepter'],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'the Frost Giants in Jotunheim',
             'HP': [20, 20]}
         dnd.print_character(actual)
         expected = 'Name Loki\nStrength 5\nIntelligence 20\nWisdom 20\nDexterity 6\nConstitution 20\nCharisma 6' \
-                   '\ninventory [\'The Scepter\']\nexperience points 0\nclass sorcerer' \
+                   '\ninventory [\'The Scepter\']\nXP 0\nclass sorcerer' \
                    '\nRace the Frost Giants in Jotunheim\nHP [20, 20]\n'
 
         self.assertEqual(mock_stdout.getvalue(), expected)

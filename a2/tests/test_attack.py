@@ -23,7 +23,7 @@ class Test(TestCase):
             'Constitution': 12,
             'Charisma': 9,
             'inventory': [],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'Human',
             'HP': [5, 5]}
@@ -36,12 +36,12 @@ class Test(TestCase):
             'Constitution': 20,
             'Charisma': 6,
             'inventory': ['The Scepter'],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'the Frost Giants in Jotunheim',
             'HP': [20, 20]}
         dnd.attack(actual_1, actual_2)
-        expected = 'Dududu is attacking Loki by 2\nDududu missed\nLoki is going to attack now by 1' \
+        expected = 'Dududu is attacking Loki by 2\nDududu missed\nLoki is going to attack by 1' \
                    '\nLoki missed Dududu still alive\n'
         self.assertEqual(mock_stdout.getvalue(), expected)
 
@@ -57,7 +57,7 @@ class Test(TestCase):
             'Constitution': 5,
             'Charisma': 5,
             'inventory': [],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'Human',
             'HP': [5, 5]}
@@ -70,7 +70,7 @@ class Test(TestCase):
             'Constitution': 5,
             'Charisma': 5,
             'inventory': ['The Scepter'],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'the Frost Giants in Jotunheim',
             'HP': [5, 5]}
@@ -90,7 +90,7 @@ class Test(TestCase):
             'Constitution': 5,
             'Charisma': 5,
             'inventory': [],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'Human',
             'HP': [5, 5]}
@@ -103,7 +103,7 @@ class Test(TestCase):
             'Constitution': 5,
             'Charisma': 5,
             'inventory': ['The Scepter'],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'the Frost Giants in Jotunheim',
             'HP': [20, 20]}
@@ -124,7 +124,7 @@ class Test(TestCase):
             'Constitution': 5,
             'Charisma': 5,
             'inventory': [],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'Human',
             'HP': [5, 5]}
@@ -137,7 +137,7 @@ class Test(TestCase):
             'Constitution': 5,
             'Charisma': 5,
             'inventory': ['The Scepter'],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'the Frost Giants in Jotunheim',
             'HP': [20, 20]}
@@ -158,7 +158,7 @@ class Test(TestCase):
             'Constitution': 5,
             'Charisma': 5,
             'inventory': [],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'Human',
             'HP': [8, 8]}
@@ -171,7 +171,7 @@ class Test(TestCase):
             'Constitution': 5,
             'Charisma': 5,
             'inventory': ['The Scepter'],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'the Frost Giants in Jotunheim',
             'HP': [20, 20]}
@@ -192,7 +192,7 @@ class Test(TestCase):
             'Constitution': 5,
             'Charisma': 5,
             'inventory': [],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'Human',
             'HP': [8, 8]}
@@ -205,12 +205,12 @@ class Test(TestCase):
             'Constitution': 5,
             'Charisma': 5,
             'inventory': ['The Scepter'],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'the Frost Giants in Jotunheim',
             'HP': [20, 20]}
         dnd.attack(actual_1, actual_2)
-        expected = 'Dududu is attacking Loki by 4\nDududu missed\nLoki is going to attack now by 10\nDududu is dead\n'
+        expected = 'Dududu is attacking Loki by 4\nDududu missed\nLoki is going to attack by 10\nDududu is dead\n'
         self.assertEqual(mock_stdout.getvalue(), expected)
 
     @patch('random.randint', side_effect=[4, 7])
@@ -225,7 +225,7 @@ class Test(TestCase):
             'Constitution': 5,
             'Charisma': 5,
             'inventory': [],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'Human',
             'HP': [8, 8]}
@@ -238,10 +238,10 @@ class Test(TestCase):
             'Constitution': 5,
             'Charisma': 5,
             'inventory': ['The Scepter'],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'the Frost Giants in Jotunheim',
             'HP': [20, 20]}
         dnd.attack(actual_1, actual_2)
-        expected = 'Dududu is attacking Loki by 4\nDududu missed\nLoki is going to attack now by 7\nDududu is alive\n'
+        expected = 'Dududu is attacking Loki by 4\nDududu missed\nLoki is going to attack by 7\nDududu is alive\n'
         self.assertEqual(mock_stdout.getvalue(), expected)

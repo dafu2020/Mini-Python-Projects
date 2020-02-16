@@ -23,7 +23,7 @@ class Test(TestCase):
             'Constitution': 12,
             'Charisma': 9,
             'inventory': [],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'Human',
             'HP': [5, 5]}
@@ -36,7 +36,7 @@ class Test(TestCase):
             'Constitution': 20,
             'Charisma': 6,
             'inventory': ['The Scepter'],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'the Frost Giants in Jotunheim',
             'HP': [20, 20]}
@@ -45,9 +45,9 @@ class Test(TestCase):
         dnd.print_character(actual_2)
         expected = 'Dududu is attacking Loki by 20\nLoki is dead\n' \
                    'Name Dududu\nStrength 10\nIntelligence 5\nWisdom 5\nDexterity 9\nConstitution 12\nCharisma 9\n' \
-                   'inventory []\nexperience points 0\nclass sorcerer\nRace Human\nHP [5, 5]\n' \
+                   'inventory []\nXP 0\nclass sorcerer\nRace Human\nHP [5, 5]\n' \
                    'Name Loki\nStrength 5\nIntelligence 20\nWisdom 20\nDexterity 6\nConstitution 20\nCharisma 6' \
-                   '\ninventory [\'The Scepter\']\nexperience points 0\nclass sorcerer\nRace the Frost Giants in ' \
+                   '\ninventory [\'The Scepter\']\nXP 0\nclass sorcerer\nRace the Frost Giants in ' \
                    'Jotunheim\nHP [20, 0]\n'
 
         self.assertEqual(mock_stdout.getvalue(), expected)
@@ -64,7 +64,7 @@ class Test(TestCase):
             'Constitution': 12,
             'Charisma': 9,
             'inventory': [],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'Human',
             'HP': [5, 5]}
@@ -77,7 +77,7 @@ class Test(TestCase):
             'Constitution': 20,
             'Charisma': 6,
             'inventory': ['The Scepter'],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'the Frost Giants in Jotunheim',
             'HP': [20, 20]}
@@ -86,9 +86,9 @@ class Test(TestCase):
         dnd.print_character(actual_2)
         expected = 'Dududu is attacking Loki by 20\nLoki is dead\n' \
                    'Name Dududu\nStrength 10\nIntelligence 5\nWisdom 5\nDexterity 9\nConstitution 12\nCharisma 9\n' \
-                   'inventory []\nexperience points 0\nclass sorcerer\nRace Human\nHP [5, 5]\n' \
+                   'inventory []\nXP 0\nclass sorcerer\nRace Human\nHP [5, 5]\n' \
                    'Name Loki\nStrength 5\nIntelligence 20\nWisdom 20\nDexterity 6\nConstitution 20\nCharisma 6' \
-                   '\ninventory [\'The Scepter\']\nexperience points 0\nclass sorcerer\nRace the Frost Giants in ' \
+                   '\ninventory [\'The Scepter\']\nXP 0\nclass sorcerer\nRace the Frost Giants in ' \
                    'Jotunheim\nHP [20, 0]\n'
 
         self.assertEqual(mock_stdout.getvalue(), expected)
@@ -105,7 +105,7 @@ class Test(TestCase):
             'Constitution': 12,
             'Charisma': 9,
             'inventory': [],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'Human',
             'HP': [5, 5]}
@@ -118,7 +118,7 @@ class Test(TestCase):
             'Constitution': 20,
             'Charisma': 6,
             'inventory': ['The Scepter'],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'the Frost Giants in Jotunheim',
             'HP': [20, 20]}
@@ -127,9 +127,9 @@ class Test(TestCase):
         dnd.print_character(actual_2)
         expected = 'Dududu is attacking Loki by 20\nLoki is dead\n' \
                    'Name Dududu\nStrength 10\nIntelligence 5\nWisdom 5\nDexterity 9\nConstitution 12\nCharisma 9\n' \
-                   'inventory []\nexperience points 0\nclass sorcerer\nRace Human\nHP [5, 5]\n' \
+                   'inventory []\nXP 0\nclass sorcerer\nRace Human\nHP [5, 5]\n' \
                    'Name Loki\nStrength 5\nIntelligence 20\nWisdom 20\nDexterity 6\nConstitution 20\nCharisma 6' \
-                   '\ninventory [\'The Scepter\']\nexperience points 0\nclass sorcerer\nRace the Frost Giants in ' \
+                   '\ninventory [\'The Scepter\']\nXP 0\nclass sorcerer\nRace the Frost Giants in ' \
                    'Jotunheim\nHP [20, 0]\n'
 
         self.assertEqual(mock_stdout.getvalue(), expected)
@@ -146,7 +146,7 @@ class Test(TestCase):
             'Constitution': 12,
             'Charisma': 9,
             'inventory': [],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'Human',
             'HP': [5, 5]}
@@ -159,7 +159,7 @@ class Test(TestCase):
             'Constitution': 20,
             'Charisma': 6,
             'inventory': ['The Scepter'],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'the Frost Giants in Jotunheim',
             'HP': [20, 20]}
@@ -168,9 +168,9 @@ class Test(TestCase):
         dnd.print_character(actual_2)
         expected = 'Loki is attacking Dududu by 20\nDududu is dead\n' \
                    'Name Dududu\nStrength 10\nIntelligence 5\nWisdom 5\nDexterity 9\nConstitution 12\nCharisma 9\n' \
-                   'inventory []\nexperience points 0\nclass sorcerer\nRace Human\nHP [5, 0]\n' \
+                   'inventory []\nXP 0\nclass sorcerer\nRace Human\nHP [5, 0]\n' \
                    'Name Loki\nStrength 5\nIntelligence 20\nWisdom 20\nDexterity 6\nConstitution 20\nCharisma 6' \
-                   '\ninventory [\'The Scepter\']\nexperience points 0\nclass sorcerer\nRace the Frost Giants in ' \
+                   '\ninventory [\'The Scepter\']\nXP 0\nclass sorcerer\nRace the Frost Giants in ' \
                    'Jotunheim\nHP [20, 20]\n'
 
         self.assertEqual(mock_stdout.getvalue(), expected)
@@ -187,7 +187,7 @@ class Test(TestCase):
             'Constitution': 12,
             'Charisma': 9,
             'inventory': [],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'Human',
             'HP': [5, 5]}
@@ -200,7 +200,7 @@ class Test(TestCase):
             'Constitution': 20,
             'Charisma': 6,
             'inventory': ['The Scepter'],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'the Frost Giants in Jotunheim',
             'HP': [20, 20]}
@@ -209,9 +209,9 @@ class Test(TestCase):
         dnd.print_character(actual_2)
         expected = 'Loki is attacking Dududu by 20\nDududu is dead\n' \
                    'Name Dududu\nStrength 10\nIntelligence 5\nWisdom 5\nDexterity 9\nConstitution 12\nCharisma 9\n' \
-                   'inventory []\nexperience points 0\nclass sorcerer\nRace Human\nHP [5, 0]\n' \
+                   'inventory []\nXP 0\nclass sorcerer\nRace Human\nHP [5, 0]\n' \
                    'Name Loki\nStrength 5\nIntelligence 20\nWisdom 20\nDexterity 6\nConstitution 20\nCharisma 6' \
-                   '\ninventory [\'The Scepter\']\nexperience points 0\nclass sorcerer\nRace the Frost Giants in ' \
+                   '\ninventory [\'The Scepter\']\nXP 0\nclass sorcerer\nRace the Frost Giants in ' \
                    'Jotunheim\nHP [20, 20]\n'
 
         self.assertEqual(mock_stdout.getvalue(), expected)
@@ -228,7 +228,7 @@ class Test(TestCase):
             'Constitution': 12,
             'Charisma': 9,
             'inventory': [],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'Human',
             'HP': [5, 5]}
@@ -241,7 +241,7 @@ class Test(TestCase):
             'Constitution': 20,
             'Charisma': 6,
             'inventory': ['The Scepter'],
-            'experience points': 0,
+            'XP': 0,
             'class': 'sorcerer',
             'Race': 'the Frost Giants in Jotunheim',
             'HP': [20, 20]}
@@ -250,9 +250,9 @@ class Test(TestCase):
         dnd.print_character(actual_2)
         expected = 'Loki is attacking Dududu by 20\nDududu is dead\n' \
                    'Name Dududu\nStrength 10\nIntelligence 5\nWisdom 5\nDexterity 9\nConstitution 12\nCharisma 9\n' \
-                   'inventory []\nexperience points 0\nclass sorcerer\nRace Human\nHP [5, 0]\n' \
+                   'inventory []\nXP 0\nclass sorcerer\nRace Human\nHP [5, 0]\n' \
                    'Name Loki\nStrength 5\nIntelligence 20\nWisdom 20\nDexterity 6\nConstitution 20\nCharisma 6' \
-                   '\ninventory [\'The Scepter\']\nexperience points 0\nclass sorcerer\nRace the Frost Giants in ' \
+                   '\ninventory [\'The Scepter\']\nXP 0\nclass sorcerer\nRace the Frost Giants in ' \
                    'Jotunheim\nHP [20, 20]\n'
 
         self.assertEqual(mock_stdout.getvalue(), expected)

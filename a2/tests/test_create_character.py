@@ -32,7 +32,7 @@ class Test(TestCase):
     def test_a_character_one_syllable_same_roll_same_class_race(self, mock_name, mock_roll, mock_class_race):
         actual = dnd.create_character(1)
         expected = {'Name': 'Ba', 'Strength': 3, 'Intelligence': 3, 'Wisdom': 3, 'Dexterity': 3, 'Constitution': 3,
-                    'Charisma': 3, 'inventory': [], 'experience points': 0, 'class': 'Barbarian', 'Race': 'Dragonborn',
+                    'Charisma': 3, 'inventory': [], 'XP': 0, 'class': 'Barbarian', 'Race': 'Dragonborn',
                     'HP': [1, 1]}
         self.assertEqual(expected, actual)
 
@@ -48,7 +48,7 @@ class Test(TestCase):
     def test_a_character_one_syllable_different_roll_same_race_class(self, mock_name, mock_roll, mock_class_race):
         actual = dnd.create_character(1)
         expected = {'Name': 'Ba', 'Strength': 7, 'Intelligence': 8, 'Wisdom': 5, 'Dexterity': 8, 'Constitution': 13,
-                    'Charisma': 8, 'inventory': [], 'experience points': 0, 'class': 'Barbarian', 'Race': 'Dragonborn',
+                    'Charisma': 8, 'inventory': [], 'XP': 0, 'class': 'Barbarian', 'Race': 'Dragonborn',
                     'HP': [3, 3]}
         self.assertEqual(expected, actual)
 
@@ -64,7 +64,7 @@ class Test(TestCase):
     def test_a_character_one_syllable_different_roll_different_race_class(self, mock_name, mock_roll, mock_class_race):
         actual = dnd.create_character(1)
         expected = {'Name': 'Ba', 'Strength': 7, 'Intelligence': 8, 'Wisdom': 5, 'Dexterity': 8, 'Constitution': 13,
-                    'Charisma': 8, 'inventory': [], 'experience points': 0, 'class': 'Paladin', 'Race': 'Elf',
+                    'Charisma': 8, 'inventory': [], 'XP': 0, 'class': 'Paladin', 'Race': 'Elf',
                     'HP': [3, 3]}
         self.assertEqual(expected, actual)
 
@@ -80,7 +80,7 @@ class Test(TestCase):
     def test_a_character_multi_syllables_same_roll_same_class_race(self, mock_name, mock_roll, mock_class_race):
         actual = dnd.create_character(3)
         expected = {'Name': 'Lilisa', 'Strength': 3, 'Intelligence': 3, 'Wisdom': 3, 'Dexterity': 3, 'Constitution': 3,
-                    'Charisma': 3, 'inventory': [], 'experience points': 0, 'class': 'Barbarian', 'Race': 'Dragonborn',
+                    'Charisma': 3, 'inventory': [], 'XP': 0, 'class': 'Barbarian', 'Race': 'Dragonborn',
                     'HP': [1, 1]}
         self.assertEqual(expected, actual)
 
@@ -96,7 +96,7 @@ class Test(TestCase):
     def test_a_character_multi_syllables_different_roll_same_race_class(self, mock_name, mock_roll, mock_class_race):
         actual = dnd.create_character(3)
         expected = {'Name': 'Lilisa', 'Strength': 7, 'Intelligence': 8, 'Wisdom': 5, 'Dexterity': 8, 'Constitution': 13,
-                    'Charisma': 8, 'inventory': [], 'experience points': 0, 'class': 'Barbarian', 'Race': 'Dragonborn',
+                    'Charisma': 8, 'inventory': [], 'XP': 0, 'class': 'Barbarian', 'Race': 'Dragonborn',
                     'HP': [3, 3]}
         self.assertEqual(expected, actual)
 
@@ -112,6 +112,6 @@ class Test(TestCase):
     def test_a_character_multi_syllables_different_roll_different_race_class(self, mock_name, mock_roll, mock_class_race):
         actual = dnd.create_character(3)
         expected = {'Name': 'Lilisa', 'Strength': 7, 'Intelligence': 8, 'Wisdom': 5, 'Dexterity': 8, 'Constitution': 13,
-                    'Charisma': 8, 'inventory': [], 'experience points': 0, 'class': 'Paladin', 'Race': 'Elf',
+                    'Charisma': 8, 'inventory': [], 'XP': 0, 'class': 'Paladin', 'Race': 'Elf',
                     'HP': [3, 3]}
         self.assertEqual(expected, actual)
