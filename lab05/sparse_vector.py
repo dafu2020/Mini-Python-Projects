@@ -5,15 +5,14 @@ Demonstrate how to calculate the sum and the dot product of two sparse vectors a
 import doctest
 
 
-# add the vector dictionaries
 def sparse_add(vector_one=dict, vector_two=dict) -> dict:
     """Calculate sum.
 
-    A function to calculate the sum of two sparse vectors in dictionary form that only contains integer.
-    :param vector_one: a dictionary
-    :param vector_two: a dictionary
-    :precondition: vector_one and vector_two must be sparse vectors in dictionary form with equal length
-    :postcondiition: a new dictionary that represent the sum of two sparse vector
+    A function to calculate the sum of two sparse vectors in dictionary form.
+    :param vector_one: a dictionary that only contains integer as values
+    :param vector_two: a dictionary that only contains integer as values
+    :precondition: vector_one and vector_two must be sparse vectors of integers in dictionary form with equal length
+    :postcondition: a new dictionary that represent the sum of two sparse vector
     :return: correctly calculated sum of two sparse vector that stored in a dictionary
     >>> vector_one  =  {0: 1, 'length': 1}
     >>> vector_two =  {0: 1, 'length': 1}
@@ -46,16 +45,15 @@ def sparse_add(vector_one=dict, vector_two=dict) -> dict:
         return add_dic
 
 
-# sum the element-wise products of their elements
 def sparse_dot_product(vector_one=dict, vector_two=dict) -> dict:
     """Calculate dot product.
 
     A function to calculate the dot product of two sparse vectors.
-    :param vector_one: a dictionary
-    :param vector_two: a dictionary
-    :precondition: vector_one and vector_two must be sparse vectors in dictionary form with equal length
-    :postcondiition: calculate the dot product of two sparse vector
-    :return: correctly calculated dot product of two sparse vector as a number
+    :param vector_one: a dictionary that only contains integer as values
+    :param vector_two: a dictionary that only contains integer as values
+    :precondition: vector_one and vector_two must be sparse vectors of integers in dictionary form with equal length
+    :postcondition: calculate the dot product of two sparse vector
+    :return: correctly calculated dot product of two sparse vector as an integer
     >>> vector_one  =  {0: 1, 'length': 1}
     >>> vector_two =  {0: 1, 'length': 1}
     >>> sparse_dot_product(vector_one, vector_two)
@@ -83,6 +81,11 @@ def sparse_dot_product(vector_one=dict, vector_two=dict) -> dict:
 
 
 def main():
+    """
+    Test the functions in this module.
+
+    :return: the result of doctests
+    """
     doctest.testmod()
 
 

@@ -15,7 +15,7 @@ class Test(TestCase):
         self.assertEqual(expected, actual, )
 
     def test_length_one_zero_sparse_vector(self):
-        """Test two length one sparse vectors contains zero"""
+        """Test two length one sparse vectors contain zero"""
         argument_one = {'length': 1}
         argument_two = {'length': 1}
         expected = 0
@@ -23,7 +23,7 @@ class Test(TestCase):
         self.assertEqual(expected, actual)
 
     def test_length_one_same_integer_positive(self):
-        """Test two length one sparse vectors with same positive integer elements"""
+        """Test two length one sparse vectors contain same positive integer elements"""
         argument_one = {0: 1, 'length': 1}
         argument_two = {0: 1, 'length': 1}
         expected = 1
@@ -31,7 +31,7 @@ class Test(TestCase):
         self.assertEqual(expected, actual)
 
     def test_length_one_same_integer_negative(self):
-        """Test two length one sparse vectors with same negative integer elements"""
+        """Test two length one sparse vectors contain same negative integer elements"""
         argument_one = {0: -1, 'length': 1}
         argument_two = {0: -1, 'length': 1}
         expected = 1
@@ -39,7 +39,7 @@ class Test(TestCase):
         self.assertEqual(expected, actual)
 
     def test_length_one_integer_pos_neg(self):
-        """Test two length one sparse vectors with elements include both positive and negative integers"""
+        """Test two length one sparse vectors contain both positive and negative integers elements"""
         argument_one = {0: 1, 'length': 1}
         argument_two = {0: -1, 'length': 1}
         expected = -1
@@ -47,7 +47,7 @@ class Test(TestCase):
         self.assertEqual(expected, actual)
 
     def test_length_more_than_one_same_position_same_integer(self):
-        """Test two length more than one sparse vector with elements that are at same position and same integer"""
+        """Test two length more than one sparse vector contain same integer elements at same position"""
         argument_one = {0: 1, 1: 2, 2: 1, 'length': 3}
         argument_two = {0: 1, 1: 2, 2: 1, 'length': 3}
         expected = 6
@@ -55,7 +55,7 @@ class Test(TestCase):
         self.assertEqual(expected, actual)
 
     def test_length_more_than_one_same_position_different_integer(self):
-        """Test two length more than one sparse vector with elements that are at same position and different integer"""
+        """Test two length more than one sparse vector contain different integer elements at same position"""
         argument_one = {0: 1, 1: 2, 2: 3, 'length': 3}
         argument_two = {0: -1, 1: -2, 2: -3, 'length': 3}
         expected = -14
@@ -63,7 +63,7 @@ class Test(TestCase):
         self.assertEqual(expected, actual)
 
     def test_length_more_than_one_different_position(self):
-        """"Test two length more than one sparse vector with elements that are integers at different position"""
+        """"Test two length more than one sparse vector contain different integer elements at different position"""
         argument_one = {1: 1, 2: 3, 'length': 3}
         argument_two = {0: 2, 'length': 3}
         expected = 0
