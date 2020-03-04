@@ -1,7 +1,7 @@
 """
 Function to model a simple game, finding the exist.
 """
-import doctest
+# import doctest
 
 
 def make_board() -> list:
@@ -99,34 +99,32 @@ def validate_move(board: list, character: dict, direction: str) -> bool:
     """
 
     valid_input_list = ['north', 'south', 'west', 'east', 'n', 's', 'w', 'e']
-    character_location = [character['x'], character['y']]
-    if character_location in board:
-        while True:
-            if direction in valid_input_list:
-                if character['x'] == board[0][0]:
-                    if direction == 'north' or direction == 'n':
-                        print('You have reached the wall')
-                        return False
-                if character['x'] == board[-1][0]:
-                    if direction == 'south' or direction == 's':
-                        print('You have reached the wall')
-                        return False
-                if character['y'] == board[0][1]:
-                    if direction == 'west' or direction == 'w':
-                        print('You have reached the wall')
-                        return False
-                if character['y'] == board[-1][-1]:
-                    if direction == 'east' or direction == 'e':
-                        print('You have reached the wall')
-                        return False
-                else:
+    while True:
+        if direction in valid_input_list:
+            if character['x'] == board[0][0]:
+                if direction == 'north' or direction == 'n':
+                    print('You have reached the wall')
+                    return False
+            if character['x'] == board[-1][0]:
+                if direction == 'south' or direction == 's':
+                    print('You have reached the wall')
+                    return False
+            if character['y'] == board[0][1]:
+                if direction == 'west' or direction == 'w':
+                    print('You have reached the wall')
+                    return False
+            if character['y'] == board[-1][1]:
+                if direction == 'east' or direction == 'e':
+                    print('You have reached the wall')
+                    return False
+            if character['y'] == board[-1][1] and character['x'] == board[-1][0]:
+                if direction == 'north' or direction == 'n' or direction == 'west' or direction == 'w':
                     return True
             else:
-                print('This is not a valid input.')
-                return False
-    else:
-        print('This is not a valid coordinate.')
-        return False
+                return True
+        else:
+            print('This is not a valid input.')
+            return False
 
 
 def move_character(direction: str, character: dict) -> dict:
@@ -177,6 +175,7 @@ def game():
         print_location(character)
         direction = get_user_choice()
         valid_move = validate_move(board, character, direction)
+        print(valid_move)
         if valid_move:
             move_character(direction, character)
             found_exist = check_if_exit_reached(character)
@@ -189,10 +188,11 @@ def game():
     print('***********************************')
 
 
+
 def main() -> None:
     """ Initiate game
     """
-    doctest.testmod()
+    # doctest.testmod()
     game()
 
 
