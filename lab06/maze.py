@@ -62,27 +62,35 @@ def validate_move(board: list, character: dict, direction: str) -> bool:
     :postcondition: conclude a boolean result if the movement of the user choice is valid or not
     :return: a boolean result
     """
-    valid_input_list = ['north', 'south', 'west', 'east']
-    # character_location = [character['x'], character['y']]
-    while True:
-        if direction in valid_input_list:
-            if character['x'] == 0 and direction == 'north':
-                print('You have reached the boundary, you cannot move this way.')
-                return False
-            if character['x'] == 4 and direction == 'south':
-                print('You have reached the boundary, you cannot move this way.')
-                return False
-            if character['y'] == 0 and direction == 'west':
-                print('You have reached the boundary, you cannot move this way.')
-                return False
-            if character['y'] == 4 and direction == 'east':
-                print('You have reached the boundary, you cannot move this way.')
-                return False
+    valid_input_list = ['north', 'south', 'west', 'east', 'n', 's', 'w', 'e']
+    character_location = [character['x'], character['y']]
+    if character_location in board:
+        while True:
+            if direction in valid_input_list:
+                if character['x'] == 0:
+                    if direction == 'north' or direction == 'n':
+                        print('You have reached the wall')
+                        return False
+                if character['x'] == 4:
+                    if direction == 'south' or direction == 's':
+                        print('You have reached the wall')
+                        return False
+                if character['y'] == 0:
+                    if direction == 'west' or direction == 'w':
+                        print('You have reached the wall')
+                        return False
+                if character['y'] == 4:
+                    if direction == 'east' or direction == 'e':
+                        print('You have reached the wall')
+                        return False
+                else:
+                    return True
             else:
-                return True
-        else:
-            print('This is not a valid input for direction, please re-enter.')
-            return False
+                print('This is not a valid input.')
+                return False
+    else:
+        print('This is not a valid input.')
+        return False
 
 
 def move_character(direction: str, character: dict) -> dict:
@@ -94,16 +102,34 @@ def move_character(direction: str, character: dict) -> dict:
     :postcondition: change the character coordinate base on the direction user wish to move
     :return: a modified character dictionary as a dictionary with changed character coordinates
     """
-    if direction == 'east' and character['y'] != 4:
-        character['y'] += 1
-    elif direction == 'west' and character['y'] != 0:
-        character['y'] += -1
-    elif direction == 'north' and character['x'] != 0:
-        character['x'] += -1
-    elif direction == 'south' and character['x'] != 4:
-        character['x'] += 1
+    if direction == 'east' or direction == 'e':
+        if character['y'] != 4:
+            character['y'] += 1
+    elif direction == 'west' or direction == 'w':
+        if character['y'] != 0:
+            character['y'] += -1
+    elif direction == 'north' or direction == 'n':
+        if character['x'] != 0:
+            character['x'] += -1
+    elif direction == 'south' or direction == 's':
+         if character['x'] != 4:
+            character['x'] += 1
 
     return character
+
+
+def check_if_exit_reached(character: dict) -> bool:
+    """ Check if the user has reached the exist or not
+
+    :param character: must be a dictionary
+    :precondition:
+    :postcondition: conclude a boolean result of whether the user has reached the exit or not
+    :return: a boolean result
+    """
+    character_location = [character['x'], character['y']]
+    if character_location == [4, 4]:
+        print('You have reached the exist congratulation!')
+        return True
 
 
 def game():
@@ -117,6 +143,14 @@ def game():
         valid_move = validate_move(board, character, direction)
         if valid_move:
             move_character(direction, character)
+            found_exist = check_if_exit_reached(character)
+        else:
+            print('Please re-enter.')
+    print('***********************************')
+    print('*                                 *')
+    print('*            Game Over            *')
+    print('*                                 *')
+    print('***********************************')
 
 
 game()
