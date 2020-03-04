@@ -1,7 +1,13 @@
+"""
+Function to model a simple game, finding the exist.
+"""
+import doctest
+
+
 def make_board() -> list:
     """Make a 5*5 game board
 
-    :postcondition: create a list contain coordination for a 5*5 game board
+    :postcondition: creates a list containing coordination for a 5*5 game board
     :return: the successfully created 5*5 game board as a list
     """
     game_board = []
@@ -27,16 +33,31 @@ def make_character():
 
 
 def print_location(character_dictionary: dict) -> None:
-    """Print the location of the character
+    """Print the location of the character on the game board
 
     :param character_dictionary: must be a dictionary
-    :precondition: character_dictionary must contain two integers as the x and y coordinates of the character
-    :postcondition: print the location of the character base on the x and y coordinates
+    :precondition: character_dictionary must be a dictionary containing two integers as the x and y coordinates
+                   of the character
+    :postcondition: print the location of the character on the game board base on the x and y coordinates
+    >>> character_dictionary = {'x': 0,'y': 0,}
+    >>> print_location(character_dictionary)
+     $ . . . .
+     . . . . .
+     . . . . .
+     . . . . .
+     . . . . .
+    >>> character_dictionary = {'x':4, 'y':4}
+    >>> print_location(character_dictionary)
+     . . . . .
+     . . . . .
+     . . . . .
+     . . . . .
+     . . . . $
     """
     for x in range(5):
         for y in range(5):
-            print(' $ ', end='') if [character_dictionary['x'], character_dictionary['y']] == [x, y] else print(' . ',
-                                                                                                                end='')
+            print(' $', end='') if [character_dictionary['x'], character_dictionary['y']] == [x, y] else print(' .',
+                                                                                                              end='')
         print()
 
 
@@ -156,6 +177,7 @@ def game():
 def main() -> None:
     """ Initiate game
     """
+    doctest.testmod()
     game()
 
 
