@@ -10,3 +10,19 @@ def make_board():
             game_board.append((x, y))
     return game_board
 
+
+def make_character():
+    """Make a character
+
+    :postcondition: create a dictionary with character information
+    :return: store character information as a dictionary
+    """
+    name = input('Please select a name for your character:  ')
+    character_dict = {
+        'name': name,
+        'x': 0,
+        'y': 0,
+    }
+    return character_dict
+
+
