@@ -1,7 +1,9 @@
 """
 Function to model a simple game, finding the exist.
 """
-# import doctest
+
+
+import doctest
 
 
 def make_board() -> list:
@@ -57,7 +59,7 @@ def print_location(character_dictionary: dict) -> None:
     for x in range(5):
         for y in range(5):
             print(' $', end='') if [character_dictionary['x'], character_dictionary['y']] == [x, y] else print(' .',
-                                                                                                              end='')
+                                                                                                               end='')
         print()
 
 
@@ -132,9 +134,19 @@ def move_character(direction: str, character: dict) -> dict:
 
     :param direction: a string
     :param character: a dictionary
-    :precondition:
+    :precondition: direction must be a string; character must be a dictionary containing 'x' and 'y' as keys
     :postcondition: change the character coordinate base on the direction user wish to move
     :return: a modified character dictionary as a dictionary with changed character coordinates
+    >>> user_direction = 'e'
+    >>> user_character = {'x':2, 'y':2}
+    >>> move_character(user_direction, user_character)
+    {'x': 2, 'y': 3}
+
+    >>> user_direction = 'north'
+    >>> user_character = {'x':2, 'y':2}
+    >>> move_character(user_direction, user_character)
+    {'x': 1, 'y': 2}
+
     """
     if direction == 'east' or direction == 'e':
         if character['y'] != 4:
@@ -188,11 +200,10 @@ def game():
     print('***********************************')
 
 
-
 def main() -> None:
     """ Initiate game
     """
-    # doctest.testmod()
+    doctest.testmod()
     game()
 
 
