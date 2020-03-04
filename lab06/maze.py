@@ -26,3 +26,18 @@ def make_character():
     return character_dict
 
 
+def print_location(character_dictionary: dict) -> None:
+    """Print the location of the character
+
+    :param character_dictionary: must be a dictionary
+    :precondition: character_dictionary must contain two integers as the x and y coordinates of the character
+    :postcondition: print the location of the character base on the x and y coordinates
+    """
+    for y in range(5):
+        for x in range(5):
+            print(' $ ', end='') if (character_dictionary['x'], character_dictionary['y']) == (x, y) else print(' . ',
+                                                                                                                end='')
+        print()
+
+
+
