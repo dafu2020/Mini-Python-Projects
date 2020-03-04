@@ -153,4 +153,11 @@ def game():
     print('***********************************')
 
 
-game()
+def main() -> None:
+    """ Initiate game
+    """
+    game()
+
+
+if __name__ == "__main__":
+    main()
