@@ -33,8 +33,8 @@ def print_location(character_dictionary: dict) -> None:
     :precondition: character_dictionary must contain two integers as the x and y coordinates of the character
     :postcondition: print the location of the character base on the x and y coordinates
     """
-    for y in range(5):
-        for x in range(5):
+    for x in range(5):
+        for y in range(5):
             print(' $ ', end='') if [character_dictionary['x'], character_dictionary['y']] == [x, y] else print(' . ',
                                                                                                                 end='')
         print()
@@ -51,38 +51,59 @@ def get_user_choice() -> str:
     return user_choice
 
 
-def validate_move(my_board: list, my_character: dict, my_direction: str) -> bool:
+def validate_move(board: list, character: dict, direction: str) -> bool:
     """Check if user can move in specific direction
 
-    :param my_board: must be a list
-    :param my_character: must be a dictionary
-    :param my_direction: must be a string
+    :param board: must be a list
+    :param character: must be a dictionary
+    :param direction: must be a string
     :precondition: board must be a list containing all game coordinates; character must be a dictionary that contains
                     character coordinates
     :postcondition: conclude a boolean result if the movement of the user choice is valid or not
     :return: a boolean result
     """
     valid_input_list = ['north', 'south', 'west', 'east']
+    # character_location = [character['x'], character['y']]
     while True:
-        if my_direction in valid_input_list:
-            if my_character['x'] == 0 and my_direction == 'north':
+        if direction in valid_input_list:
+            if character['x'] == 0 and direction == 'north':
                 print('You have reached the boundary, you cannot move this way.')
                 return False
-            if my_character['x'] == 4 and my_direction == 'south':
+            if character['x'] == 4 and direction == 'south':
                 print('You have reached the boundary, you cannot move this way.')
                 return False
-            if my_character['y'] == 0 and my_direction == 'west':
+            if character['y'] == 0 and direction == 'west':
                 print('You have reached the boundary, you cannot move this way.')
                 return False
-            if my_character['y'] == 4 and my_direction == 'east':
+            if character['y'] == 4 and direction == 'east':
                 print('You have reached the boundary, you cannot move this way.')
                 return False
             else:
                 return True
         else:
-            print('This is not a valid input for direction, please enter: \'north\' or \'south\' or \'west\' or \'east\'')
-            my_direction = get_user_choice()
-            continue
+            print('This is not a valid input for direction, please re-enter.')
+            return False
+
+
+def move_character(direction: str, character: dict) -> dict:
+    """ Change character's x and y coordinates base on user's input
+
+    :param direction: a string
+    :param character: a dictionary
+    :precondition:
+    :postcondition: change the character coordinate base on the direction user wish to move
+    :return: a modified character dictionary as a dictionary with changed character coordinates
+    """
+    if direction == 'east' and character['y'] != 4:
+        character['y'] += 1
+    elif direction == 'west' and character['y'] != 0:
+        character['y'] += -1
+    elif direction == 'north' and character['x'] != 0:
+        character['x'] += -1
+    elif direction == 'south' and character['x'] != 4:
+        character['x'] += 1
+
+    return character
 
 
 def game():
@@ -90,12 +111,12 @@ def game():
     character = make_character()
     found_exist = False
     while not found_exist:
+        print(character)
         print_location(character)
         direction = get_user_choice()
         valid_move = validate_move(board, character, direction)
-        if validate_move:
-            move_character()
-            found_exit = check_if_exit_reached()
+        if valid_move:
+            move_character(direction, character)
 
 
 game()
