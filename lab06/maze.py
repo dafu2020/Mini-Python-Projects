@@ -40,4 +40,20 @@ def print_location(character_dictionary: dict) -> None:
         print()
 
 
+def get_user_choice() -> str:
+    """Ask user input for direction choice
 
+    This function is use to ask the user whether they wish to move up down left or right
+    :postcondition: ask user to enter a direction choice
+    :return: the entered direction choice as a string
+    """
+    user_choice = input('Please enter a direction that you want to move: ')
+    return user_choice
+
+
+def game():
+    board = make_board()
+    character = make_character()
+    found_exist = False
+    while not found_exist:
+        print_location(character)
