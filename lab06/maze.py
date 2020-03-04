@@ -82,25 +82,40 @@ def validate_move(board: list, character: dict, direction: str) -> bool:
                     character coordinates
     :postcondition: conclude a boolean result if the movement of the user choice is valid or not
     :return: a boolean result
+    >>> board = [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4],[1, 0], [1, 1], [1, 2], [1, 3], [1, 4],[2, 0]]
+    >>> character = {'x':0, 'y':0}
+    >>> direction = 'nonsense'
+    >>> validate_move(board, character, direction)
+    This is not a valid input.
+    False
+
+    >>> board = [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4],[1, 0], [1, 1], [1, 2], [1, 3], [1, 4],[2, 0]]
+    >>> character = {'x':0, 'y':0}
+    >>> direction = 'n'
+    >>> validate_move(board, character, direction)
+    You have reached the wall
+    False
+
     """
+
     valid_input_list = ['north', 'south', 'west', 'east', 'n', 's', 'w', 'e']
     character_location = [character['x'], character['y']]
     if character_location in board:
         while True:
             if direction in valid_input_list:
-                if character['x'] == 0:
+                if character['x'] == board[0][0]:
                     if direction == 'north' or direction == 'n':
                         print('You have reached the wall')
                         return False
-                if character['x'] == 4:
+                if character['x'] == board[-1][0]:
                     if direction == 'south' or direction == 's':
                         print('You have reached the wall')
                         return False
-                if character['y'] == 0:
+                if character['y'] == board[0][1]:
                     if direction == 'west' or direction == 'w':
                         print('You have reached the wall')
                         return False
-                if character['y'] == 4:
+                if character['y'] == board[-1][-1]:
                     if direction == 'east' or direction == 'e':
                         print('You have reached the wall')
                         return False
@@ -110,7 +125,7 @@ def validate_move(board: list, character: dict, direction: str) -> bool:
                 print('This is not a valid input.')
                 return False
     else:
-        print('This is not a valid input.')
+        print('This is not a valid coordinate.')
         return False
 
 
