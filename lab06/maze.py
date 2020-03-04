@@ -112,7 +112,7 @@ def move_character(direction: str, character: dict) -> dict:
         if character['x'] != 0:
             character['x'] += -1
     elif direction == 'south' or direction == 's':
-         if character['x'] != 4:
+        if character['x'] != 4:
             character['x'] += 1
 
     return character
