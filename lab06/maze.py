@@ -23,11 +23,11 @@ def make_character():
     :postcondition: create a dictionary with character information
     :return: store character information as a dictionary
     """
-    name = input('Please select a name for your character:  ')
+    name = input('Please select a name for your character:  ').capitalize()
     character_dict = {
         'name': name,
         'x': 0,
-        'y': 0,
+        'y': 0
     }
     return character_dict
 
