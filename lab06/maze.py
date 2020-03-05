@@ -69,12 +69,12 @@ def get_user_choice() -> str:
     return user_choice
 
 
-def validate_move(board: list, character: dict, direction: str) -> bool:
+def validate_move(game_board: list, game_character: dict, game_direction: str) -> bool:
     """Check if user can move in specific direction
 
-    :param board: must be a list
-    :param character: must be a dictionary
-    :param direction: must be a string
+    :param game_board: must be a list
+    :param game_character: must be a dictionary
+    :param game_direction: must be a string
     :precondition: board must be a list containing all game coordinates; character must be a dictionary that contains
                     character coordinates
     :postcondition: conclude a boolean result if the movement of the user choice is valid or not
@@ -97,25 +97,25 @@ def validate_move(board: list, character: dict, direction: str) -> bool:
 
     valid_input_list = ['north', 'south', 'west', 'east', 'n', 's', 'w', 'e']
     while True:
-        if direction in valid_input_list:
-            if character['x'] == board[0][0]:
-                if direction == 'north' or direction == 'n':
+        if game_direction in valid_input_list:
+            if game_character['x'] == game_board[0][0]:
+                if game_direction == 'north' or game_direction == 'n':
                     print('You have reached the wall')
                     return False
-            if character['x'] == board[-1][0]:
-                if direction == 'south' or direction == 's':
+            if game_character['x'] == game_board[-1][0]:
+                if game_direction == 'south' or game_direction == 's':
                     print('You have reached the wall')
                     return False
-            if character['y'] == board[0][1]:
-                if direction == 'west' or direction == 'w':
+            if game_character['y'] == game_board[0][1]:
+                if game_direction == 'west' or game_direction == 'w':
                     print('You have reached the wall')
                     return False
-            if character['y'] == board[-1][1]:
-                if direction == 'east' or direction == 'e':
+            if game_character['y'] == game_board[-1][1]:
+                if game_direction == 'east' or game_direction == 'e':
                     print('You have reached the wall')
                     return False
-            if character['y'] == board[-1][1] and character['x'] == board[-1][0]:
-                if direction == 'north' or direction == 'n' or direction == 'west' or direction == 'w':
+            if game_character['y'] == game_board[-1][1] and game_character['x'] == game_board[-1][0]:
+                if game_direction == 'north' or game_direction == 'n' or game_direction == 'west' or game_direction == 'w':
                     return True
             else:
                 return True
