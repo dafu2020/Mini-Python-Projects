@@ -25,9 +25,7 @@ def make_character():
     :postcondition: create a dictionary with character information
     :return: store character information as a dictionary
     """
-    name = input('Please select a name for your character:  ').capitalize()
     character_dict = {
-        'name': name,
         'x': 0,
         'y': 0
     }
@@ -169,7 +167,7 @@ def check_if_exit_reached(my_board: list, my_character: dict) -> bool:
 
     :param my_board: must be a list
     :param my_character: must be a dictionary
-    :precondition: board must be a list; character must be a dictionary containing 'x' and 'y' as keys
+    :precondition: board must be a non-empty list; character must be a dictionary containing 'x' and 'y' as keys
     :postcondition: conclude a boolean result of whether the user has reached the exit or not
     :return: a boolean result
     """
@@ -183,24 +181,31 @@ def check_if_exit_reached(my_board: list, my_character: dict) -> bool:
 
 
 def game():
+    """Run the game
+
+    :postcondition: create a game board； create a character; receive input from user and execute them  accordingly;
+                    print guiding messages accordingly.
+    """
+    print('***********************************')
+    print('*            Game Start           *')
+    print('***********************************')
+    print('You wake up remembering nothing but finding the exist of this forest.... \n'
+          'Please enter \'(N)orth\', \'(S)outh\', \'(W)est\', \'(E)ast\' for direction')
+
     board = make_board()
     character = make_character()
     found_exist = False
     while not found_exist:
-        print(character)
         print_location(character)
         direction = get_user_choice()
         valid_move = validate_move(board, character, direction)
-        print(valid_move)
         if valid_move:
             move_character(direction, character)
             found_exist = check_if_exit_reached(board, character)
         else:
             print('Please re-enter.')
     print('***********************************')
-    print('*                                 *')
     print('*            Game Over            *')
-    print('*                                 *')
     print('***********************************')
 
 
