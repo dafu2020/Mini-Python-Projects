@@ -78,11 +78,11 @@ def primes_vivian(lower, upper):
 
 
 def main():
-    lowerbound = 0
-    upperbound = 1000
-    cindy = eratosthenes_cindy(upperbound)
-    anunay = eratosthenes_anunay(upperbound)
-    vivian = primes_vivian(lowerbound, upperbound)
+    lower_bound = 0
+    upper_bound = 1000
+    cindy = eratosthenes_cindy(upper_bound)
+    anunay = eratosthenes_anunay(upper_bound)
+    vivian = primes_vivian(lower_bound, upper_bound)
     group = (cindy, anunay, vivian)
     if min(group) == cindy:
         print(f"eratosthenes_cindy is fastest")
