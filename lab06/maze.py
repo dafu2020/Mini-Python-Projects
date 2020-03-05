@@ -129,11 +129,11 @@ def validate_move(board: list, character: dict, direction: str) -> bool:
             return False
 
 
-def move_character(direction: str, character: dict) -> dict:
+def move_character(my_direction: str, my_character: dict) -> dict:
     """ Change character's x and y coordinates base on user's input
 
-    :param direction: a string
-    :param character: a dictionary
+    :param my_direction: a string
+    :param my_character: a dictionary
     :precondition: direction must be a string; character must be a dictionary containing 'x' and 'y' as keys
     :postcondition: change the character coordinate base on the direction user wish to move
     :return: a modified character dictionary as a dictionary with changed character coordinates
@@ -148,34 +148,38 @@ def move_character(direction: str, character: dict) -> dict:
     {'x': 1, 'y': 2}
 
     """
-    if direction == 'east' or direction == 'e':
-        if character['y'] != 4:
-            character['y'] += 1
-    elif direction == 'west' or direction == 'w':
-        if character['y'] != 0:
-            character['y'] += -1
-    elif direction == 'north' or direction == 'n':
-        if character['x'] != 0:
-            character['x'] += -1
-    elif direction == 'south' or direction == 's':
-        if character['x'] != 4:
-            character['x'] += 1
+    if my_direction == 'east' or my_direction == 'e':
+        if my_character['y'] != 4:
+            my_character['y'] += 1
+    elif my_direction == 'west' or my_direction == 'w':
+        if my_character['y'] != 0:
+            my_character['y'] += -1
+    elif my_direction == 'north' or my_direction == 'n':
+        if my_character['x'] != 0:
+            my_character['x'] += -1
+    elif my_direction == 'south' or my_direction == 's':
+        if my_character['x'] != 4:
+            my_character['x'] += 1
 
-    return character
+    return my_character
 
 
-def check_if_exit_reached(character: dict) -> bool:
+def check_if_exit_reached(my_board: list, my_character: dict) -> bool:
     """ Check if the user has reached the exist or not
 
-    :param character: must be a dictionary
-    :precondition:
+    :param my_board: must be a list
+    :param my_character: must be a dictionary
+    :precondition: board must be a list; character must be a dictionary containing 'x' and 'y' as keys
     :postcondition: conclude a boolean result of whether the user has reached the exit or not
     :return: a boolean result
     """
-    character_location = [character['x'], character['y']]
-    if character_location == [4, 4]:
+    character_location = [my_character['x'], my_character['y']]
+    exist = [my_board[-1][0], my_board[-1][1]]
+    if character_location == exist:
         print('You have reached the exist congratulation!')
         return True
+    else:
+        return False
 
 
 def game():
@@ -190,7 +194,7 @@ def game():
         print(valid_move)
         if valid_move:
             move_character(direction, character)
-            found_exist = check_if_exit_reached(character)
+            found_exist = check_if_exit_reached(board, character)
         else:
             print('Please re-enter.')
     print('***********************************')
