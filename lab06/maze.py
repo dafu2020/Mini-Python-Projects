@@ -210,7 +210,7 @@ def game():
 
 
 def main() -> None:
-    """ Initiate game
+    """ Initiate game and run doctests
     """
     doctest.testmod()
     game()
