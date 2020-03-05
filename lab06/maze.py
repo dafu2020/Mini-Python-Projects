@@ -1,10 +1,7 @@
 """
-Function to model a simple game, finding the exist.
+Function to model a simple game, finding the exit.
 """
-
-
 import doctest
-
 
 def make_board() -> list:
     """Make a 5*5 game board
@@ -163,7 +160,7 @@ def move_character(my_direction: str, my_character: dict) -> dict:
 
 
 def check_if_exit_reached(my_board: list, my_character: dict) -> bool:
-    """ Check if the user has reached the exist or not
+    """ Check if the user has reached the exit or not
 
     :param my_board: must be a list
     :param my_character: must be a dictionary
@@ -172,9 +169,9 @@ def check_if_exit_reached(my_board: list, my_character: dict) -> bool:
     :return: a boolean result
     """
     character_location = [my_character['x'], my_character['y']]
-    exist = [my_board[-1][0], my_board[-1][1]]
-    if character_location == exist:
-        print('You have reached the exist congratulation!')
+    exit = [my_board[-1][0], my_board[-1][1]]
+    if character_location == exit:
+        print('You have reached the exit, congratulation!')
         return True
     else:
         return False
@@ -183,13 +180,13 @@ def check_if_exit_reached(my_board: list, my_character: dict) -> bool:
 def game():
     """Run the game
 
-    :postcondition: create a game board； create a character; receive input from user and execute them  accordingly;
+    :postcondition: create a game board；create a character; receive input from user and execute them  accordingly;
                     print guiding messages accordingly.
     """
     print('***********************************')
     print('*            Game Start           *')
     print('***********************************')
-    print('You wake up remembering nothing but finding the exist of this forest.... \n'
+    print('You wake up remembering nothing but finding the exit of this forest.... \n'
           'Please enter \'(N)orth\', \'(S)outh\', \'(W)est\', \'(E)ast\' for direction')
 
     board = make_board()
