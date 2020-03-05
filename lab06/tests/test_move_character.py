@@ -83,7 +83,7 @@ class Test(TestCase):
         expected = {'x': 2, 'y': 1}
         self.assertEqual(expected, actual)
 
-    def test_board_middle_move_north(self):
+    def test_board_middle_move_east(self):
         argument1 = 'e'
         argument2 = {'x': 2, 'y': 2}
         actual = move_character(argument1, argument2)
