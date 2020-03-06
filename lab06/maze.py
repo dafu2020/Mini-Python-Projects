@@ -3,6 +3,7 @@ Function to model a simple game, finding the exit.
 """
 import doctest
 
+
 def make_board() -> list:
     """Make a 5*5 game board
 
@@ -79,14 +80,14 @@ def validate_move(game_board: list, game_character: dict, game_direction: str) -
                     character coordinates
     :postcondition: conclude a boolean result if the movement of the user choice is valid or not
     :return: a boolean result
-    >>> board = [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4],[1, 0], [1, 1], [1, 2], [1, 3], [1, 4],[2, 0]]
+    >>> board = [[0, 0], [0, 1], [1,0], [1,1]]
     >>> character = {'x':0, 'y':0}
     >>> direction = 'nonsense'
     >>> validate_move(board, character, direction)
     This is not a valid input.
     False
 
-    >>> board = [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4],[1, 0], [1, 1], [1, 2], [1, 3], [1, 4],[2, 0]]
+    >>> board = [[0, 0], [0, 1], [1,0], [1,1]]
     >>> character = {'x':0, 'y':0}
     >>> direction = 'n'
     >>> validate_move(board, character, direction)
@@ -115,7 +116,8 @@ def validate_move(game_board: list, game_character: dict, game_direction: str) -
                     print('You have reached the wall')
                     return False
             if game_character['y'] == game_board[-1][1] and game_character['x'] == game_board[-1][0]:
-                if game_direction == 'north' or game_direction == 'n' or game_direction == 'west' or game_direction == 'w':
+                if game_direction == 'north' or game_direction == 'n' or game_direction == 'west' or game_direction == \
+                        'w':
                     return True
             else:
                 return True
@@ -169,8 +171,8 @@ def check_if_exit_reached(my_board: list, my_character: dict) -> bool:
     :return: a boolean result
     """
     character_location = [my_character['x'], my_character['y']]
-    exit = [my_board[-1][0], my_board[-1][1]]
-    if character_location == exit:
+    game_exit = [my_board[-1][0], my_board[-1][1]]
+    if character_location == game_exit:
         print('You have reached the exit, congratulation!')
         return True
     else:
@@ -189,6 +191,7 @@ def game():
     print('You wake up remembering nothing but finding the exit of this forest.... \n'
           'Please enter \'(N)orth\', \'(S)outh\', \'(W)est\', \'(E)ast\' for direction')
 
+    board_size = 5  # this can be modified
     board = make_board()
     character = make_character()
     found_exist = False
