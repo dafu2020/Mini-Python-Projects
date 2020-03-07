@@ -4,20 +4,25 @@ Function to model a simple game, finding the exit.
 import doctest
 
 
-def make_board() -> list:
+def make_board(length: int) -> list:
     """Make a 5*5 game board
-
+    :param length: a non-zero positive integer
+    :precondition: length must be a non-zero positive integer
     :postcondition: creates a list containing coordination for a 5*5 game board
     :return: the successfully created 5*5 game board as a list
+    >>> make_board(1)
+    [[0, 0]]
+    >>> make_board(2)
+    [[0, 0], [0, 1], [1, 0], [1, 1]]
     """
     game_board = []
-    for x in range(5):
-        for y in range(5):
+    for x in range(length):
+        for y in range(length):
             game_board.append([x, y])
     return game_board
 
 
-def make_character():
+def make_character() -> dict:
     """Make a character
 
     :postcondition: create a dictionary with character information
@@ -169,6 +174,17 @@ def check_if_exit_reached(my_board: list, my_character: dict) -> bool:
     :precondition: board must be a non-empty list; character must be a dictionary containing 'x' and 'y' as keys
     :postcondition: conclude a boolean result of whether the user has reached the exit or not
     :return: a boolean result
+    >>> board = [[0, 0], [0, 1], [1,0], [1,1]]
+    >>> character = {'x':0, 'y':0}
+    >>> check_if_exit_reached(board, character)
+    False
+
+    >>> board = [[0, 0], [0, 1], [1,0], [1,1]]
+    >>> character = {'x':1, 'y':1}
+    >>> check_if_exit_reached(board, character)
+    You have reached the exit, congratulation!
+    True
+
     """
     character_location = [my_character['x'], my_character['y']]
     game_exit = [my_board[-1][0], my_board[-1][1]]
@@ -191,8 +207,8 @@ def game():
     print('You wake up remembering nothing but finding the exit of this forest.... \n'
           'Please enter \'(N)orth\', \'(S)outh\', \'(W)est\', \'(E)ast\' for direction')
 
-    board_size = 5  # this can be modified
-    board = make_board()
+    board_size = 5
+    board = make_board(board_size)
     character = make_character()
     found_exist = False
     while not found_exist:
