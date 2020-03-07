@@ -5,7 +5,7 @@ import doctest
 
 
 def make_board(length: int) -> list:
-    """Make a 5*5 game board
+    """Make a game board
     :param length: a non-zero positive integer
     :precondition: length must be a non-zero positive integer
     :postcondition: creates a list containing coordination for a 5*5 game board
