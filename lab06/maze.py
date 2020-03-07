@@ -4,31 +4,34 @@ Function to model a simple game, finding the exit.
 import doctest
 
 
-def make_board(length: int) -> list:
+# make a game board using nested lists
+def make_board(size: int) -> list:
     """Make a game board
 
-    :param length: a non-zero positive integer
-    :precondition: length must be a non-zero positive integer
-    :postcondition: creates a list containing coordination for a 5*5 game board
-    :return: the successfully created 5*5 game board as a list
-    >>> make_board(1)
-    [[0, 0]]
+    :param size: a non-zero positive integer
+    :precondition: size must be a non-zero positive integer
+    :postcondition: creates a list containing coordination for a certain size game board
+    :return: the successfully created game board as a list
+    >>> make_board(3)
+    [[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1], [2, 2]]
     >>> make_board(2)
     [[0, 0], [0, 1], [1, 0], [1, 1]]
     """
     game_board = []
-    for x in range(length):
-        for y in range(length):
+    for x in range(size):
+        for y in range(size):  # the game board is always a square
             game_board.append([x, y])
     return game_board
 
 
+# make a defaulted character
 def make_character() -> dict:
     """Make a character
 
     :postcondition: create a dictionary with character information
     :return: store character information as a dictionary
     """
+    # the defaulted character always start at (0,0)
     character_dict = {
         'x': 0,
         'y': 0
@@ -36,6 +39,7 @@ def make_character() -> dict:
     return character_dict
 
 
+# print the location of the character on the game board for player to interact
 def print_location(length: int, character_dictionary: dict) -> None:
     """Print the location of the character on the game board
 
@@ -63,21 +67,22 @@ def print_location(length: int, character_dictionary: dict) -> None:
      . . . . $
     """
     for x in range(length):
-        for y in range(length):
+        for y in range(length):  # using a ternary expression to print game board
             print(' $', end='') if [character_dictionary['x'], character_dictionary['y']] == [x, y] else print(' .',
                                                                                                                end='')
         print()
 
 
+# ask player for commands
 def get_user_choice() -> str:
     """Ask user input for direction choice
 
-    This function is use to ask the user whether they wish to move up down left or right
+    This function is use to ask the user whether they wish to move north, south, west or east.
     :postcondition: ask user to enter a direction choice
     :return: the entered direction choice as a string
     """
     user_choice = input('Please enter a direction that you want to move: ').lower()
-    if user_choice == 'quit':
+    if user_choice == 'quit':  # player can quit game when he/she wants
         print("You choose to end the game!")
         print('***********************************')
         print('*            Game Over            *')
@@ -90,11 +95,12 @@ def get_user_choice() -> str:
 def validate_move(game_board: list, game_character: dict, game_direction: str) -> bool:
     """Check if user can move in specific direction
 
-    :param game_board: must be a list
-    :param game_character: must be a dictionary
-    :param game_direction: must be a string
-    :precondition: board must be a list containing all game coordinates; character must be a dictionary that contains
-                    character coordinates
+    :param game_board:  a list
+    :param game_character: a dictionary
+    :param game_direction: a string
+    :precondition: game_board must be a list containing all game coordinates;
+                    game_character must be a dictionary that contains character coordination;
+                    game_direction must be a string
     :postcondition: conclude a boolean result if the movement of the user choice is valid or not
     :return: a boolean result
     >>> board = [[0, 0], [0, 1], [1,0], [1,1]]
@@ -117,28 +123,33 @@ def validate_move(game_board: list, game_character: dict, game_direction: str) -
     while True:
         if game_direction in valid_input_list:
             if game_character['x'] == game_board[0][0]:
+                # when character is at the north boundary of the board
                 if game_direction == 'north' or game_direction == 'n':
                     print('You have reached the wall')
                     return False
             if game_character['x'] == game_board[-1][0]:
+                # when character is at the south boundary of the board
                 if game_direction == 'south' or game_direction == 's':
                     print('You have reached the wall')
                     return False
             if game_character['y'] == game_board[0][1]:
+                # when character is at the west boundary of the board
                 if game_direction == 'west' or game_direction == 'w':
                     print('You have reached the wall')
                     return False
             if game_character['y'] == game_board[-1][1]:
+                # when character is at the east boundary of the board
                 if game_direction == 'east' or game_direction == 'e':
                     print('You have reached the wall')
                     return False
             if game_character['y'] == game_board[-1][1] and game_character['x'] == game_board[-1][0]:
+                # when character is at the last cell of the board
                 if game_direction == 'north' or game_direction == 'n' or game_direction == 'west' or game_direction == \
                         'w':
                     return True
             else:
                 return True
-        else:
+        else:  # use to validate if the command that player entered is a direction or not
             print('This is not a valid input.')
             return False
 
@@ -170,15 +181,19 @@ def move_character(my_board: list, my_direction: str, my_character: dict) -> dic
     character_location = [my_character['x'], my_character['y']]
     if character_location in my_board:
         if my_direction == 'east' or my_direction == 'e':
+            # character move east if has not reached the eastern boundary
             if my_character['y'] != my_board[-1][1]:
                 my_character['y'] += 1
         elif my_direction == 'west' or my_direction == 'w':
+            # character move west if has not reached the western boundary
             if my_character['y'] != my_board[0][1]:
                 my_character['y'] -= 1
         elif my_direction == 'north' or my_direction == 'n':
+            # character move north if has not reached the northern boundary
             if my_character['x'] != my_board[0][0]:
                 my_character['x'] -= 1
         elif my_direction == 'south' or my_direction == 's':
+            # character move south if has not reached the southern boundary
             if my_character['x'] != my_board[-1][0]:
                 my_character['x'] += 1
 
@@ -192,7 +207,7 @@ def check_if_exit_reached(my_board: list, my_character: dict) -> bool:
 
     :param my_board: must be a list
     :param my_character: must be a dictionary
-    :precondition: board must be a non-empty list; character must be a dictionary containing 'x' and 'y' as keys
+    :precondition: my_board must be a non-empty list; my_character must be a dictionary containing 'x' and 'y' as keys
     :postcondition: conclude a boolean result of whether the user has reached the exit or not
     :return: a boolean result
     >>> board = [[0, 0], [0, 1], [1,0], [1,1]]
@@ -209,6 +224,7 @@ def check_if_exit_reached(my_board: list, my_character: dict) -> bool:
     """
     character_location = [my_character['x'], my_character['y']]
     game_exit = [my_board[-1][0], my_board[-1][1]]
+    # check if the character is at the last cell of the game board
     if character_location == game_exit:
         print('You have reached the exit, congratulation!')
         return True
@@ -216,32 +232,37 @@ def check_if_exit_reached(my_board: list, my_character: dict) -> bool:
         return False
 
 
-def game():
+def game() -> None:
     """Run the game
 
-    :postcondition: create a game board；create a character; receive input from user and execute them  accordingly;
+    :postcondition: create a game board；create a character; receive input from user and execute them accordingly;
                     print guiding messages accordingly.
     """
+    # print game start message
     print('***********************************')
     print('*            Game Start           *')
     print('***********************************')
+    # print game direction
     print('You wake up remembering nothing but finding the exit of this forest.... \n'
           'Please enter \'(N)orth\', \'(S)outh\', \'(W)est\', \'(E)ast\' for direction')
 
+    # create a game board
     board_size = 5
     board = make_board(board_size)
+    # make a character
     character = make_character()
     found_exist = False
+    # before find the exist
     while not found_exist:
-        print_location(board_size, character)
-        # print(character)
-        direction = get_user_choice()
-        valid_move = validate_move(board, character, direction)
+        print_location(board_size, character)  # print the location of the character on board
+        direction = get_user_choice()  # ask user for direction
+        valid_move = validate_move(board, character, direction)  # validate the direction
         if valid_move:
-            move_character(board, direction, character)
-            found_exist = check_if_exit_reached(board, character)
+            move_character(board, direction, character)  # make character if the direction is true
+            found_exist = check_if_exit_reached(board, character)  # exist the loop if the exist is found
         else:
             print('Please re-enter.')
+    # display game over message
     print('***********************************')
     print('*            Game Over            *')
     print('***********************************')
@@ -249,6 +270,7 @@ def game():
 
 def main() -> None:
     """ Initiate game and run doctests
+
     """
     doctest.testmod()
     game()
