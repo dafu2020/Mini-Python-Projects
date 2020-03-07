@@ -10,8 +10,9 @@ import io
 class Test(TestCase):
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_print_location_beginning_of_the_board(self, mock_stdout):
-        argument = {'x': 0, 'y': 0}
-        print_location(argument)
+        argument1 = 5
+        argument2 = {'x': 0, 'y': 0}
+        print_location(argument1, argument2)
         expected = (' $ . . . .\n'
                     ' . . . . .\n'
                     ' . . . . .\n'
@@ -22,8 +23,9 @@ class Test(TestCase):
 
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_print_location_middle_of_the_board(self, mock_stdout):
-        argument = {'x': 2, 'y': 2}
-        print_location(argument)
+        argument1 = 5
+        argument2 = {'x': 2, 'y': 2}
+        print_location(argument1, argument2)
         expected = (' . . . . .\n'
                     ' . . . . .\n'
                     ' . . $ . .\n'
@@ -34,8 +36,9 @@ class Test(TestCase):
 
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_print_location_end_of_the_board(self, mock_stdout):
-        argument = {'x': 4, 'y': 4}
-        print_location(argument)
+        argument1 = 5
+        argument2 = {'x': 4, 'y': 4}
+        print_location(argument1, argument2)
         expected = (' . . . . .\n'
                     ' . . . . .\n'
                     ' . . . . .\n'
