@@ -6,6 +6,7 @@ import doctest
 
 def make_board(length: int) -> list:
     """Make a game board
+
     :param length: a non-zero positive integer
     :precondition: length must be a non-zero positive integer
     :postcondition: creates a list containing coordination for a 5*5 game board
@@ -35,30 +36,34 @@ def make_character() -> dict:
     return character_dict
 
 
-def print_location(character_dictionary: dict) -> None:
+def print_location(length: int, character_dictionary: dict) -> None:
     """Print the location of the character on the game board
 
+    :param length: a non-zero positive integer
     :param character_dictionary: must be a dictionary
-    :precondition: character_dictionary must be a dictionary containing two integers as the x and y coordinates
+    :precondition: length must ve a positive non-zero integer;
+                    character_dictionary must be a dictionary containing two integers as the x and y coordinates
                    of the character
     :postcondition: print the location of the character on the game board base on the x and y coordinates
+    >>> length = 5
     >>> character_dictionary = {'x': 0,'y': 0,}
-    >>> print_location(character_dictionary)
+    >>> print_location(length, character_dictionary)
      $ . . . .
      . . . . .
      . . . . .
      . . . . .
      . . . . .
+    >>> length = 5
     >>> character_dictionary = {'x':4, 'y':4}
-    >>> print_location(character_dictionary)
+    >>> print_location(length, character_dictionary)
      . . . . .
      . . . . .
      . . . . .
      . . . . .
      . . . . $
     """
-    for x in range(5):
-        for y in range(5):
+    for x in range(length):
+        for y in range(length):
             print(' $', end='') if [character_dictionary['x'], character_dictionary['y']] == [x, y] else print(' .',
                                                                                                                end='')
         print()
@@ -72,7 +77,14 @@ def get_user_choice() -> str:
     :return: the entered direction choice as a string
     """
     user_choice = input('Please enter a direction that you want to move: ').lower()
-    return user_choice
+    if user_choice == 'quit':
+        print("You choose to end the game!")
+        print('***********************************')
+        print('*            Game Over            *')
+        print('***********************************')
+        quit()
+    else:
+        return user_choice
 
 
 def validate_move(game_board: list, game_character: dict, game_direction: str) -> bool:
@@ -131,39 +143,48 @@ def validate_move(game_board: list, game_character: dict, game_direction: str) -
             return False
 
 
-def move_character(my_direction: str, my_character: dict) -> dict:
-    """ Change character's x and y coordinates base on user's input
+def move_character(my_board: list, my_direction: str, my_character: dict) -> dict:
+    """ Move character
 
+    A function to change character's x and y coordinates base on user's input on the game board.
+    :param my_board: a list
     :param my_direction: a string
     :param my_character: a dictionary
-    :precondition: direction must be a string; character must be a dictionary containing 'x' and 'y' as keys
+    :precondition: my_board must be a list; my_direction must be a string;
+                   my_character must be a dictionary containing 'x' and 'y' as keys
     :postcondition: change the character coordinate base on the direction user wish to move
     :return: a modified character dictionary as a dictionary with changed character coordinates
+    >>> game_board = [[0, 0], [0, 1], [1,0], [1,1]]
     >>> user_direction = 'e'
-    >>> user_character = {'x':2, 'y':2}
-    >>> move_character(user_direction, user_character)
-    {'x': 2, 'y': 3}
+    >>> user_character = {'x':0, 'y':0}
+    >>> move_character(game_board, user_direction, user_character)
+    {'x': 0, 'y': 1}
 
+    >>> game_board = [[0, 0], [0, 1], [1,0], [1,1]]
     >>> user_direction = 'north'
-    >>> user_character = {'x':2, 'y':2}
-    >>> move_character(user_direction, user_character)
-    {'x': 1, 'y': 2}
+    >>> user_character = {'x':1, 'y':0}
+    >>> move_character(game_board, user_direction, user_character)
+    {'x': 0, 'y': 0}
 
     """
-    if my_direction == 'east' or my_direction == 'e':
-        if my_character['y'] != 4:
-            my_character['y'] += 1
-    elif my_direction == 'west' or my_direction == 'w':
-        if my_character['y'] != 0:
-            my_character['y'] += -1
-    elif my_direction == 'north' or my_direction == 'n':
-        if my_character['x'] != 0:
-            my_character['x'] += -1
-    elif my_direction == 'south' or my_direction == 's':
-        if my_character['x'] != 4:
-            my_character['x'] += 1
+    character_location = [my_character['x'], my_character['y']]
+    if character_location in my_board:
+        if my_direction == 'east' or my_direction == 'e':
+            if my_character['y'] != my_board[-1][1]:
+                my_character['y'] += 1
+        elif my_direction == 'west' or my_direction == 'w':
+            if my_character['y'] != my_board[0][1]:
+                my_character['y'] -= 1
+        elif my_direction == 'north' or my_direction == 'n':
+            if my_character['x'] != my_board[0][0]:
+                my_character['x'] -= 1
+        elif my_direction == 'south' or my_direction == 's':
+            if my_character['x'] != my_board[-1][0]:
+                my_character['x'] += 1
 
-    return my_character
+        return my_character
+    else:
+        pass
 
 
 def check_if_exit_reached(my_board: list, my_character: dict) -> bool:
@@ -212,11 +233,12 @@ def game():
     character = make_character()
     found_exist = False
     while not found_exist:
-        print_location(character)
+        print_location(board_size, character)
+        # print(character)
         direction = get_user_choice()
         valid_move = validate_move(board, character, direction)
         if valid_move:
-            move_character(direction, character)
+            move_character(board, direction, character)
             found_exist = check_if_exit_reached(board, character)
         else:
             print('Please re-enter.')
