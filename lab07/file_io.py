@@ -1,12 +1,13 @@
-def getText(file_name):
+def top_ten_words(file_name):
     text = open(file_name, 'r').read()
-    text = text.lower().strip()
+    text = text.lower()
     # replace punctuation mark with ' '(space)
     for character in ',.~!@#$%^&*()_+-={}[]|/<>:\'\";':
         text = text.replace(character, ' ')
 
     # get the individual words from the text
     word_in_text = text.split()
+
     # count the frequency of the text
     word_count = {}
     for word in word_in_text:
@@ -34,12 +35,14 @@ def getText(file_name):
             final_dic[dic_key] = i[0]
     # print(final_dic)
 
-    # print the word:frequency
+    # print the word - frequency
     for key, value in final_dic.items():
         print(key, "-", value)
 
 
-getText('test_io.txt')
+top_ten_words('moby_dick.txt')
+# different result then mike
+# function name?
 # how to do unittest? any text file?
 # how to sort a dictionary by value
 # reverse the sorted()
