@@ -1,9 +1,9 @@
 def top_ten_words(file_name):
     text = open(file_name, 'r').read()
-    text = text.lower()
     # replace punctuation mark with ' '(space)
     for character in ',.~!@#$%^&*()_+-={}[]|/<>:\'\";':
-        text = text.replace(character, ' ')
+        text = text.replace(character, '')
+    text = text.lower()
 
     # get the individual words from the text
     word_in_text = text.split()
@@ -15,25 +15,21 @@ def top_ten_words(file_name):
             word_count[word] += 1
         else:
             word_count[word] = 1
-    # print(word_count)
 
     # the sorted nested list = sorting the dictionary by value
     sorted_word_count = sorted([value, key] for (key, value) in word_count.items())
-    # print(sorted_word_count)
 
     # find the top ten
     new_list = []
-    for i in [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10]:
+    for i in reversed(list(range(-10, 0))):
         new_list.append(sorted_word_count[i])
-    # print(new_list)
 
     # convert the nested list to dictionary form for printing purpose
     final_dic = {}
     for i in new_list:
-        for x in i:
+        for _ in i:
             dic_key = i[1]
             final_dic[dic_key] = i[0]
-    # print(final_dic)
 
     # print the word - frequency
     for key, value in final_dic.items():

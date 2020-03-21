@@ -1,27 +1,39 @@
-def heron(my_number) -> float:
+import doctest
+
+
+def heron(my_number: int) -> float:
     """ Mimic Heron’s algorithm to find the square root of a number
 
-    :param my_number: a number
-    :precondition: my_number must be a number
+    :param my_number: a integer
+    :precondition: my_number must be a integer
     :postcondition: calculate the square root of number
     :return: the calculated square root as a float number
 
+    >>> heron(4)
+    2.0
+    >>> heron(9)
+    3.0
+    >>> heron(100)
+    10.0
+
     """
     try:
-        guess = my_number
-        guess_product = guess * guess
+        if my_number < 0 and my_number != -1:
+            raise ZeroDivisionError
 
-        while guess_product != my_number:
-            guess = (guess + (my_number / guess)) / 2
-            guess_product = guess * guess
+        else:
+            guess = my_number
 
+        while guess ** 2 - my_number > 0.00001:
+            guess = (guess + my_number / guess) / 2
+        guess = round(guess, 4)
         return guess
     except ZeroDivisionError:
         print('No, I can’t do that!')
         return -1
 
 
-def find_an_even(input_list):
+def find_an_even(input_list: list) -> int:
     """Return the first even number in input_list
 
      :param input_list: a list of integers
@@ -30,16 +42,44 @@ def find_an_even(input_list):
      :raise ValueError: if input_list does not contain an even number
      :return: first even number in input_list
 
+     >>> my_list = [1, 2, 3, 4, 5, 6]
+     >>> find_an_even(my_list)
+     2
+
+     >>> my_list = [2, 4, 6, 2.0]
+     >>> find_an_even(my_list)
+     2
+
+     >>> my_list = [8, 4, 2]
+     >>> find_an_even(my_list)
+     8
+
      """
-    try:
-        for i in input_list:
-            if i % 2 == 0:
-                return i
-        else:
-            raise ValueError
-    except ValueError:
-        print('wrong list')
-        return -1
+    for i in input_list:
+        if i % 2 == 0:
+            return i
+    else:
+        raise ValueError
 
 
-print(find_an_even([1, 4, 2]))
+def main():
+    doctest.testmod()
+    test_list_0 = []  # empty list
+    test_list_1 = [1]  # list size one
+    test_list_2 = [1, 2, 3]  # list contain ond even number
+    test_list_3 = [1, 3, 5]  # list contain no even number
+
+    test_list_collection = [test_list_0, test_list_1, test_list_2, test_list_3]
+
+    for test_list in test_list_collection:
+        try:
+            print(find_an_even(test_list))
+        except ValueError:
+            print('The list do not contain even number')
+
+
+if __name__ == '__main__':
+    main()
+
+# print(find_an_even([2]))
+# print(heron(-3))
