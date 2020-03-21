@@ -1,4 +1,41 @@
-def top_ten_words(file_name):
+import doctest
+
+
+def top_ten_words(file_name: str):
+    """Count top ten word of a file.
+
+    :param file_name: a string and a text file
+    :precondition: file_name must be a string and a text file
+    :postcondition: Count and print the top ten word of a file
+    :return: the correctly counted and printed result of the top ten word of a file
+
+    >>> my_file = 'moby_dick.txt'
+    >>> top_ten_words(my_file)
+    the - 14508
+    of - 6700
+    and - 6434
+    a - 4690
+    to - 4657
+    in - 4201
+    that - 2939
+    his - 2519
+    it - 2356
+    i - 1942
+
+    >>> my_file = 'alice.txt'
+    >>> top_ten_words(my_file)
+    the - 1804
+    and - 912
+    to - 797
+    a - 684
+    of - 622
+    she - 538
+    it - 529
+    said - 462
+    in - 425
+    you - 418
+
+    """
     text = open(file_name, 'r').read()
     # replace punctuation mark with ' '(space)
     for character in ',.~!@#$%^&*()_+-={}[]|/<>:\'\";':
@@ -36,9 +73,15 @@ def top_ten_words(file_name):
         print(key, "-", value)
 
 
-top_ten_words('moby_dick.txt')
-# different result then mike
-# function name?
-# how to do unittest? any text file?
-# how to sort a dictionary by value
-# reverse the sorted()
+def main():
+    doctest.testmod()
+    my_file = input("Please enter the name of the text file you wish to count the top ten words(with .txt): ")
+
+    try:
+        top_ten_words(my_file)
+    except FileNotFoundError:
+        print('No such file found under the directory')
+
+
+if __name__ == '__main__':
+    main()
