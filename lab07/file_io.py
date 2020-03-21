@@ -1,7 +1,6 @@
 import doctest
 
-
-def top_ten_words(file_name: str):
+def top_ten_words(file_name: str) -> None:
     """Count top ten word of a file.
 
     :param file_name: a string and a text file
