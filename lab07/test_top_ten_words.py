@@ -22,3 +22,4 @@ class Test(TestCase):
         expected = 'the - 1804\nand - 912\nto - 797\na - 684\nof - 622\nshe - 538\nit - 529\nsaid - 462\n' \
                    'in - 425\nyou - 418\n'
         self.assertEqual(mock_stdout.getvalue(), expected)
+

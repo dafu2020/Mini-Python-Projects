@@ -35,7 +35,8 @@ def top_ten_words(file_name: str) -> None:
     you - 418
 
     """
-    text = open(file_name, 'r').read()
+    with open(file_name) as file_object:
+        text = file_object.read()
     # replace punctuation mark with ' '(space)
     for character in ',.~!@#$%^&*()_+-={}[]|/<>:\'\";':
         text = text.replace(character, '')
