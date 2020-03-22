@@ -74,8 +74,3 @@ class Test(TestCase):
         expected = '10 - 10\n9 - 9\n8 - 8\nseven - 7\nsix - 6\nfive - 5\nfour - 4\nthree - 3\ntwo - 2\n' \
                    'one - 1\nnew - 1\n'
         self.assertEqual(mock_stdout.getvalue(), expected)
-
-
-
-
-
