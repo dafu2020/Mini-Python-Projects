@@ -64,6 +64,9 @@ class Country:
 
 
 def main():
+    """
+    Drive the program.
+    """
     canada = Country('Canada', 37590000, 9985000)
     denmark = Country("Denmark", 5603000, 42933)
 
