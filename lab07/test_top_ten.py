@@ -1,42 +1,54 @@
+"""
+Demonstrate the unittest of top_ten function.
+"""
 from unittest import TestCase
 import file_io
 
 
 class Test(TestCase):
     def test_empty_dict(self):
+        """Test function with a empty dictionary"""
         argument = {}
         with self.assertRaises(IndexError):
             file_io.top_ten(argument)
 
     def test_dict_size_one_all_number(self):
+        """Test function with a size one dictionary containing numbers for both key and value pair"""
         argument = {0: 0}
         with self.assertRaises(IndexError):
             file_io.top_ten(argument)
 
     def test_dict_size_ten_all_number(self):
+        """Test function with a size ten dictionary containing numbers for both key and value pairs"""
         argument = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10}
         actual = file_io.top_ten(argument)
         expected = [[10, 10], [9, 9], [8, 8], [7, 7], [6, 6], [5, 5], [4, 4], [3, 3], [2, 2], [1, 1]]
         self.assertEqual(actual, expected)
 
     def test_dict_size_more_than_ten_all_number(self):
+        """Test function with a size more than ten dictionary containing numbers for both key and value pairs"""
         argument = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13}
         actual = file_io.top_ten(argument)
         expected = [[13, 13], [12, 12], [11, 11], [10, 10], [9, 9], [8, 8], [7, 7], [6, 6], [5, 5], [4, 4]]
         self.assertEqual(actual, expected)
 
     def test_dict_same_occurrence_all_number(self):
+        """Test function with a size more than ten dictionary containing numbers for both key and value pairs,
+        some key-value pair containing same value"""
+
         argument = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 10, 12: 10, 13: 10}
         actual = file_io.top_ten(argument)
         expected = [[10, 13], [10, 12], [10, 11], [10, 10], [9, 9], [8, 8], [7, 7], [6, 6], [5, 5], [4, 4]]
         self.assertEqual(actual, expected)
 
     def test_dict_size_one_all_str(self):
+        """Test function with a size one dictionary uses string for key value"""
         argument = {'nothing': 0}
         with self.assertRaises(IndexError):
             file_io.top_ten(argument)
 
     def test_dict_size_ten_all_str(self):
+        """Test function with a size ten dictionary uses string for key value"""
         argument = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8,
                     'nine': 9, 'ten': 10}
         actual = file_io.top_ten(argument)
@@ -45,6 +57,7 @@ class Test(TestCase):
         self.assertEqual(actual, expected)
 
     def test_dict_size_more_than_ten_all_str(self):
+        """Test function with a size more than ten dictionary uses string for key value"""
         argument = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8,
                     'nine': 9, 'ten': 10, 'eleven': 11, 'twelve': 12}
         actual = file_io.top_ten(argument)
@@ -53,6 +66,8 @@ class Test(TestCase):
         self.assertEqual(actual, expected)
 
     def test_dict_same_occurrence_all_str(self):
+        """Test function with a size more than ten dictionary uses string for key value,
+        some key-value pair containing same value"""
         argument = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8,
                     'nine': 9, 'ten': 10, 'eleven': 10, 'twelve': 10}
         actual = file_io.top_ten(argument)
@@ -61,6 +76,8 @@ class Test(TestCase):
         self.assertEqual(actual, expected)
 
     def test_dict_str_and_number_mixture(self):
+        """Test function with a size more than ten dictionary uses string and number for key value,
+        some key-value pair containing same value"""
         argument = {'one': 1, 'two': 2, 3: 3, 'four': 4, 'five': 5, 6: 6, 'seven': 7, 'eight': 8,
                     'nine': 9, 'ten': 10, 1: 10, 'twelve': 10}
         with self.assertRaises(TypeError):
