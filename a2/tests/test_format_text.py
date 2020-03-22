@@ -27,5 +27,3 @@ class Test(TestCase):
         expected = ['this', 'txt', 'here', 'is', 'used', 'for', 'unittest', 'purpose', 'this', 'txt', 'here', 'is',
                     'used', 'for', 'unittest', 'purpose']
         self.assertEqual(actual, expected)
-
-
