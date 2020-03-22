@@ -13,7 +13,7 @@ class Test(TestCase):
         with self.assertRaises(FileNotFoundError):
             file_io.open_text(argument)
 
-    def test_alice(self):
+    def test_right_file(self):
         file_name = 'doctest_1.txt'
         actual = file_io.open_text(file_name)
         expected = 'this file is for the purpose of doctest:'
