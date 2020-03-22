@@ -26,7 +26,7 @@ def heron(my_number: int) -> float:
 
         while guess ** 2 - my_number > 0.00001:
             guess = (guess + my_number / guess) / 2
-        guess = round(guess, 4)
+        guess = round(guess, 2)
         return guess
     except ZeroDivisionError:
         print('No, I can’t do that!')
