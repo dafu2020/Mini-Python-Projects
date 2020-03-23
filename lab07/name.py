@@ -19,13 +19,13 @@ class Name:
         return len(self.first_name) + len(self.middle_name) + len(self.last_name)
 
     def change_first_name(self, first_name):
-        self.first_name = first_name
+        self.first_name = first_name.title()
 
     def change_middle_name(self, middle_name):
-        self.middle_name = middle_name
+        self.middle_name = middle_name.title()
 
     def change_last_name(self, last_name):
-        self.last_name = last_name
+        self.last_name = last_name.title()
 
     def __str__(self):
         return f'{self.first_name} {self.middle_name} {self.last_name}'
