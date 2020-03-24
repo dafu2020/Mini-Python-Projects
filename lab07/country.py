@@ -1,3 +1,6 @@
+"""
+Demonstrate how to use and construct an Country class object
+"""
 import doctest
 
 
@@ -21,7 +24,7 @@ class Country:
 
         """
         # name the country
-        if len(name) >= 0:
+        if len(name) > 0:
             self.name = name
         else:
             raise ValueError("Country name cannot be empty!")
@@ -121,10 +124,11 @@ def main():
     Drive the program.
     """
     doctest.testmod()
-    canada = Country('Canada', 37590000, 9985000)
-    denmark = Country("Denmark", 5603000, 42933)
 
     try:
+        canada = Country('Canada', 37590000, 9985000)
+        denmark = Country("Denmark", 5603000, 42933)
+
         print(canada.is_larger(denmark))
         print(canada.population_density())
         print(canada)

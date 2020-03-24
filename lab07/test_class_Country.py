@@ -14,6 +14,26 @@ class TestCountry(TestCase):
         self.test_country_1 = Country('Country_one', 100, 1000)
         self.test_country_2 = Country("Country_two", 50, 100)
 
+    def test___init___name_empty(self):
+        with self.assertRaises(ValueError):
+            self.country_fail = Country('', 10, 100)
+
+    def test___init___name_population_negative(self):
+        with self.assertRaises(ValueError):
+            self.country_fail = Country('country_fail', -1, 100)
+
+    def test___init___name_population_zero(self):
+        with self.assertRaises(ValueError):
+            self.country_fail = Country('country_fail', 0, 100)
+
+    def test___init___name_area_negative(self):
+        with self.assertRaises(ValueError):
+            self.country_fail = Country('country_fail', 100, -1)
+
+    def test___init___name_area_zero(self):
+        with self.assertRaises(ValueError):
+            self.country_fail = Country('country_fail', 100, 0)
+
     def test_is_larger(self):
         """Test the is_larger function with existed countries"""
         expected = True
@@ -52,21 +72,21 @@ class TestCountry(TestCase):
     def test___repr__(self):
         """Test the repr of an existed Country object"""
         expected = 'Country(\"Country_one\", 100, 1000)'
-        actual = self.test_country_1.__repr__()
+        actual = repr(self.test_country_1)
         self.assertEqual(expected, actual)
 
     def test___repr___Country_non_existed(self):
         """Test the repr of a non-existed Country object"""
         with self.assertRaises(AttributeError):
-            self.test_country_3.__repr__()
+            repr(self.test_country_3)
 
     def test___repr__in_list(self):
         """Test the repr of an existed Country object in a list"""
         expected = ['Country(\"Country_one\", 100, 1000)']
-        actual = [self.test_country_1.__repr__()]
+        actual = [repr(self.test_country_1)]
         self.assertEqual(expected, actual)
 
     def test___repr__in_list_non_existed(self):
         """Test the repr of a non-existed object in a list"""
         with self.assertRaises(AttributeError):
-            [self.test_country_3.__repr__()]
+            [repr(self.test_country_3)]
