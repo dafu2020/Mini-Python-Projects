@@ -1,3 +1,6 @@
+"""
+Demonstrate how to find the top ten occurrence words from a text file.
+"""
 import doctest
 
 
@@ -156,9 +159,8 @@ def print_result(occurrence_list: list) -> None:
 
 
 def main():
-    """Initiate function
-
-    Ran doctest and count top ten word of a text file.
+    """
+    Drive the program.
     """
     doctest.testmod()
     my_file = input("Please enter the name of the text file you wish to count the top ten words(with .txt): ")
