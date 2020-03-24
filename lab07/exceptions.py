@@ -24,7 +24,7 @@ def heron(my_number: int) -> float:
         else:
             guess = my_number   # start the guess with the number itself
 
-        while guess ** 2 - my_number > 0.00001:     # conducting the heron's algorithism
+        while guess ** 2 - my_number > 0.00001:     # conducting the heron's algorithm
             guess = (guess + my_number / guess) / 2
         guess = round(guess, 2)
         return guess
