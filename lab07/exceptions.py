@@ -18,13 +18,13 @@ def heron(my_number: int) -> float:
 
     """
     try:
-        if my_number < 0 and my_number != -1:
+        if my_number < 0 and my_number != -1:   # all negative number will raise ZeroDivisionError
             raise ZeroDivisionError
 
         else:
-            guess = my_number
+            guess = my_number   # start the guess with the number itself
 
-        while guess ** 2 - my_number > 0.00001:
+        while guess ** 2 - my_number > 0.00001:     # conducting the heron's algorithism
             guess = (guess + my_number / guess) / 2
         guess = round(guess, 2)
         return guess
@@ -57,9 +57,9 @@ def find_an_even(input_list: list) -> int:
      """
     for i in input_list:
         if i % 2 == 0:
-            return i
+            return i    # if the list contain a even number, return it and stop
     else:
-        raise ValueError
+        raise ValueError    # else raise ValueError
 
 
 def main():
