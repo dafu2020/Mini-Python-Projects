@@ -25,7 +25,7 @@ class Country:
         """
         # name the country
         if len(name) > 0:
-            self.name = name
+            self.name = name.title()
         else:
             raise ValueError("Country name cannot be empty!")
         # set the population of the country

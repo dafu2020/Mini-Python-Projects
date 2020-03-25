@@ -59,7 +59,7 @@ class TestCountry(TestCase):
     @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
     def test___str__(self, mock_stdout):
         """Test print an existed Country"""
-        expected = 'Country_one has a population of 100 and is 1000 square kilometres.\n'
+        expected = 'Country_One has a population of 100 and is 1000 square kilometres.\n'
         print(self.test_country_1)
         self.assertEqual(mock_stdout.getvalue(), expected)
 
@@ -71,7 +71,7 @@ class TestCountry(TestCase):
 
     def test___repr__(self):
         """Test the repr of an existed Country object"""
-        expected = 'Country(\"Country_one\", 100, 1000)'
+        expected = 'Country(\"Country_One\", 100, 1000)'
         actual = repr(self.test_country_1)
         self.assertEqual(expected, actual)
 
@@ -82,7 +82,7 @@ class TestCountry(TestCase):
 
     def test___repr__in_list(self):
         """Test the repr of an existed Country object in a list"""
-        expected = ['Country(\"Country_one\", 100, 1000)']
+        expected = ['Country(\"Country_One\", 100, 1000)']
         actual = [repr(self.test_country_1)]
         self.assertEqual(expected, actual)
 
