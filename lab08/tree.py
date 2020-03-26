@@ -13,6 +13,33 @@ class Tree:
         else:
             raise ValueError('The age of the tree cannot be negative')
 
+    def get_species(self):
+        """
+        Return the species name.
+        :return: species as a string
+        """
+        return self.species
+
+    def get_age(self):
+        """
+        Return the age.
+        :return: age as an int
+        """
+        return self.age
+
+    def get_trunk_circumference(self):
+        """
+        Return the trunk circumference
+        :return: trunk circumference as int.
+        """
+        return self.trunk_circumference
+
+    def update_species(self, new_species):
+        if len(new_species) > 0:
+            self.species = new_species.title()
+        else:
+            raise ValueError('The species cannot be empty')
+
     def __str__(self):
         return f'{self.species} is {self.age} year(s) old, has a trunk circumference of {self.trunk_circumference} ' \
                f'centimetres.'
@@ -26,7 +53,7 @@ def main():
     tree_2 = Tree('Douglas fir', 1, 10)
 
     print(repr(tree_1))
-    print(tree_1)
+    print(tree_2)
 
 
 if __name__ == "__main__":
