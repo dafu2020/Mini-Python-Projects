@@ -63,7 +63,6 @@ class TestCountry(TestCase):
         print(self.test_country_1)
         self.assertEqual(mock_stdout.getvalue(), expected)
 
-    @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
     def test___str___non_existed_Country(self, mock_stdout):
         """Test print a Country that is not existed"""
         with self.assertRaises(AttributeError):
