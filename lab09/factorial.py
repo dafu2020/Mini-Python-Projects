@@ -59,14 +59,14 @@ def factorial_recursive_helper(num: int) -> int:
 
 def main():
     for i in range(1, 101):
-        (a, b, c) = factorial_iterative(i)
-        (e, f, g) = factorial_recursive(i)
-        if c > g:
+        (iterative_value, iterative_name, iterative_runtime) = factorial_iterative(i)
+        (recursive_value, recursive_name, recursive_runtime) = factorial_recursive(i)
+        if iterative_runtime > recursive_runtime:
             with open('results.txt', 'a') as file_object:
-                file_object.write(f'{f} is faster for number {i}!\n\n')
-        elif g < c:
+                file_object.write(f'{recursive_name} is faster for number {i}!\n\n')
+        elif recursive_runtime < iterative_runtime:
             with open('results.txt', 'a') as file_object:
-                file_object.write(f'{b} is faster for number {i}!\n\n')
+                file_object.write(f'{iterative_name} is faster for number {i}!\n\n')
         else:
             with open('results.txt', 'a') as file_object:
                 file_object.write(f'they are equally fast for number {i}\n\n')
