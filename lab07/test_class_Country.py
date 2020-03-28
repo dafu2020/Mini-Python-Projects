@@ -63,7 +63,7 @@ class TestCountry(TestCase):
         print(self.test_country_1)
         self.assertEqual(mock_stdout.getvalue(), expected)
 
-    def test___str___non_existed_Country(self, mock_stdout):
+    def test___str___non_existed_Country(self):
         """Test print a Country that is not existed"""
         with self.assertRaises(AttributeError):
             print(self.test_country_3)
