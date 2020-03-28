@@ -46,7 +46,7 @@ def factorial_recursive(my_number: int) -> int:
 
 
 def factorial_recursive_helper(num: int) -> int:
-    """
+    """s
 
     :param num:
     :return:
