@@ -1,400 +1,400 @@
-the run time for factorial_iterative(1) is 1.966000000002549e-06 
-the run time for factorial_recursive(1) is 1.1369999999982783e-06 
+the run time for factorial_iterative(1) is 2.7749999999965302e-06 
+the run time for factorial_recursive(1) is 1.786000000003618e-06 
 factorial_recursive is faster for number 1!
 
-the run time for factorial_iterative(2) is 3.347000000000766e-06 
-the run time for factorial_recursive(2) is 1.5880000000002836e-06 
+the run time for factorial_iterative(2) is 4.3320000000027226e-06 
+the run time for factorial_recursive(2) is 2.4969999999971404e-06 
 factorial_recursive is faster for number 2!
 
-the run time for factorial_iterative(3) is 2.481999999998097e-06 
-the run time for factorial_recursive(3) is 1.6290000000029892e-06 
+the run time for factorial_iterative(3) is 5.402000000001572e-06 
+the run time for factorial_recursive(3) is 3.7800000000018374e-06 
 factorial_recursive is faster for number 3!
 
-the run time for factorial_iterative(4) is 2.404999999996993e-06 
-the run time for factorial_recursive(4) is 1.7040000000016764e-06 
+the run time for factorial_iterative(4) is 3.7199999999987243e-06 
+the run time for factorial_recursive(4) is 3.078000000003578e-06 
 factorial_recursive is faster for number 4!
 
-the run time for factorial_iterative(5) is 3.2090000000005448e-06 
-the run time for factorial_recursive(5) is 2.362999999998283e-06 
+the run time for factorial_iterative(5) is 5.049000000000026e-06 
+the run time for factorial_recursive(5) is 4.4339999999976065e-06 
 factorial_recursive is faster for number 5!
 
-the run time for factorial_iterative(6) is 6.019000000002939e-06 
-the run time for factorial_recursive(6) is 2.0049999999993684e-06 
-factorial_recursive is faster for number 6!
+the run time for factorial_iterative(6) is 3.7989999999987756e-06 
+the run time for factorial_recursive(6) is 4.719999999999724e-06 
+factorial_iterative is faster for number 6!
 
-the run time for factorial_iterative(7) is 3.0110000000041492e-06 
-the run time for factorial_recursive(7) is 2.67099999999576e-06 
+the run time for factorial_iterative(7) is 3.968999999999501e-06 
+the run time for factorial_recursive(7) is 3.4359999999955537e-06 
 factorial_recursive is faster for number 7!
 
-the run time for factorial_iterative(8) is 6.063000000000596e-06 
-the run time for factorial_recursive(8) is 2.3400000000034504e-06 
+the run time for factorial_iterative(8) is 4.058000000001227e-06 
+the run time for factorial_recursive(8) is 3.4039999999985193e-06 
 factorial_recursive is faster for number 8!
 
-the run time for factorial_iterative(9) is 2.637999999999252e-06 
-the run time for factorial_recursive(9) is 2.453999999998957e-06 
+the run time for factorial_iterative(9) is 3.247999999997364e-06 
+the run time for factorial_recursive(9) is 3.1119999999995596e-06 
 factorial_recursive is faster for number 9!
 
-the run time for factorial_iterative(10) is 2.7199999999977242e-06 
-the run time for factorial_recursive(10) is 2.569000000000876e-06 
+the run time for factorial_iterative(10) is 4.113000000000033e-06 
+the run time for factorial_recursive(10) is 3.6210000000022613e-06 
 factorial_recursive is faster for number 10!
 
-the run time for factorial_iterative(11) is 2.6509999999993483e-06 
-the run time for factorial_recursive(11) is 2.715000000000356e-06 
-they are equally fast for number 11
-
-the run time for factorial_iterative(12) is 2.695999999996479e-06 
-the run time for factorial_recursive(12) is 2.9060000000039055e-06 
-they are equally fast for number 12
-
-the run time for factorial_iterative(13) is 2.7059999999981543e-06 
-the run time for factorial_recursive(13) is 2.9580000000042905e-06 
-they are equally fast for number 13
-
-the run time for factorial_iterative(14) is 2.9139999999996946e-06 
-the run time for factorial_recursive(14) is 3.691000000000111e-06 
-they are equally fast for number 14
-
-the run time for factorial_iterative(15) is 2.9770000000012287e-06 
-the run time for factorial_recursive(15) is 3.4749999999958425e-06 
-they are equally fast for number 15
-
-the run time for factorial_iterative(16) is 3.064000000004008e-06 
-the run time for factorial_recursive(16) is 3.651999999999822e-06 
-they are equally fast for number 16
-
-the run time for factorial_iterative(17) is 2.992999999999746e-06 
-the run time for factorial_recursive(17) is 3.5649999999970428e-06 
-they are equally fast for number 17
-
-the run time for factorial_iterative(18) is 2.9999999999960614e-06 
-the run time for factorial_recursive(18) is 3.7109999999965226e-06 
-they are equally fast for number 18
-
-the run time for factorial_iterative(19) is 3.0679999999949636e-06 
-the run time for factorial_recursive(19) is 3.851999999998634e-06 
-they are equally fast for number 19
-
-the run time for factorial_iterative(20) is 3.168999999997313e-06 
-the run time for factorial_recursive(20) is 4.118999999996875e-06 
-they are equally fast for number 20
-
-the run time for factorial_iterative(21) is 4.3320000000027226e-06 
-the run time for factorial_recursive(21) is 4.6209999999963225e-06 
-they are equally fast for number 21
-
-the run time for factorial_iterative(22) is 3.4910000000012986e-06 
-the run time for factorial_recursive(22) is 4.4420000000003346e-06 
-they are equally fast for number 22
-
-the run time for factorial_iterative(23) is 3.355999999996029e-06 
-the run time for factorial_recursive(23) is 4.427000000001291e-06 
-they are equally fast for number 23
-
-the run time for factorial_iterative(24) is 3.2500000000032503e-06 
-the run time for factorial_recursive(24) is 4.5410000000037365e-06 
-they are equally fast for number 24
-
-the run time for factorial_iterative(25) is 3.386000000001055e-06 
-the run time for factorial_recursive(25) is 4.706999999999628e-06 
-they are equally fast for number 25
-
-the run time for factorial_iterative(26) is 4.77800000000389e-06 
-the run time for factorial_recursive(26) is 4.8819999999977215e-06 
-they are equally fast for number 26
-
-the run time for factorial_iterative(27) is 4.26899999999425e-06 
-the run time for factorial_recursive(27) is 5.604999999998805e-06 
-they are equally fast for number 27
-
-the run time for factorial_iterative(28) is 3.816000000003705e-06 
-the run time for factorial_recursive(28) is 5.154999999999743e-06 
-they are equally fast for number 28
-
-the run time for factorial_iterative(29) is 3.68800000000169e-06 
-the run time for factorial_recursive(29) is 5.3710000000040115e-06 
-they are equally fast for number 29
-
-the run time for factorial_iterative(30) is 3.7140000000018825e-06 
-the run time for factorial_recursive(30) is 5.660999999997085e-06 
-they are equally fast for number 30
-
-the run time for factorial_iterative(31) is 3.86200000000031e-06 
-the run time for factorial_recursive(31) is 5.611999999995121e-06 
-they are equally fast for number 31
-
-the run time for factorial_iterative(32) is 3.5959999999946035e-06 
-the run time for factorial_recursive(32) is 5.733000000000821e-06 
-they are equally fast for number 32
-
-the run time for factorial_iterative(33) is 3.873000000001459e-06 
-the run time for factorial_recursive(33) is 5.672999999997708e-06 
-they are equally fast for number 33
-
-the run time for factorial_iterative(34) is 3.872000000001985e-06 
-the run time for factorial_recursive(34) is 5.8409999999994855e-06 
-they are equally fast for number 34
-
-the run time for factorial_iterative(35) is 3.869000000003564e-06 
-the run time for factorial_recursive(35) is 5.833999999996231e-06 
-they are equally fast for number 35
-
-the run time for factorial_iterative(36) is 3.72699999999504e-06 
-the run time for factorial_recursive(36) is 9.747999999996926e-06 
-they are equally fast for number 36
-
-the run time for factorial_iterative(37) is 4.557000000002254e-06 
-the run time for factorial_recursive(37) is 6.224999999998593e-06 
-they are equally fast for number 37
-
-the run time for factorial_iterative(38) is 4.0520000000043854e-06 
-the run time for factorial_recursive(38) is 6.408999999998888e-06 
-they are equally fast for number 38
-
-the run time for factorial_iterative(39) is 4.063999999998069e-06 
-the run time for factorial_recursive(39) is 6.465999999996641e-06 
-they are equally fast for number 39
-
-the run time for factorial_iterative(40) is 4.42099999999751e-06 
-the run time for factorial_recursive(40) is 6.569999999997411e-06 
-they are equally fast for number 40
-
-the run time for factorial_iterative(41) is 4.459999999997799e-06 
-the run time for factorial_recursive(41) is 6.704000000003207e-06 
-they are equally fast for number 41
-
-the run time for factorial_iterative(42) is 4.383000000003634e-06 
-the run time for factorial_recursive(42) is 6.8329999999977575e-06 
-they are equally fast for number 42
-
-the run time for factorial_iterative(43) is 5.807000000003504e-06 
-the run time for factorial_recursive(43) is 7.526000000000754e-06 
-they are equally fast for number 43
-
-the run time for factorial_iterative(44) is 5.682999999999383e-06 
-the run time for factorial_recursive(44) is 8.3389999999961e-06 
-they are equally fast for number 44
-
-the run time for factorial_iterative(45) is 5.1089999999962e-06 
-the run time for factorial_recursive(45) is 8.669999999995348e-06 
-they are equally fast for number 45
-
-the run time for factorial_iterative(46) is 6.125000000002656e-06 
-the run time for factorial_recursive(46) is 1.0264000000002882e-05 
-they are equally fast for number 46
-
-the run time for factorial_iterative(47) is 7.033999999996043e-06 
-the run time for factorial_recursive(47) is 1.0528000000002702e-05 
-they are equally fast for number 47
-
-the run time for factorial_iterative(48) is 6.246000000001417e-06 
-the run time for factorial_recursive(48) is 1.0094000000002157e-05 
-they are equally fast for number 48
-
-the run time for factorial_iterative(49) is 6.050000000000499e-06 
-the run time for factorial_recursive(49) is 9.985999999996553e-06 
-they are equally fast for number 49
-
-the run time for factorial_iterative(50) is 5.389000000001476e-06 
-the run time for factorial_recursive(50) is 1.0165999999998954e-05 
-they are equally fast for number 50
-
-the run time for factorial_iterative(51) is 5.06699999999749e-06 
-the run time for factorial_recursive(51) is 8.23800000000069e-06 
-they are equally fast for number 51
-
-the run time for factorial_iterative(52) is 5.048000000000552e-06 
-the run time for factorial_recursive(52) is 8.369000000001126e-06 
-they are equally fast for number 52
-
-the run time for factorial_iterative(53) is 6.673999999998181e-06 
-the run time for factorial_recursive(53) is 9.128999999996612e-06 
-they are equally fast for number 53
-
-the run time for factorial_iterative(54) is 6.383000000005634e-06 
-the run time for factorial_recursive(54) is 9.600000000005438e-06 
-they are equally fast for number 54
-
-the run time for factorial_iterative(55) is 5.58400000000292e-06 
-the run time for factorial_recursive(55) is 9.417999999997151e-06 
-they are equally fast for number 55
-
-the run time for factorial_iterative(56) is 5.669999999999287e-06 
-the run time for factorial_recursive(56) is 9.295999999998916e-06 
-they are equally fast for number 56
-
-the run time for factorial_iterative(57) is 1.8376000000000503e-05 
-the run time for factorial_recursive(57) is 9.99100000000086e-06 
-factorial_recursive is faster for number 57!
-
-the run time for factorial_iterative(58) is 6.853000000001108e-06 
-the run time for factorial_recursive(58) is 9.979999999999711e-06 
-they are equally fast for number 58
-
-the run time for factorial_iterative(59) is 6.2500000000062506e-06 
-the run time for factorial_recursive(59) is 9.494999999998255e-06 
-they are equally fast for number 59
-
-the run time for factorial_iterative(60) is 7.238999999999163e-06 
-the run time for factorial_recursive(60) is 3.131900000000187e-05 
-they are equally fast for number 60
-
-the run time for factorial_iterative(61) is 6.143999999999594e-06 
-the run time for factorial_recursive(61) is 9.93199999999722e-06 
-they are equally fast for number 61
-
-the run time for factorial_iterative(62) is 5.968000000002027e-06 
-the run time for factorial_recursive(62) is 1.000200000000201e-05 
-they are equally fast for number 62
-
-the run time for factorial_iterative(63) is 5.893999999999344e-06 
-the run time for factorial_recursive(63) is 1.0117999999996463e-05 
-they are equally fast for number 63
-
-the run time for factorial_iterative(64) is 6.199999999997874e-06 
-the run time for factorial_recursive(64) is 1.0943999999998844e-05 
-they are equally fast for number 64
-
-the run time for factorial_iterative(65) is 9.50499999999993e-06 
-the run time for factorial_recursive(65) is 1.0401999999999634e-05 
-they are equally fast for number 65
-
-the run time for factorial_iterative(66) is 6.533999999995543e-06 
-the run time for factorial_recursive(66) is 1.0865000000005731e-05 
-they are equally fast for number 66
-
-the run time for factorial_iterative(67) is 6.2229999999996455e-06 
-the run time for factorial_recursive(67) is 1.0657999999996726e-05 
-they are equally fast for number 67
-
-the run time for factorial_iterative(68) is 6.41499999999573e-06 
-the run time for factorial_recursive(68) is 1.0954999999999993e-05 
-they are equally fast for number 68
-
-the run time for factorial_iterative(69) is 6.337000000002091e-06 
-the run time for factorial_recursive(69) is 1.139499999999738e-05 
-they are equally fast for number 69
-
-the run time for factorial_iterative(70) is 7.434000000000607e-06 
-the run time for factorial_recursive(70) is 1.2521999999993982e-05 
-they are equally fast for number 70
-
-the run time for factorial_iterative(71) is 7.552000000000947e-06 
-the run time for factorial_recursive(71) is 1.375199999999882e-05 
-they are equally fast for number 71
-
-the run time for factorial_iterative(72) is 8.034999999996517e-06 
-the run time for factorial_recursive(72) is 1.3135999999996928e-05 
-they are equally fast for number 72
-
-the run time for factorial_iterative(73) is 7.399999999997686e-06 
-the run time for factorial_recursive(73) is 1.253300000000207e-05 
-they are equally fast for number 73
-
-the run time for factorial_iterative(74) is 7.92100000000101e-06 
-the run time for factorial_recursive(74) is 1.222700000000354e-05 
-they are equally fast for number 74
-
-the run time for factorial_iterative(75) is 6.9920000000042726e-06 
-the run time for factorial_recursive(75) is 1.2115999999999516e-05 
-they are equally fast for number 75
-
-the run time for factorial_iterative(76) is 7.263999999999882e-06 
-the run time for factorial_recursive(76) is 1.2221999999999233e-05 
-they are equally fast for number 76
-
-the run time for factorial_iterative(77) is 6.764999999998855e-06 
-the run time for factorial_recursive(77) is 1.3393000000000432e-05 
-they are equally fast for number 77
-
-the run time for factorial_iterative(78) is 8.125000000004656e-06 
-the run time for factorial_recursive(78) is 1.2655000000000305e-05 
-they are equally fast for number 78
-
-the run time for factorial_iterative(79) is 7.444000000002282e-06 
-the run time for factorial_recursive(79) is 1.2393999999998906e-05 
-they are equally fast for number 79
-
-the run time for factorial_iterative(80) is 7.3989999999982126e-06 
-the run time for factorial_recursive(80) is 1.267900000000155e-05 
-they are equally fast for number 80
-
-the run time for factorial_iterative(81) is 7.073000000003271e-06 
-the run time for factorial_recursive(81) is 1.743099999999831e-05 
-they are equally fast for number 81
-
-the run time for factorial_iterative(82) is 9.336999999998152e-06 
-the run time for factorial_recursive(82) is 1.493699999999959e-05 
-they are equally fast for number 82
-
-the run time for factorial_iterative(83) is 7.892999999994932e-06 
-the run time for factorial_recursive(83) is 1.3274000000000619e-05 
-they are equally fast for number 83
-
-the run time for factorial_iterative(84) is 8.017000000005992e-06 
-the run time for factorial_recursive(84) is 1.3738999999998724e-05 
-they are equally fast for number 84
-
-the run time for factorial_iterative(85) is 7.982000000003597e-06 
-the run time for factorial_recursive(85) is 1.4775000000001592e-05 
-they are equally fast for number 85
-
-the run time for factorial_iterative(86) is 9.404999999997055e-06 
-the run time for factorial_recursive(86) is 1.442299999999952e-05 
-they are equally fast for number 86
-
-the run time for factorial_iterative(87) is 8.203000000005234e-06 
-the run time for factorial_recursive(87) is 1.4191999999996208e-05 
-they are equally fast for number 87
-
-the run time for factorial_iterative(88) is 8.110000000005613e-06 
-the run time for factorial_recursive(88) is 1.4109999999997735e-05 
-they are equally fast for number 88
-
-the run time for factorial_iterative(89) is 7.892000000002397e-06 
-the run time for factorial_recursive(89) is 1.4211000000000085e-05 
-they are equally fast for number 89
-
-the run time for factorial_iterative(90) is 8.085999999997429e-06 
-the run time for factorial_recursive(90) is 2.0058999999995886e-05 
-they are equally fast for number 90
-
-the run time for factorial_iterative(91) is 7.872000000005985e-06 
-the run time for factorial_recursive(91) is 1.4382000000000283e-05 
-they are equally fast for number 91
-
-the run time for factorial_iterative(92) is 7.982000000003597e-06 
-the run time for factorial_recursive(92) is 1.473500000000183e-05 
-they are equally fast for number 92
-
-the run time for factorial_iterative(93) is 8.020999999996947e-06 
-the run time for factorial_recursive(93) is 1.5112000000004622e-05 
-they are equally fast for number 93
-
-the run time for factorial_iterative(94) is 9.902999999998607e-06 
-the run time for factorial_recursive(94) is 1.6479999999999273e-05 
-they are equally fast for number 94
-
-the run time for factorial_iterative(95) is 8.868000000002152e-06 
-the run time for factorial_recursive(95) is 1.5872000000000108e-05 
-they are equally fast for number 95
-
-the run time for factorial_iterative(96) is 8.999000000002588e-06 
-the run time for factorial_recursive(96) is 1.584400000000097e-05 
-they are equally fast for number 96
-
-the run time for factorial_iterative(97) is 8.62299999999927e-06 
-the run time for factorial_recursive(97) is 1.609200000000227e-05 
-they are equally fast for number 97
-
-the run time for factorial_iterative(98) is 1.0059999999999236e-05 
-the run time for factorial_recursive(98) is 2.1087000000002964e-05 
-they are equally fast for number 98
-
-the run time for factorial_iterative(99) is 9.232999999997382e-06 
-the run time for factorial_recursive(99) is 1.6199000000001462e-05 
-they are equally fast for number 99
-
-the run time for factorial_iterative(100) is 9.415000000005669e-06 
-the run time for factorial_recursive(100) is 1.6132000000002034e-05 
-they are equally fast for number 100
+the run time for factorial_iterative(11) is 3.3270000000043543e-06 
+the run time for factorial_recursive(11) is 3.563999999997569e-06 
+factorial_iterative is faster for number 11!
+
+the run time for factorial_iterative(12) is 5.881999999998722e-06 
+the run time for factorial_recursive(12) is 4.657999999997664e-06 
+factorial_recursive is faster for number 12!
+
+the run time for factorial_iterative(13) is 3.7309999999998733e-06 
+the run time for factorial_recursive(13) is 4.411000000002774e-06 
+factorial_iterative is faster for number 13!
+
+the run time for factorial_iterative(14) is 3.965999999994141e-06 
+the run time for factorial_recursive(14) is 1.7164000000000068e-05 
+factorial_iterative is faster for number 14!
+
+the run time for factorial_iterative(15) is 2.54079999999976e-05 
+the run time for factorial_recursive(15) is 3.078200000000003e-05 
+factorial_iterative is faster for number 15!
+
+the run time for factorial_iterative(16) is 1.103300000000057e-05 
+the run time for factorial_recursive(16) is 6.601999999994446e-06 
+factorial_recursive is faster for number 16!
+
+the run time for factorial_iterative(17) is 4.831000000003749e-06 
+the run time for factorial_recursive(17) is 8.68500000000133e-06 
+factorial_iterative is faster for number 17!
+
+the run time for factorial_iterative(18) is 4.9339999999981066e-06 
+the run time for factorial_recursive(18) is 9.31399999999638e-06 
+factorial_iterative is faster for number 18!
+
+the run time for factorial_iterative(19) is 5.252000000004198e-06 
+the run time for factorial_recursive(19) is 5.74099999999661e-06 
+factorial_iterative is faster for number 19!
+
+the run time for factorial_iterative(20) is 4.7060000000001545e-06 
+the run time for factorial_recursive(20) is 5.688999999996225e-06 
+factorial_iterative is faster for number 20!
+
+the run time for factorial_iterative(21) is 4.460000000004738e-06 
+the run time for factorial_recursive(21) is 6.543000000004684e-06 
+factorial_iterative is faster for number 21!
+
+the run time for factorial_iterative(22) is 4.798999999999776e-06 
+the run time for factorial_recursive(22) is 6.097999999996051e-06 
+factorial_iterative is faster for number 22!
+
+the run time for factorial_iterative(23) is 4.37299999999502e-06 
+the run time for factorial_recursive(23) is 6.024000000000307e-06 
+factorial_iterative is faster for number 23!
+
+the run time for factorial_iterative(24) is 4.92099999999801e-06 
+the run time for factorial_recursive(24) is 6.367999999999652e-06 
+factorial_iterative is faster for number 24!
+
+the run time for factorial_iterative(25) is 4.5300000000025875e-06 
+the run time for factorial_recursive(25) is 6.235000000000268e-06 
+factorial_iterative is faster for number 25!
+
+the run time for factorial_iterative(26) is 4.4860000000049305e-06 
+the run time for factorial_recursive(26) is 6.430000000001712e-06 
+factorial_iterative is faster for number 26!
+
+the run time for factorial_iterative(27) is 4.799999999999249e-06 
+the run time for factorial_recursive(27) is 6.3849999999976426e-06 
+factorial_iterative is faster for number 27!
+
+the run time for factorial_iterative(28) is 5.172000000004673e-06 
+the run time for factorial_recursive(28) is 7.037000000001403e-06 
+factorial_iterative is faster for number 28!
+
+the run time for factorial_iterative(29) is 4.839999999999012e-06 
+the run time for factorial_recursive(29) is 8.010999999995272e-06 
+factorial_iterative is faster for number 29!
+
+the run time for factorial_iterative(30) is 5.718999999994312e-06 
+the run time for factorial_recursive(30) is 9.156000000003217e-06 
+factorial_iterative is faster for number 30!
+
+the run time for factorial_iterative(31) is 5.3269999999994155e-06 
+the run time for factorial_recursive(31) is 9.725000000002093e-06 
+factorial_iterative is faster for number 31!
+
+the run time for factorial_iterative(32) is 3.586200000000456e-05 
+the run time for factorial_recursive(32) is 3.945799999999916e-05 
+factorial_iterative is faster for number 32!
+
+the run time for factorial_iterative(33) is 1.4017000000005053e-05 
+the run time for factorial_recursive(33) is 5.505900000000313e-05 
+factorial_iterative is faster for number 33!
+
+the run time for factorial_iterative(34) is 2.3095000000000754e-05 
+the run time for factorial_recursive(34) is 4.6993000000002116e-05 
+factorial_iterative is faster for number 34!
+
+the run time for factorial_iterative(35) is 9.731000000005874e-06 
+the run time for factorial_recursive(35) is 1.9999999999999185e-05 
+factorial_iterative is faster for number 35!
+
+the run time for factorial_iterative(36) is 8.072000000004798e-06 
+the run time for factorial_recursive(36) is 1.4940999999997484e-05 
+factorial_iterative is faster for number 36!
+
+the run time for factorial_iterative(37) is 8.551999999995008e-06 
+the run time for factorial_recursive(37) is 1.426599999999889e-05 
+factorial_iterative is faster for number 37!
+
+the run time for factorial_iterative(38) is 7.21299999999897e-06 
+the run time for factorial_recursive(38) is 1.032499999999853e-05 
+factorial_iterative is faster for number 38!
+
+the run time for factorial_iterative(39) is 6.696999999999953e-06 
+the run time for factorial_recursive(39) is 1.0348000000000301e-05 
+factorial_iterative is faster for number 39!
+
+the run time for factorial_iterative(40) is 6.163000000003471e-06 
+the run time for factorial_recursive(40) is 9.875999999998941e-06 
+factorial_iterative is faster for number 40!
+
+the run time for factorial_iterative(41) is 1.2901999999995195e-05 
+the run time for factorial_recursive(41) is 3.082699999999716e-05 
+factorial_iterative is faster for number 41!
+
+the run time for factorial_iterative(42) is 1.2982000000001659e-05 
+the run time for factorial_recursive(42) is 3.4627999999994885e-05 
+factorial_iterative is faster for number 42!
+
+the run time for factorial_iterative(43) is 7.646999999999515e-06 
+the run time for factorial_recursive(43) is 1.0939000000001475e-05 
+factorial_iterative is faster for number 43!
+
+the run time for factorial_iterative(44) is 1.0606999999995814e-05 
+the run time for factorial_recursive(44) is 1.595100000000016e-05 
+factorial_iterative is faster for number 44!
+
+the run time for factorial_iterative(45) is 1.2906000000000029e-05 
+the run time for factorial_recursive(45) is 3.1762999999990216e-05 
+factorial_iterative is faster for number 45!
+
+the run time for factorial_iterative(46) is 1.116999999999091e-05 
+the run time for factorial_recursive(46) is 2.0963999999998317e-05 
+factorial_iterative is faster for number 46!
+
+the run time for factorial_iterative(47) is 8.094000000000157e-06 
+the run time for factorial_recursive(47) is 1.6775999999996127e-05 
+factorial_iterative is faster for number 47!
+
+the run time for factorial_iterative(48) is 1.0786999999998215e-05 
+the run time for factorial_recursive(48) is 2.1607000000006815e-05 
+factorial_iterative is faster for number 48!
+
+the run time for factorial_iterative(49) is 9.844999999994442e-06 
+the run time for factorial_recursive(49) is 1.1351999999992257e-05 
+factorial_iterative is faster for number 49!
+
+the run time for factorial_iterative(50) is 6.992999999996807e-06 
+the run time for factorial_recursive(50) is 1.0770000000007163e-05 
+factorial_iterative is faster for number 50!
+
+the run time for factorial_iterative(51) is 1.2110999999995209e-05 
+the run time for factorial_recursive(51) is 1.7462999999995343e-05 
+factorial_iterative is faster for number 51!
+
+the run time for factorial_iterative(52) is 8.271000000004136e-06 
+the run time for factorial_recursive(52) is 2.3057000000006878e-05 
+factorial_iterative is faster for number 52!
+
+the run time for factorial_iterative(53) is 4.047399999999868e-05 
+the run time for factorial_recursive(53) is 1.7043999999993842e-05 
+factorial_recursive is faster for number 53!
+
+the run time for factorial_iterative(54) is 1.0848999999993336e-05 
+the run time for factorial_recursive(54) is 4.040899999999126e-05 
+factorial_iterative is faster for number 54!
+
+the run time for factorial_iterative(55) is 1.3361999999988994e-05 
+the run time for factorial_recursive(55) is 2.2981000000005247e-05 
+factorial_iterative is faster for number 55!
+
+the run time for factorial_iterative(56) is 1.0799999999991372e-05 
+the run time for factorial_recursive(56) is 1.9082000000003596e-05 
+factorial_iterative is faster for number 56!
+
+the run time for factorial_iterative(57) is 8.89300000000981e-06 
+the run time for factorial_recursive(57) is 1.4639999999996323e-05 
+factorial_iterative is faster for number 57!
+
+the run time for factorial_iterative(58) is 8.995999999997228e-06 
+the run time for factorial_recursive(58) is 1.3156999999999752e-05 
+factorial_iterative is faster for number 58!
+
+the run time for factorial_iterative(59) is 9.58899999999041e-06 
+the run time for factorial_recursive(59) is 1.3801000000007724e-05 
+factorial_iterative is faster for number 59!
+
+the run time for factorial_iterative(60) is 8.223000000001646e-06 
+the run time for factorial_recursive(60) is 1.3691999999995708e-05 
+factorial_iterative is faster for number 60!
+
+the run time for factorial_iterative(61) is 7.971000000009387e-06 
+the run time for factorial_recursive(61) is 1.3122999999989893e-05 
+factorial_iterative is faster for number 61!
+
+the run time for factorial_iterative(62) is 9.025999999995316e-06 
+the run time for factorial_recursive(62) is 1.4018999999990123e-05 
+factorial_iterative is faster for number 62!
+
+the run time for factorial_iterative(63) is 9.276000000002504e-06 
+the run time for factorial_recursive(63) is 1.4453000000011484e-05 
+factorial_iterative is faster for number 63!
+
+the run time for factorial_iterative(64) is 1.0065000000003543e-05 
+the run time for factorial_recursive(64) is 1.4579000000000675e-05 
+factorial_iterative is faster for number 64!
+
+the run time for factorial_iterative(65) is 9.704999999998742e-06 
+the run time for factorial_recursive(65) is 1.4269999999996785e-05 
+factorial_iterative is faster for number 65!
+
+the run time for factorial_iterative(66) is 9.119000000001876e-06 
+the run time for factorial_recursive(66) is 1.5907999999995037e-05 
+factorial_iterative is faster for number 66!
+
+the run time for factorial_iterative(67) is 9.392999999996432e-06 
+the run time for factorial_recursive(67) is 1.4797999999996425e-05 
+factorial_iterative is faster for number 67!
+
+the run time for factorial_iterative(68) is 3.640200000000482e-05 
+the run time for factorial_recursive(68) is 1.823999999998882e-05 
+factorial_recursive is faster for number 68!
+
+the run time for factorial_iterative(69) is 1.0194999999990628e-05 
+the run time for factorial_recursive(69) is 1.550999999999636e-05 
+factorial_iterative is faster for number 69!
+
+the run time for factorial_iterative(70) is 1.0256000000000154e-05 
+the run time for factorial_recursive(70) is 1.5881999999994845e-05 
+factorial_iterative is faster for number 70!
+
+the run time for factorial_iterative(71) is 9.851999999990757e-06 
+the run time for factorial_recursive(71) is 1.5467000000005116e-05 
+factorial_iterative is faster for number 71!
+
+the run time for factorial_iterative(72) is 9.048999999997087e-06 
+the run time for factorial_recursive(72) is 1.4937999999992124e-05 
+factorial_iterative is faster for number 72!
+
+the run time for factorial_iterative(73) is 8.496999999996202e-06 
+the run time for factorial_recursive(73) is 1.4766999999998864e-05 
+factorial_iterative is faster for number 73!
+
+the run time for factorial_iterative(74) is 8.431999999988782e-06 
+the run time for factorial_recursive(74) is 1.5652000000004884e-05 
+factorial_iterative is faster for number 74!
+
+the run time for factorial_iterative(75) is 8.28599999999624e-06 
+the run time for factorial_recursive(75) is 1.5636999999998902e-05 
+factorial_iterative is faster for number 75!
+
+the run time for factorial_iterative(76) is 8.797000000004829e-06 
+the run time for factorial_recursive(76) is 1.5765000000000917e-05 
+factorial_iterative is faster for number 76!
+
+the run time for factorial_iterative(77) is 8.58599999999099e-06 
+the run time for factorial_recursive(77) is 1.5466999999991238e-05 
+factorial_iterative is faster for number 77!
+
+the run time for factorial_iterative(78) is 8.783000000012198e-06 
+the run time for factorial_recursive(78) is 1.594800000000174e-05 
+factorial_iterative is faster for number 78!
+
+the run time for factorial_iterative(79) is 8.648999999999463e-06 
+the run time for factorial_recursive(79) is 1.611699999999605e-05 
+factorial_iterative is faster for number 79!
+
+the run time for factorial_iterative(80) is 9.165000000005419e-06 
+the run time for factorial_recursive(80) is 1.6331999999993907e-05 
+factorial_iterative is faster for number 80!
+
+the run time for factorial_iterative(81) is 9.125999999998191e-06 
+the run time for factorial_recursive(81) is 1.66189999999955e-05 
+factorial_iterative is faster for number 81!
+
+the run time for factorial_iterative(82) is 9.201999999999821e-06 
+the run time for factorial_recursive(82) is 1.7005999999999966e-05 
+factorial_iterative is faster for number 82!
+
+the run time for factorial_iterative(83) is 9.079000000009052e-06 
+the run time for factorial_recursive(83) is 1.6763999999988566e-05 
+factorial_iterative is faster for number 83!
+
+the run time for factorial_iterative(84) is 9.570000000000412e-06 
+the run time for factorial_recursive(84) is 1.6682999999989567e-05 
+factorial_iterative is faster for number 84!
+
+the run time for factorial_iterative(85) is 9.2179999999914e-06 
+the run time for factorial_recursive(85) is 1.7025000000003843e-05 
+factorial_iterative is faster for number 85!
+
+the run time for factorial_iterative(86) is 9.299000000004276e-06 
+the run time for factorial_recursive(86) is 1.7389000000006538e-05 
+factorial_iterative is faster for number 86!
+
+the run time for factorial_iterative(87) is 9.296000000005855e-06 
+the run time for factorial_recursive(87) is 1.7075999999990876e-05 
+factorial_iterative is faster for number 87!
+
+the run time for factorial_iterative(88) is 9.299000000004276e-06 
+the run time for factorial_recursive(88) is 1.6797999999998425e-05 
+factorial_iterative is faster for number 88!
+
+the run time for factorial_iterative(89) is 9.13099999999556e-06 
+the run time for factorial_recursive(89) is 1.7150000000007437e-05 
+factorial_iterative is faster for number 89!
+
+the run time for factorial_iterative(90) is 9.215999999992452e-06 
+the run time for factorial_recursive(90) is 2.600700000000844e-05 
+factorial_iterative is faster for number 90!
+
+the run time for factorial_iterative(91) is 9.416999999997677e-06 
+the run time for factorial_recursive(91) is 1.7403999999998643e-05 
+factorial_iterative is faster for number 91!
+
+the run time for factorial_iterative(92) is 1.0212999999995032e-05 
+the run time for factorial_recursive(92) is 1.7749999999996935e-05 
+factorial_iterative is faster for number 92!
+
+the run time for factorial_iterative(93) is 1.0086999999991964e-05 
+the run time for factorial_recursive(93) is 1.8253000000009734e-05 
+factorial_iterative is faster for number 93!
+
+the run time for factorial_iterative(94) is 1.1695000000006006e-05 
+the run time for factorial_recursive(94) is 1.9110000000002736e-05 
+factorial_iterative is faster for number 94!
+
+the run time for factorial_iterative(95) is 1.1269999999993785e-05 
+the run time for factorial_recursive(95) is 3.076000000000467e-05 
+factorial_iterative is faster for number 95!
+
+the run time for factorial_iterative(96) is 1.1970000000000036e-05 
+the run time for factorial_recursive(96) is 1.9430000000000835e-05 
+factorial_iterative is faster for number 96!
+
+the run time for factorial_iterative(97) is 1.1837000000000653e-05 
+the run time for factorial_recursive(97) is 2.0306000000011593e-05 
+factorial_iterative is faster for number 97!
+
+the run time for factorial_iterative(98) is 1.377200000000911e-05 
+the run time for factorial_recursive(98) is 2.7017999999989772e-05 
+factorial_iterative is faster for number 98!
+
+the run time for factorial_iterative(99) is 1.721200000000256e-05 
+the run time for factorial_recursive(99) is 1.9817000000005303e-05 
+factorial_iterative is faster for number 99!
+
+the run time for factorial_iterative(100) is 1.1316999999996802e-05 
+the run time for factorial_recursive(100) is 1.8627000000007166e-05 
+factorial_iterative is faster for number 100!
 

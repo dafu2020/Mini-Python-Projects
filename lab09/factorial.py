@@ -64,10 +64,10 @@ def main():
         if iterative_runtime > recursive_runtime:
             with open('results.txt', 'a') as file_object:
                 file_object.write(f'{recursive_name} is faster for number {i}!\n\n')
-        elif recursive_runtime < iterative_runtime:
+        elif recursive_runtime > iterative_runtime:
             with open('results.txt', 'a') as file_object:
                 file_object.write(f'{iterative_name} is faster for number {i}!\n\n')
-        else:
+        elif recursive_runtime == iterative_runtime:
             with open('results.txt', 'a') as file_object:
                 file_object.write(f'they are equally fast for number {i}\n\n')
 
