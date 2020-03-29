@@ -168,6 +168,9 @@ class Tree:
 
 
 def main():
+    """
+    Drive the program
+    """
     doctest.testmod()
     tree_1 = Tree('Osmanthus fragrans', 12, 20)
     tree_2 = Tree('Douglas fir', 1, 10)
