@@ -1,18 +1,21 @@
 # start with a empty dict?
 # both input in main?
+
+import doctest
+
 def add_calories_dictionary(new_food: str) -> dict:
-    """Build a dictionary for food and it's calories
+    """Add a food and it's calories in the food dictionary
 
     :param new_food: a string
     :precondition: new_food must be a string
     :postcondition: update the calories_dictionary with new food and the corresponding calories
     :return: the updated calories_dictionary as a dictionary
     """
+    calories_dict = {"lettuce": 5, "carrot": 52, "apple": 72, "bread": 66,
+                     "pasta": 221, "rice": 225, "milk": 122, "cheese": 115,
+                     "yogurt": 145, "beef": 240, "chicken": 140, "butter": 102
+                     }
     try:
-        calories_dict = {"lettuce": 5, "carrot": 52, "apple": 72, "bread": 66,
-                         "pasta": 221, "rice": 225, "milk": 122, "cheese": 115,
-                         "yogurt": 145, "beef": 240, "chicken": 140, "butter": 102
-                         }
         new_calories = int(input(f'Please enter the calorie of the {new_food}: '))
         calories_dict[new_food] = new_calories
     except ValueError:
@@ -89,7 +92,7 @@ def main():
     """
     Drive the program.
     """
-    doctest.testmode()
+    doctest.testmod()
 
     while True:
         user_input = input("Enter food item to add, or 'q' to exit: ").lower().strip()
