@@ -30,10 +30,12 @@ def food_name_list(food_dict: dict) -> list:
     :return: a list containing all food names from the food dictionary
 
     >>> food_dict_1 = {'peach':10, 'apple':20}
+    >>> food_name_list(food_dict_1)
     ['apple', 'peach']
 
-    >>> food_dict_2 = {"carrot": 5, "apple": 5, "bread": 5]
-    []
+    >>> food_dict_2 = {"carrot": 5, "apple": 5, "bread": 5}
+    >>> food_name_list(food_dict_2)
+    ['apple', 'bread', 'carrot']
     """
     food_list = [item for item in food_dict]
     return sorted(food_list)
@@ -51,7 +53,7 @@ def calculate_total_calorie(food_dict: dict) -> int:
     >>> calculate_total_calorie(food_dict_1)
     30
 
-    >>> food_dict_2 = {"carrot": 5, "apple": 5, "bread": 5]
+    >>> food_dict_2 = {"carrot": 5, "apple": 5, "bread": 5}
     >>> calculate_total_calorie(food_dict_2)
     15
 
@@ -72,11 +74,11 @@ def calculate_calorie_average(food_dict: dict) -> int:
 
     >>> food_dict_1 = {'peach':10, 'apple':20}
     >>> calculate_calorie_average(food_dict_1)
-    15
+    15.0
 
-    >>> food_dict_2 = {"carrot": 5, "apple": 5, "bread": 5]
+    >>> food_dict_2 = {"carrot": 5, "apple": 5, "bread": 5}
     >>> calculate_calorie_average(food_dict_2)
-    5
+    5.0
     """
     total_calories = calculate_total_calorie(food_dict)
     average_calories = total_calories / len(food_dict)
