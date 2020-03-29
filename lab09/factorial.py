@@ -48,10 +48,10 @@ def factorial_iterative(my_number: int) -> int:
     :postcondition: calculate the factorial using a loop
     :return: the calculated factorial as an integer
 
-    >>> factorial_iterative(0)
+    >>> factorial_iterative(0)[0]
     1
 
-    >>> factorial_iterative(5)
+    >>> factorial_iterative(5)[0]
     120
 
     """
@@ -72,10 +72,10 @@ def factorial_recursive(my_number: int) -> int:
     :postcondition: calculate the factorial using recursion
     :return: the calculated factorial as an integer
 
-    >>> factorial_iterative(0)
+    >>> factorial_recursive(0)[0]
     1
 
-    >>> factorial_iterative(5)
+    >>> factorial_recursive(5)[0]
     120
     """
     return factorial_recursive_helper(my_number)
@@ -89,10 +89,10 @@ def factorial_recursive_helper(num: int) -> int:
     :postcondition: calculate the factorial using recursion
     :return: the calculated factorial as an integer
 
-    >>> factorial_iterative(0)
+    >>> factorial_recursive_helper(0)
     1
 
-    >>> factorial_iterative(5)
+    >>> factorial_recursive_helper(5)
     120
     """
 
