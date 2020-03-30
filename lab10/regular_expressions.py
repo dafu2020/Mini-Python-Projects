@@ -24,7 +24,7 @@ def is_email(address: str) -> bool:
     # .
     # anything between two and four characters
 
-    email_regex = re.compile(r'(^(\w)+@([a-zA-Z0-9])+\.(\w{2,4})$)')
+    email_regex = re.compile(r'(^([\w+-])+@([a-zA-Z0-9-+])+\.(\w{2,4})$)')
     match_object = email_regex.search(address)
     if match_object:
         return True
@@ -52,6 +52,14 @@ def is_nakamoto(name: str) -> bool:
     if match_object:
         return True
     return False
+
+
+def is_poker(hand: str) -> bool:
+    """Validate a poker hand
+
+    :param hand:
+    :return:
+    """
 
 
 def main():
