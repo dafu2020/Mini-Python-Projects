@@ -31,6 +31,29 @@ def is_email(address: str) -> bool:
     return False
 
 
+def is_nakamoto(name: str) -> bool:
+    """ Check if a name has a last name of Nakamoto
+
+    :param name: a string
+    :precondition: name must be a string
+    :postcondition: validate if a name string has a last name of Nakamoto
+    :return: if a name string has a last name of Nakamoto return True, else return False
+
+    >>> my_name = 'Satoshi Nakamoto'
+    >>> is_nakamoto(my_name)
+    True
+
+    >>> my_name = 'Sato_shi Nakamoto'
+    >>> is_nakamoto(my_name)
+    False
+    """
+    nakamoto_regex = re.compile(r'^[A-Z]([a-z])* Nakamoto$')
+    match_object = nakamoto_regex.search(name)
+    if match_object:
+        return True
+    return False
+
+
 def main():
     doctest.testmod
 
