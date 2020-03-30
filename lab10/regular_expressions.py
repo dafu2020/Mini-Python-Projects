@@ -1,3 +1,4 @@
+import doctest
 import re
 
 
@@ -8,6 +9,14 @@ def is_email(address: str) -> bool:
     :precondition: address must be a string
     :postcondition: validate if a string is an email address
     :return: if a string is an email address return True, else return False
+
+    >>> email_address = "jane@hotmail.com"
+    >>> is_email(email_address)
+    True
+
+    >>> email_address = "jane.doe@hotmail.com"
+    >>> is_email(email_address)
+    False
     """
     # username: 1+ characters->  lowercase and uppercase letters, numbers, or an underscore
     # @
@@ -23,8 +32,7 @@ def is_email(address: str) -> bool:
 
 
 def main():
-    address = input('email: ')
-    print(is_email(address))
+    doctest.testmod
 
 
 if __name__ == "__main__":
