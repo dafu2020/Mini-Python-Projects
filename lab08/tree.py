@@ -23,14 +23,17 @@ class Tree:
         >>> tree_two = Tree('Douglas fir', 1, 12)
 
         """
+        # make sure no empty name and whitespace name is entered
         if len(species) > 0 and species != ' ':
             self.__species = species.strip().title()
         else:
-            raise ValueError('The species cannot be empty')
+            raise ValueError('The species cannot be empty')  # if not arise ValueError with appropriate message
+        # make sure age is bigger than zero
         if age >= 0:
             self.__age = age
         else:
             raise ValueError('The age of the tree cannot be negative')
+        # make sure trunk circumference is bigger than zero
         if trunk_circumference >= 0:
             self.__trunk_circumference = float(trunk_circumference)
         else:
@@ -43,6 +46,7 @@ class Tree:
         :precondition: Tree must have an attribute called __species containing legit species name
         :postcondition: return the species name of the Tree
         :return: species as a string
+
         >>> tree_one = Tree('Osmanthus fragrans', 1, 10)
         >>> tree_one.get_species()
         'Osmanthus Fragrans'
@@ -58,7 +62,8 @@ class Tree:
         Return the age.
         :precondition: Tree must have an attribute called __age containing legit age
         :postcondition: return the age of the Tree
-        :return: age as an int
+        :return: age of the tree as an int
+
         >>> tree_one = Tree('Osmanthus fragrans', 1, 10)
         >>> tree_one.get_age()
         1
@@ -74,7 +79,7 @@ class Tree:
         Return the trunk circumference
         :precondition: Tree must have an attribute called __trunk_circumference containing legit trunk circumference
         :postcondition: return the trunk circumference of the Tree
-        :return: trunk circumference as float
+        :return: trunk circumference of the tree as float
 
         >>> tree_one = Tree('Osmanthus fragrans', 1, 10)
         >>> tree_one.get_trunk_circumference()
@@ -95,13 +100,13 @@ class Tree:
         :postcondition: modify the age of the Tree.
         :raise ValueError: if new_age is negative.
 
-
         >>> tree_one = Tree('Osmanthus fragrans', 1, 10)
         >>> tree_one.update_age(2)
 
         >>> tree_two = Tree('Douglas fir', 1, 12)
         >>> tree_two.update_age(2)
         """
+        # make sure age is bigger than zero
         if new_age > 0:
             self.__age = new_age
         else:
@@ -117,13 +122,13 @@ class Tree:
         :postcondition: modify the trunk circumference of the Tree.
         :raise ValueError: if new_trunk_circumference is negative.
 
-
         >>> tree_one = Tree('Osmanthus fragrans', 1, 10)
         >>> tree_one.update_trunk_circumference(12)
 
         >>> tree_two = Tree('Douglas fir', 1, 12)
         >>> tree_two.update_trunk_circumference(20)
         """
+        # make sure trunk circumference is bigger than zero
         if new_trunk_circumference > 0:
             self.__trunk_circumference = new_trunk_circumference
         else:
@@ -175,6 +180,7 @@ def main():
     tree_1 = Tree('Osmanthus fragrans', 12, 20)
     tree_2 = Tree('Douglas fir', 1, 10)
 
+    # see the difference between __str__ and __repr__
     print(repr(tree_1))
     print(tree_2)
 
