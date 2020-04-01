@@ -21,6 +21,9 @@ def timer(func):
         function_name = func.__name__
         write_file(function_name, args[0], run_time)
         return value, function_name, run_time
+        # return the value, function_name and run_time into a tuple
+        # so we can access the information of the value of a function and the run_time together!
+        # Pycharm removed the parenthesis for formatting
 
     return wrapper_timer
 
@@ -44,7 +47,7 @@ def factorial_iterative(my_number: int) -> int:
     """Calculate factorial using loop
 
     :param my_number: an integer
-    :precondition: my_number myst ba an integer
+    :precondition: my_number myst ba an positive integer
     :postcondition: calculate the factorial using a loop
     :return: the calculated factorial as an integer
 
@@ -68,7 +71,7 @@ def factorial_recursive(my_number: int) -> int:
 
     Pass the value of my_number to the factorial_recursive_helper function for actual calculation.
     :param my_number: an integer
-    :precondition: my_number myst ba an integer
+    :precondition: my_number myst ba an positive integer
     :postcondition: calculate the factorial using recursion
     :return: the calculated factorial as an integer
 
@@ -78,6 +81,7 @@ def factorial_recursive(my_number: int) -> int:
     >>> factorial_recursive(5)[0]
     120
     """
+    # pass the number to the helper function to perform the actual math
     return factorial_recursive_helper(my_number)
 
 
@@ -96,9 +100,10 @@ def factorial_recursive_helper(num: int) -> int:
     120
     """
 
+    # the number cannot go below zero
     if num <= 1:
         return 1
-    return num * factorial_recursive_helper(num - 1)
+    return num * factorial_recursive_helper(num - 1)  # decrease the number by 1 every time
 
 
 def main():
@@ -107,16 +112,22 @@ def main():
     """
     doctest.testmod()
 
+    # from number 1 to 100
     for i in range(1, 101):
+        # use iterative method to calculate, return results in a tuple so we can compare the runtime of each method
         (iterative_value, iterative_name, iterative_runtime) = factorial_iterative(i)
+        # same for using recursion method
         (recursive_value, recursive_name, recursive_runtime) = factorial_recursive(i)
+
+        # compare the runtime of factorial each number with different method
+        # write the comparision result in the results.txt
         if iterative_runtime > recursive_runtime:
             with open('results.txt', 'a') as file_object:
                 file_object.write(f'{recursive_name} is faster for number {i}!\n\n')
         elif recursive_runtime > iterative_runtime:
             with open('results.txt', 'a') as file_object:
                 file_object.write(f'{iterative_name} is faster for number {i}!\n\n')
-        elif recursive_runtime == iterative_runtime:
+        else:
             with open('results.txt', 'a') as file_object:
                 file_object.write(f'they are equally fast for number {i}\n\n')
 
