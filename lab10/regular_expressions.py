@@ -67,6 +67,8 @@ def is_poker(hand: str) -> bool:
     >>> is_poker('kkkkq')
     True
     """
+    # chris says no Joker
+    # can find invalid pattern and return False, else return True
     poker_regex = re.compile(r'\w{6,}'  # card set cannot be more than 5 cards
                              r'|^\w{,4}$'  # card set cannot be less than 5 cards
                              r'|[^2-9akqt]'  # card set cannot contain invalid cards other than 2-9, a, k, q, t
