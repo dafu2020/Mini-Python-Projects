@@ -16,7 +16,7 @@ class Test(TestCase):
         self.assertEqual(expect, actual)
 
     def test_is_four_kind_invalid_card(self):
-        argument = 'jjjjk'
+        argument = 'cccck'
         actual = is_poker(argument)
         expect = False
         self.assertEqual(expect, actual)
@@ -40,7 +40,7 @@ class Test(TestCase):
         self.assertEqual(expect, actual)
 
     def test_is_full_house_invalid_card(self):
-        argument = 'jjjtt'
+        argument = 'ccctt'
         actual = is_poker(argument)
         expect = False
         self.assertEqual(expect, actual)
@@ -70,9 +70,15 @@ class Test(TestCase):
         self.assertEqual(expect, actual)
 
     def test_is_straight_invalid_card(self):
-        argument = 'akqjt'
+        argument = 'akqct'
         actual = is_poker(argument)
         expect = False
+        self.assertEqual(expect, actual)
+
+    def test_is_straight_all_letter(self):
+        argument = 'akqjt'
+        actual = is_poker(argument)
+        expect = True
         self.assertEqual(expect, actual)
 
     def test_is_straight_all_number(self):
@@ -88,7 +94,7 @@ class Test(TestCase):
         self.assertEqual(expect, actual)
 
     def test_is_3_kind_invalid_card(self):
-        argument = 'kkkaj'
+        argument = 'kkkac'
         actual = is_poker(argument)
         expect = False
         self.assertEqual(expect, actual)
@@ -112,7 +118,7 @@ class Test(TestCase):
         self.assertEqual(expect, actual)
 
     def test_is_2_pair_invalid_card(self):
-        argument = 'kkjjq'
+        argument = 'kkccq'
         actual = is_poker(argument)
         expect = False
         self.assertEqual(expect, actual)
@@ -136,7 +142,7 @@ class Test(TestCase):
         self.assertEqual(expect, actual)
 
     def test_is_pair_invalid_card(self):
-        argument = 'qqatj'
+        argument = 'qqatc'
         actual = is_poker(argument)
         expect = False
         self.assertEqual(expect, actual)
@@ -160,7 +166,7 @@ class Test(TestCase):
         self.assertEqual(expect, actual)
 
     def test_is_high_invalid_card(self):
-        argument = 'k4j9q'
+        argument = 'k4c9q'
         actual = is_poker(argument)
         expect = False
         self.assertEqual(expect, actual)
