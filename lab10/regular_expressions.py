@@ -61,14 +61,12 @@ def is_poker(hand: str) -> bool:
     :precondition: hand must be a five character string
     :postcondition: validate a poker hand
     :return: if a poker hand is valid return True, else return False
-    """
-    # valid hands = [4kind, full_house, straight,3kind, 2pair, pair, high]
-    # 4kind: ((a{4}|k{4}|q{4}|t{4}|j{4}|2{4}|3{4}|4{4}|5{4}|6{4}|7{4}|8{4}|9{4})[akqtj2-9])
-    #           || (a|q|k|t|j|[2-9])\1{3}(a|q|k|t|j|[2-9])
-    # full house : (a|q|k|t|j|[2-9])\1{2}(a|q|k|t|j|[2-9]){2}
-    # three kind
-    # straight:
 
+    >>> is_poker('aaaaa')
+    False
+    >>> is_poker('kkkkq')
+    True
+    """
     poker_regex = re.compile(r'\w{6,}'  # card set cannot be more than 5 cards
                              r'|^\w{,4}$'  # card set cannot be less than 5 cards
                              r'|[^2-9akqt]'  # card set cannot contain invalid cards other than 2-9, a, k, q, t
@@ -91,8 +89,8 @@ def is_poker(hand: str) -> bool:
 
 
 def main():
-    # doctest.testmod
-    print(is_poker('99999'))
+    doctest.testmod
+    # print(is_poker(''))
 
 
 if __name__ == "__main__":
