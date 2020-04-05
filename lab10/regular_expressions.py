@@ -89,8 +89,11 @@ def is_poker(hand: str) -> bool:
 
 
 def main():
+    """
+    Drive the program
+    """
     doctest.testmod
-    # print(is_poker(''))
+    # print(is_poker('qqqqj'))
 
 
 if __name__ == "__main__":
