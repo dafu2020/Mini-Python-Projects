@@ -15,77 +15,119 @@ def to_local_time(unix: int) -> str:
     return datetime.fromtimestamp(unix)
 
 
-def get_weather():
-    url = 'http://api.openweathermap.org/data/2.5/forecast?id=6173331&APPID=61e4396df899cdd189cc3e36013ef256'
+def get_today(key: str, city: str) -> dict:
+    """Get current weather info
+
+    :param key: a str
+    :param city: a str
+    :precondition: key must be a str representing api key;
+                    city must be a str representing city id
+    :postcondition: fetch current weather information from Openweather api
+    :return: the fetched weather information as a dict
+    """
+    url = f'https://api.openweathermap.org/data/2.5/weather?id={city}&appid={key}'
+    response = requests.get(url)
+    response.raise_for_status()
+    current_weather = json.loads(response.text)
+    return current_weather
+
+
+def get_future(key: str, city: str) -> dict:
+    """Get future weather info
+
+    :param key: a str
+    :param city: a str
+    :precondition: key must be a str representing api key;
+                    city must be a str representing city id
+    :postcondition: fetch future weather information from Openweather api
+    :return: the fetched weather information as a dict
+    """
+    url = f'http://api.openweathermap.org/data/2.5/forecast?id={city}&APPID={key}'
     response = requests.get(url)
     response.raise_for_status()
     vancouver_weather = json.loads(response.text)
     return vancouver_weather
 
 
-def print_day0(weather):
+def print_day0(weather: dict):
     """Print the weather information for today.
 
-    :param weather:
-    :return:
+    :param weather: a dict
+    :precondition: weather must be a dict containing weather information from Openweather API
+    :postcondition: print out weather information for today
     """
-    w = weather['list']
-    c = weather['city']
+    c = weather['sys']
     # get today's weather
-    main_weather = w[0]['weather'][0]['main']
-    description = w[0]['weather'][0]['description']
+    time = weather['dt']
+    main_weather = weather['weather'][0]['main']
+    description = weather['weather'][0]['description']
     # get sunrise time and sunset time
     sun_rise = c['sunrise']
     sun_set = c['sunset']
 
-    print(f'Current weather in Vancouver: \n'
+    print(f'Current weather in Vancouver at: {to_local_time(time)}\n'
           f'{main_weather} - {description}\n'
           f'sunrise at: {to_local_time(sun_rise)}\n'
           f'sunset at: {to_local_time(sun_set)}\n')
 
 
-def print_day1(weather):
+def print_day1(weather: dict) -> None:
     """Print the weather information for tomorrow.
 
-    :param weather:
-    :return:
+    :param weather: a dict
+    :precondition: weather must be a dict containing weather information from Openweather API
+    :postcondition: print out weather information for tomorrow
     """
     w = weather['list']
-    main_weather = w[8]['weather'][0]['main']
-    description = w[8]['weather'][0]['description']
+    time = w[2]['dt_txt']
+    main_weather = w[2]['weather'][0]['main']
+    description = w[2]['weather'][0]['description']
 
-    print(f'Tomorrow: \n'
+    print(f'Tomorrow at: {time}\n'
           f'{main_weather} - {description}\n')
 
 
-def print_day2(weather):
+def print_day2(weather: str) -> None:
     """Print the weather information for the day after tomorrow.
 
-    :param weather:
-    :return:
+    :param weather: a dict
+    :precondition: weather must be a dict containing weather information from Openweather API
+    :postcondition: print out weather information for the day after tomorrow
     """
     w = weather['list']
-    main_weather = w[16]['weather'][0]['main']
-    description = w[16]['weather'][0]['description']
+    time = w[10]['dt_txt']
+    main_weather = w[10]['weather'][0]['main']
+    description = w[10]['weather'][0]['description']
 
-    print(f'Two days from now: \n'
+    print(f'Two days from now at: {time}\n'
           f'{main_weather} - {description}\n')
 
-def print_day3(weather):
+
+def print_day3(weather: str) -> None:
     """Print the weather information for the day after the day after tomorrow.
 
-    :param weather:
-    :return:
+    :param weather: a dict
+    :precondition: weather must be a dict containing weather information from Openweather API
+    :postcondition: print out weather information for the day after the day after tomorrow
     """
     w = weather['list']
-    main_weather = w[24]['weather'][0]['main']
-    description = w[24]['weather'][0]['description']
+    time = w[18]['dt_txt']
+    main_weather = w[18]['weather'][0]['main']
+    description = w[18]['weather'][0]['description']
 
-    print(f'Three days from now: \n'
+    print(f'Three days from now at: {time}\n'
           f'{main_weather} - {description}\n')
 
 
-def control(weather):
+def control(current_weather: dict, future_weather: dict) -> None:
+    """Control the respond of from the weather API
+
+    :param current_weather: a dict
+    :param future_weather: a dict
+    :precondition: current_weather must be a dict containing weather information from Openweather API;
+                    future_weather must be a dict containing weather information from Openweather API;
+    :postcondition: executed user command and print corresponding weather information
+    """
     while True:
         user_input = int(input('How many days of weather you would like to see? \n'
                                '1. Today\n'
@@ -98,28 +140,36 @@ def control(weather):
             continue
         else:
             if user_input == 1:
-                print_day0(weather)
+                print_day0(current_weather)
                 break
             if user_input == 2:
-                print_day0(weather)
-                print_day1(weather)
+                print_day0(current_weather)
+                print_day1(future_weather)
                 break
             if user_input == 3:
-                print_day0(weather)
-                print_day1(weather)
-                print_day2(weather)
+                print_day0(current_weather)
+                print_day1(future_weather)
+                print_day2(future_weather)
                 break
             if user_input == 4:
-                print_day0(weather)
-                print_day1(weather)
-                print_day2(weather)
-                print_day3(weather)
+                print_day0(current_weather)
+                print_day1(future_weather)
+                print_day2(future_weather)
+                print_day3(future_weather)
                 break
 
 
 def main():
-    user_weather = get_weather()
-    control(user_weather)
+    """
+    Drive the program
+    """
+    key = '61e4396df899cdd189cc3e36013ef256'
+    city = '6173331'
+    # get weather for today and future
+    current_weather = get_today(key, city)
+    future_weather = get_future(key, city)
+
+    control(current_weather, future_weather)
 
 
 if __name__ == "__main__":
