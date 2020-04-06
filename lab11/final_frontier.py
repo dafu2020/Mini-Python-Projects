@@ -36,7 +36,7 @@ def print_mars_info(mars: object, sol: str) -> None:
     # get atmospheric temperature
     temperature = s['AT']['av']
 
-    print(f'Sol{sol} is in {season}, average atmospheric temperature is {temperature} °F')
+    print(f'Sol{sol} on Mars is in {season}, average atmospheric temperature is {temperature} °F')
 
 
 def main():
