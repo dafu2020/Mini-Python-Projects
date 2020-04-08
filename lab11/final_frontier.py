@@ -1,5 +1,4 @@
 # FaZCFimllFiINbREBMeCl3jopJtZnlxfwaGsL9jZ
-import random
 import time
 import requests
 import json
@@ -20,23 +19,49 @@ def get_mars_info(key: str) -> object:
     return mars_info
 
 
-def print_mars_info(mars: object, sol: str) -> None:
-    """Print weather information
+def get_sol_info(mars: object, sol: str) -> None:
+    """Get weather information for a specific sol
 
-    Print the season and average atmospheric temperature of a sol on Mars
+    Print the weather information of a sol on Mars
     :param mars: a json object
     :param sol: a str
     :precondition: mars must be a json object containing weather information on Mars fetched by NASA API;
                     sol must be a str representing a sol on Mars
-    :postcondition: print the season and average atmospheric temperature of a sol on Mars
+    :postcondition: print the weather information of a sol on Mars
+    :return: the printed weather information of a sol on Mars
     """
+
+    # for each sol
     s = mars[sol]
     # get season
     season = s['Season']
-    # get atmospheric temperature
+    # get average atmospheric temperature
     temperature = s['AT']['av']
+    # get horizontal wind speed
+    hws = s['HWS']['av']
+    # get average atmospheric pressure
+    pressure = s['PRE']['av']
 
-    print(f'Sol{sol} on Mars is in {season}, average atmospheric temperature is {temperature} °F')
+    # print weather information of that sol
+    return print_sol_info(sol=sol, sol_season=season, sol_temperature=temperature, sol_hws=hws, sol_pressure=pressure)
+
+
+def print_sol_info(sol: str, sol_season: str, sol_temperature: float, sol_hws: float, sol_pressure: float):
+    """Print sol weather information
+
+    Print the weather information of Mars on specific sol.
+    :param sol: a str
+    :param sol_season: a str
+    :param sol_temperature: a float
+    :param sol_hws: a float
+    :param sol_pressure: a float
+    :precondition: sol must be a str representing a sol on Mars; sol_season must be a str;
+                    sol_temperature must be a float in °F; sol_hws must be float in m/s;
+                    sol_pressure must be a float in Pa
+    :postcondition: print the weather information of Mars on specific sol
+    """
+    print(f'Sol{sol} on Mars is in {sol_season}, average atmospheric temperature is {sol_temperature} °F, '
+          f'horizontal wind speed is {sol_hws} m/s, average atmospheric pressure is {sol_pressure}Pa')
 
 
 def main():
@@ -44,16 +69,24 @@ def main():
     Drive the program
     """
     key = 'FaZCFimllFiINbREBMeCl3jopJtZnlxfwaGsL9jZ'
-    # the list  of sol NASA API provided
-    sol_list = ['475', '476', '477', '478', '479', '480', '481']
+    count = 0
 
-    # fetch the information about the summer and average atmospheric temperature every 5 min
     while True:
-        sol = random.choice(sol_list)
+        # fetch Mars weather information from NASA API
         mars_weather = get_mars_info(key)
-        print_mars_info(mars_weather, sol)
-        # 300 s = 5 min
+        # get all the sols this API provided
+        sol_list = mars_weather['sol_keys']
+        # changed the sol every 5 min
+        sol_picked = sol_list[count]
+        count += 1
+        # print the weather information of that sol
+        get_sol_info(mars_weather, sol_picked)
+
+        # fetch the latest sol weather information every 5 min
         time.sleep(300)
+        # set the count back to 0 when all the sol's weather information in the sol_list is printed
+        if count >= 7:
+            count = 0
 
 
 if __name__ == "__main__":
