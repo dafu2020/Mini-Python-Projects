@@ -61,7 +61,7 @@ def print_sol_info(sol: str, sol_season: str, sol_temperature: float, sol_hws: f
     :postcondition: print the weather information of Mars on specific sol
     """
     print(f'Sol{sol} on Mars is in {sol_season}, average atmospheric temperature is {sol_temperature} °F, '
-          f'horizontal wind speed is {sol_hws} m/s, average atmospheric pressure is {sol_pressure}Pa')
+          f'average horizontal wind speed is {sol_hws} m/s, average atmospheric pressure is {sol_pressure} Pa')
 
 
 def main():
