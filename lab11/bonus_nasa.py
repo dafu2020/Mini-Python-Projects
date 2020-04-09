@@ -5,7 +5,7 @@ import json
 from datetime import date
 import urllib.request
 
-from tkinter import *
+from PIL import Image
 
 
 def get_date_today():
@@ -56,19 +56,16 @@ def print_picture_info(name_of_picture: str, date_of_picture: str, explanation_o
 
 
 def download_picture(url, picture_name):
+    file_name = picture_name+'.png'
     file_path = 'img_src/' + picture_name + '.png'
     urllib.request.urlretrieve(url, file_path)
 
-    open_picture(picture_name, file_path)
+    open_picture(file_path)
 
 
-def open_picture(picture_name, file_path):
-    window = Tk()
-    window.title(picture_name)
-    canvas = Canvas(window, width=500, height=500)
-    canvas.pack
-    my_image = PhotoImage(file=file_path)
-    canvas.create_image(0, 0, anchor=NW, image=my_image)
+def open_picture(file_name):
+    im = Image.open(file_name)
+    im.show()
 
 
 def main():
