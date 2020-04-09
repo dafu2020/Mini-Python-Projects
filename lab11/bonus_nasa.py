@@ -56,7 +56,7 @@ def print_picture_info(name_of_picture: str, date_of_picture: str, explanation_o
 
 
 def download_picture(url, picture_name):
-    file_name = picture_name+'.png'
+    file_name = picture_name + '.png'
     file_path = 'img_src/' + picture_name + '.png'
     urllib.request.urlretrieve(url, file_path)
 
@@ -66,6 +66,7 @@ def download_picture(url, picture_name):
 def open_picture(file_name):
     im = Image.open(file_name)
     im.show()
+    time.sleep(10)
 
 
 def main():
@@ -76,12 +77,17 @@ def main():
     print(f'Welcome to our little program!\n'
           f'Here is the Astronomy Picture of the Day (APOD)!\n'
           f'I will show you a different picture every 5 minutes. Stay tune.\n')
+    count = 0
+    while True:
+        user_date = get_date_today()
+        nasa_pictures = get_nasa_apod(key, user_date)
+        print(len(nasa_pictures))
 
-    user_date = get_date_today()
-    nasa_pictures = get_nasa_apod(key, user_date)
-    for item in nasa_pictures:
-        get_picture_information(item)
+        get_picture_information(nasa_pictures[count])
         time.sleep(10)
+        count += 1
+        if count >= len(nasa_pictures):
+            return False
 
 
 if __name__ == "__main__":
