@@ -1,7 +1,6 @@
 import subprocess
 import time
 import urllib
-
 import requests
 import json
 from datetime import date
@@ -18,7 +17,7 @@ def get_date_today():
 
 def get_nasa_apod(key: str, end_date: str) -> list:
     """"""
-    url = f'https://api.nasa.gov/planetary/apod?api_key={key}&start_date=2020-01-01&end_date={end_date}'
+    url = f'https://api.nasa.gov/planetary/apod?api_key={key}&start_date=2020-04-01&end_date={end_date}'
     response = requests.get(url)
     response.raise_for_status()
     nasa_apod_lists = json.loads(response.text)
@@ -72,7 +71,7 @@ def main():
     """
     Drive the program
     """
-    key = 'FaZCFimllFiINbREBMeCl3jopJtZnlxfwaGsL9jZ'
+    key = 'FqcPKm1Dy8vpZuzvyqnjnEJZk0QsnEa7HnBHuCVg'
     print(f'Welcome to our little program!\n'
           f'Here is the Astronomy Picture of the Day (APOD)!\n'
           f'I will show you a different picture every 5 minutes. Stay tune.\n')
@@ -83,7 +82,7 @@ def main():
         print(len(nasa_pictures))
 
         get_picture_information(nasa_pictures[count])
-        time.sleep(10)
+        time.sleep(20)
         count += 1
         if count > len(nasa_pictures):
             return False
