@@ -1,11 +1,10 @@
+import subprocess
 import time
+import urllib
 
 import requests
 import json
 from datetime import date
-import urllib.request
-
-from PIL import Image
 
 
 def get_date_today():
@@ -63,10 +62,10 @@ def download_picture(url, picture_name):
     open_picture(file_path)
 
 
-def open_picture(file_name):
-    im = Image.open(file_name)
-    im.show()
-    time.sleep(10)
+def open_picture(picture_file):
+    openImg = subprocess.Popen(["open", picture_file])
+    time.sleep(3)
+    openImg.kill()
 
 
 def main():
@@ -86,7 +85,7 @@ def main():
         get_picture_information(nasa_pictures[count])
         time.sleep(10)
         count += 1
-        if count >= len(nasa_pictures):
+        if count > len(nasa_pictures):
             return False
 
 
