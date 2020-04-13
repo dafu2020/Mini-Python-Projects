@@ -20,3 +20,9 @@ class Test(TestCase):
         actual = factorial_recursive_helper(argument)
         expected = 120
         self.assertEqual(expected, actual)
+
+    def test_factorial_recursive_helper_bigger_than_10(self):
+        argument = 11
+        actual = factorial_recursive_helper(argument)
+        expected = 39916800
+        self.assertEqual(expected, actual)
