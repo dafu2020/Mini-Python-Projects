@@ -38,7 +38,7 @@ def get_future(key: str, city: str) -> dict:
     return vancouver_weather
 
 
-def print_day0(weather: dict):
+def print_day0(weather: dict) -> None:
     """Print the weather information for today.
 
     :param weather: a dict
