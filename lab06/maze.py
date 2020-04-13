@@ -28,7 +28,7 @@ def make_board(size: int) -> list:
 def make_character() -> dict:
     """Make a character
 
-    :postcondition: create a dictionary with character information
+    :postcondition: create a dictionary with character information at initial location
     :return: store character information as a dictionary
     """
     # the defaulted character always start at (0,0)
@@ -45,12 +45,12 @@ def print_location(length: int, character_dictionary: dict) -> None:
 
     :param length: a non-zero positive integer
     :param character_dictionary: must be a dictionary
-    :precondition: length must ve a positive non-zero integer;
+    :precondition: length must be a positive non-zero integer;
                     character_dictionary must be a dictionary containing two integers as the x and y coordinates
                    of the character
     :postcondition: print the location of the character on the game board base on the x and y coordinates
     >>> length = 5
-    >>> character_dictionary = {'x': 0,'y': 0,}
+    >>> character_dictionary = {'x': 0,'y': 0}
     >>> print_location(length, character_dictionary)
      $ . . . .
      . . . . .
@@ -101,8 +101,8 @@ def validate_move(game_board: list, game_character: dict, game_direction: str) -
     :precondition: game_board must be a list containing all game coordinates;
                     game_character must be a dictionary that contains character coordination;
                     game_direction must be a string
-    :postcondition: conclude a boolean result if the movement of the user choice is valid or not
-    :return: a boolean result
+    :postcondition: determine the movement of the user is valid or not
+    :return: if the user movement is valid return True, else return False
     >>> board = [[0, 0], [0, 1], [1,0], [1,1]]
     >>> character = {'x':0, 'y':0}
     >>> direction = 'nonsense'
