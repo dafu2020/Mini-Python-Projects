@@ -19,11 +19,11 @@ def get_mars_info(key: str) -> object:
     return mars_info
 
 
-def get_sol_info(mars: object, sol: str) -> None:
+def get_sol_info(plant_Mars: object, sol: str) -> None:
     """Get weather information for a specific sol
 
     Print the weather information of a sol on Mars
-    :param mars: a json object
+    :param plant_Mars: a json object
     :param sol: a str
     :precondition: mars must be a json object containing weather information on Mars fetched by NASA API;
                     sol must be a str representing a sol on Mars
@@ -32,7 +32,7 @@ def get_sol_info(mars: object, sol: str) -> None:
     """
 
     # for each sol
-    s = mars[sol]
+    s = plant_Mars[sol]
     # get season
     season = s['Season']
     # get average atmospheric temperature
@@ -46,7 +46,7 @@ def get_sol_info(mars: object, sol: str) -> None:
     return print_sol_info(sol=sol, sol_season=season, sol_temperature=temperature, sol_hws=hws, sol_pressure=pressure)
 
 
-def print_sol_info(sol: str, sol_season: str, sol_temperature: float, sol_hws: float, sol_pressure: float):
+def print_sol_info(sol: str, sol_season: str, sol_temperature: float, sol_hws: float, sol_pressure: float) -> None:
     """Print sol weather information
 
     Print the weather information of Mars on specific sol.
@@ -70,17 +70,18 @@ def main():
     """
     key = 'FaZCFimllFiINbREBMeCl3jopJtZnlxfwaGsL9jZ'
     count = 0
+    print('Sol is an Astronomy term stands for day on Mars')
 
     while True:
         # fetch Mars weather information from NASA API
-        mars_weather = get_mars_info(key)
+        weather_on_Mars = get_mars_info(key)
         # get all the sols this API provided
-        sol_list = mars_weather['sol_keys']
+        sol_list = weather_on_Mars['sol_keys']
         # changed the sol every 5 min
         sol_picked = sol_list[count]
         count += 1
         # print the weather information of that sol
-        get_sol_info(mars_weather, sol_picked)
+        get_sol_info(weather_on_Mars, sol_picked)
 
         # fetch the latest sol weather information every 5 min
         time.sleep(300)
