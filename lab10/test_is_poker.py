@@ -63,7 +63,7 @@ class Test(TestCase):
         expect = True
         self.assertEqual(expect, actual)
 
-    def test_is_full_house_letter_and_number(self):
+    def test_is_full_house_number_and_letter(self):
         argument = '222aa'
         actual = is_poker(argument)
         expect = True
