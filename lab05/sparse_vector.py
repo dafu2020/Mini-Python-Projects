@@ -6,24 +6,17 @@ import doctest
 
 
 def sparse_add(vector_one=dict, vector_two=dict) -> dict:
-    """Calculate the sum of two sparse vectors
+    """Calculate the sum of two sparse vectors.
 
     :param vector_one: a dictionary that only contains integer as values
     :param vector_two: a dictionary that only contains integer as values
     :precondition: vector_one and vector_two must be sparse vectors of integers in dictionary form with equal length
     :postcondition: a new dictionary that represent the sum of two sparse vector
     :return: correctly calculated sum of two sparse vector that stored in a dictionary
-
     >>> vector_one  =  {0: 1, 'length': 1}
     >>> vector_two =  {0: 1, 'length': 1}
     >>> sparse_add(vector_one, vector_two)
     {'length': 1, 0: 2}
-
-    >>> vector_one  =  {0: 1, 'length': 1}
-    >>> vector_two =  {0: -1, 'length': 1}
-    >>> sparse_add(vector_one, vector_two)
-    {'length': 1}
-
     >>> vector_one  =  {0: 1, 2: 1, 4: 2, 6: 1, 9: 1, 'length': 11}
     >>> vector_two =  {0: -1, 2: 2, 7: 3, 10: 4, 'length': 11}
     >>> sparse_add(vector_one, vector_two)
@@ -54,10 +47,9 @@ def sparse_add(vector_one=dict, vector_two=dict) -> dict:
         return sum_dict
 
 
-def sparse_dot_product(vector_one=dict, vector_two=dict) -> dict:
-    """Calculate dot product.
+def sparse_dot_product(vector_one=dict, vector_two=dict) -> int:
+    """Calculate dot product of two sparse vectors.
 
-    A function to calculate the dot product of two sparse vectors.
     :param vector_one: a dictionary that only contains integer as values
     :param vector_two: a dictionary that only contains integer as values
     :precondition: vector_one and vector_two must be sparse vectors of integers in dictionary form with equal length
@@ -71,20 +63,20 @@ def sparse_dot_product(vector_one=dict, vector_two=dict) -> dict:
     >>> vector_two =  {1: 1, 'length': 2}
     >>> sparse_dot_product(vector_one, vector_two)
     0
-    >>> vector_one  =  {0: 1, 1: 2, 'length': 2}
-    >>> vector_two =  {1: 1, 'length': 2}
-    >>> sparse_dot_product(vector_one, vector_two)
-    2
     """
+    # dot product(the sum of the products) start at zero
     dot_product = 0
+    # eliminate length zero vectors
     if vector_one['length'] == 0 and vector_two['length'] == 0:
         return None
     else:
         if vector_one['length'] == vector_two['length']:
             for key_one in vector_one:
                 if key_one in vector_two and key_one != 'length':
+                    # add the product of two element(with same key) to the dot product
                     dot_product += vector_one[key_one] * vector_two[key_one]
                 else:
+                    # if no same key, then the dot product is zero
                     dot_product += 0
         return dot_product
 
