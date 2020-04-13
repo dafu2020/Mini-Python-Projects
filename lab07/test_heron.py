@@ -40,4 +40,3 @@ class Test(TestCase):
         expected = -1
         actual = heron(argument)
         self.assertEqual(expected, actual)
-
