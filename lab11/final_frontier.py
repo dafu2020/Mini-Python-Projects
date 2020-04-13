@@ -28,7 +28,7 @@ def get_sol_info(plant_Mars: object, sol: str) -> None:
     :precondition: mars must be a json object containing weather information on Mars fetched by NASA API;
                     sol must be a str representing a sol on Mars
     :postcondition: print the weather information of a sol on Mars
-    :return: the printed weather information of a sol on Mars
+
     """
 
     # for each sol
