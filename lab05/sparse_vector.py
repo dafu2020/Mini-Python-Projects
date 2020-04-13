@@ -6,43 +6,52 @@ import doctest
 
 
 def sparse_add(vector_one=dict, vector_two=dict) -> dict:
-    """Calculate sum.
+    """Calculate the sum of two sparse vectors
 
-    A function to calculate the sum of two sparse vectors in dictionary form.
     :param vector_one: a dictionary that only contains integer as values
     :param vector_two: a dictionary that only contains integer as values
     :precondition: vector_one and vector_two must be sparse vectors of integers in dictionary form with equal length
     :postcondition: a new dictionary that represent the sum of two sparse vector
     :return: correctly calculated sum of two sparse vector that stored in a dictionary
+
     >>> vector_one  =  {0: 1, 'length': 1}
     >>> vector_two =  {0: 1, 'length': 1}
     >>> sparse_add(vector_one, vector_two)
     {'length': 1, 0: 2}
+
     >>> vector_one  =  {0: 1, 'length': 1}
     >>> vector_two =  {0: -1, 'length': 1}
     >>> sparse_add(vector_one, vector_two)
     {'length': 1}
+
     >>> vector_one  =  {0: 1, 2: 1, 4: 2, 6: 1, 9: 1, 'length': 11}
     >>> vector_two =  {0: -1, 2: 2, 7: 3, 10: 4, 'length': 11}
     >>> sparse_add(vector_one, vector_two)
     {'length': 11, 2: 3, 4: 2, 6: 1, 9: 1, 7: 3, 10: 4}
     """
-    add_dic = {'length': vector_one['length']}
+    # create a dictionary to store result
+    sum_dict = {'length': vector_one['length']}
+
+    # eliminate empty vector(s)
     if vector_one['length'] == 0 and vector_two['length'] == 0:
         return None
     else:
-        if vector_one['length'] == vector_two['length']:
+        if vector_one['length'] == vector_two['length']:    # two vectors must be equal length
             for key_one in vector_one:
+                # include keys only present in the first vector
                 if key_one not in vector_two:
-                    add_dic[key_one] = vector_one[key_one]
+                    sum_dict[key_one] = vector_one[key_one]
+                # add values with the same key
                 elif key_one in vector_one and key_one != 'length':
-                    add_dic[key_one] = vector_one[key_one] + vector_two[key_one]
-                    if add_dic[key_one] == 0:
-                        add_dic.pop(key_one)
+                    sum_dict[key_one] = vector_one[key_one] + vector_two[key_one]
+                    # remove any key-value pair with value of 0
+                    if sum_dict[key_one] == 0:
+                        sum_dict.pop(key_one)
             for key_two in vector_two:
+                # include keys only present in the second vector
                 if key_two not in vector_one:
-                    add_dic[key_two] = vector_two[key_two]
-        return add_dic
+                    sum_dict[key_two] = vector_two[key_two]
+        return sum_dict
 
 
 def sparse_dot_product(vector_one=dict, vector_two=dict) -> dict:
@@ -83,8 +92,6 @@ def sparse_dot_product(vector_one=dict, vector_two=dict) -> dict:
 def main():
     """
     Test the functions in this module.
-
-    :return: the result of doctests
     """
     doctest.testmod()
 
