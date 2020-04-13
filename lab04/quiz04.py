@@ -25,7 +25,7 @@ def statistics(number_list):
     [4, 1.0, 2, 1.5, 1.0]
 
     >>> statistics([8,2,7])
-    [3, 2, 8, 5.666666666666667, 6]
+    [3, 2, 8, 5.67, 6]
 
     """
 
@@ -40,7 +40,7 @@ def statistics(number_list):
 
         list_min = min(number_list)
 
-        list_average = sum(number_list) / len(number_list)
+        list_average = round(sum(number_list) / len(number_list), 2)
 
         list_spread = list_max - list_min
 
