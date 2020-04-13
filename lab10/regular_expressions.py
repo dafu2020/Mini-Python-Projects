@@ -8,7 +8,7 @@ def is_email(address: str) -> bool:
     :param address: a string
     :precondition: address must be a string
     :postcondition: validate if a string is an email address
-    :return: if a string is an email address return True, else return False
+    :return: a boolean result, if a string is an email address return True, else return False
 
     >>> email_address = "jane@hotmail.com"
     >>> is_email(email_address)
@@ -37,7 +37,7 @@ def is_nakamoto(name: str) -> bool:
     :param name: a string
     :precondition: name must be a string
     :postcondition: validate if a name string has a last name of Nakamoto
-    :return: if a name string has a last name of Nakamoto return True, else return False
+    :return:a boolean result, if a name string has a last name of Nakamoto return True, else return False
 
     >>> my_name = 'Satoshi Nakamoto'
     >>> is_nakamoto(my_name)
@@ -60,7 +60,7 @@ def is_poker(hand: str) -> bool:
     :param hand: a string
     :precondition: hand must be a five character string
     :postcondition: validate a poker hand
-    :return: if a poker hand is invalid return False, else return True
+    :return:a boolean result, if a poker hand is invalid return False, else return True
 
     >>> is_poker('aaaaa')
     False
