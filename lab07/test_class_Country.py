@@ -88,4 +88,4 @@ class TestCountry(TestCase):
     def test___repr__in_list_non_existed(self):
         """Test the repr of a non-existed object in a list"""
         with self.assertRaises(AttributeError):
-            [repr(self.test_country_3)]
+            repr(self.test_country_3)
