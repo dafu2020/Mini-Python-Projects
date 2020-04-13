@@ -110,11 +110,11 @@ class Country:
 
         >>> doc_country_one = Country('Country_one', 100, 1000)
         >>> repr(doc_country_one)
-        'Country("Country_one", 100, 1000)'
+        'Country("Country_One", 100, 1000)'
 
         >>> doc_country_two = Country('country_two', 2000, 40000)
         >>> repr(doc_country_two)
-        'Country("country_two", 2000, 40000)'
+        'Country("Country_Two", 2000, 40000)'
         """
         return f'Country(\"{self.name}\", {self.population}, {self.area})'
 
