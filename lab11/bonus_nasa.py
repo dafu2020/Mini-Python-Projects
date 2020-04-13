@@ -113,7 +113,7 @@ def main():
         print(len(nasa_pictures))
 
         get_picture_information(nasa_pictures[count])
-        time.sleep(20)
+        time.sleep(300)
         count += 1
         if count > len(nasa_pictures):
             return False
