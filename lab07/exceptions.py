@@ -63,6 +63,9 @@ def find_an_even(input_list: list) -> int:
 
 
 def main():
+    """
+    Drive the program
+    """
     doctest.testmod()
     test_list_0 = []  # empty list
     test_list_1 = [1]  # list size one
