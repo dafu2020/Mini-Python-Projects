@@ -4,17 +4,6 @@ import json
 from datetime import datetime
 
 
-def to_local_time(unix: int) -> str:
-    """Convert the unix timestamp to localtime
-
-    :param unix: an integer
-    :precondition: unix must be an integer represent unix timestamp
-    :postcondition: convert the unix timestamp to a date and time format for human to read
-    :return: the converted date and time as a string
-    """
-    return datetime.fromtimestamp(unix)
-
-
 def get_today(key: str, city: str) -> dict:
     """Get current weather info
 
@@ -65,10 +54,10 @@ def print_day0(weather: dict):
     sun_rise = c['sunrise']
     sun_set = c['sunset']
 
-    print(f'Current weather in Vancouver at: {to_local_time(time)}\n'
+    print(f'Current weather in Vancouver at: {datetime.fromtimestamp(time)}\n'  # convert unix time to local time
           f'{main_weather} - {description}\n'
-          f'sunrise at: {to_local_time(sun_rise)}\n'
-          f'sunset at: {to_local_time(sun_set)}\n')
+          f'sunrise at: {datetime.fromtimestamp(sun_rise)}\n'
+          f'sunset at: {datetime.fromtimestamp(sun_set)}\n')
 
 
 def print_day1(weather: dict) -> None:
@@ -79,9 +68,9 @@ def print_day1(weather: dict) -> None:
     :postcondition: print out weather information for tomorrow
     """
     w = weather['list']
-    time = w[2]['dt_txt']
-    main_weather = w[2]['weather'][0]['main']
-    description = w[2]['weather'][0]['description']
+    time = w[5]['dt_txt']
+    main_weather = w[5]['weather'][0]['main']
+    description = w[5]['weather'][0]['description']
 
     print(f'Tomorrow at: {time}\n'
           f'{main_weather} - {description}\n')
@@ -95,9 +84,9 @@ def print_day2(weather: str) -> None:
     :postcondition: print out weather information for the day after tomorrow
     """
     w = weather['list']
-    time = w[10]['dt_txt']
-    main_weather = w[10]['weather'][0]['main']
-    description = w[10]['weather'][0]['description']
+    time = w[13]['dt_txt']
+    main_weather = w[13]['weather'][0]['main']
+    description = w[13]['weather'][0]['description']
 
     print(f'Two days from now at: {time}\n'
           f'{main_weather} - {description}\n')
@@ -111,9 +100,9 @@ def print_day3(weather: str) -> None:
     :postcondition: print out weather information for the day after the day after tomorrow
     """
     w = weather['list']
-    time = w[18]['dt_txt']
-    main_weather = w[18]['weather'][0]['main']
-    description = w[18]['weather'][0]['description']
+    time = w[21]['dt_txt']
+    main_weather = w[21]['weather'][0]['main']
+    description = w[21]['weather'][0]['description']
 
     print(f'Three days from now at: {time}\n'
           f'{main_weather} - {description}\n')
