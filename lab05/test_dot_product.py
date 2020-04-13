@@ -12,7 +12,7 @@ class Test(TestCase):
         argument_two = {'length': 0}
         expected = None
         actual: dict = sparse_vector.sparse_dot_product(argument_one, argument_two)
-        self.assertEqual(expected, actual, )
+        self.assertEqual(expected, actual)
 
     def test_length_one_zero_sparse_vector(self):
         """Test two length one sparse vectors contain zero"""
