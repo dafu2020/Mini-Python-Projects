@@ -102,7 +102,7 @@ def validate_move(game_board: list, game_character: dict, game_direction: str) -
                     game_character must be a dictionary that contains character coordination;
                     game_direction must be a string
     :postcondition: determine the movement of the user is valid or not
-    :return: if the user movement is valid return True, else return False
+    :return: the boolean result, if the user movement is valid return True, else return False
     >>> board = [[0, 0], [0, 1], [1,0], [1,1]]
     >>> character = {'x':0, 'y':0}
     >>> direction = 'nonsense'
@@ -209,7 +209,7 @@ def check_if_exit_reached(my_board: list, my_character: dict) -> bool:
     :param my_character: must be a dictionary
     :precondition: my_board must be a non-empty list; my_character must be a dictionary containing 'x' and 'y' as keys
     :postcondition: conclude a boolean result of whether the user has reached the exit or not
-    :return: a boolean result
+    :return: a boolean result, true if the exist is reached, else False
     >>> board = [[0, 0], [0, 1], [1,0], [1,1]]
     >>> character = {'x':0, 'y':0}
     >>> check_if_exit_reached(board, character)
