@@ -30,7 +30,7 @@ def format_text(text: str) -> list:
     """Format the text into individual words
 
     :param text: a string
-    :precondition: file_name must be a file
+    :precondition: text must be a string that contain all the content from a text file
     :postcondition: remove punctuation marks; convert all character into lowercase;
                     split the entire text into individual words in a list
     :return: the formatted individual words as one list
@@ -60,7 +60,7 @@ def word_occurrence(word_in_text: list) -> dict:
     :param word_in_text: a list
     :precondition: word_in_text must be a list
     :postcondition: count the word occurrence and store in a dictionary
-    :return: the counted word occurrence and responding words stored as a dictionary
+    :return: the counted word occurrence and corresponding words stored in a dictionary
 
     >>> my_words = ['this', 'file', 'is', 'for', 'the', 'purpose', 'of', 'doctest']
     >>> word_occurrence(my_words)
@@ -116,7 +116,7 @@ def print_result(occurrence_list: list) -> None:
 
     :param occurrence_list: a list
     :precondition: must be a list containing the top ten words and corresponding word occurrence pairs
-    :postcondition: print the result from top one to top ten in a word- word occurrence format
+    :postcondition: print the result from top one to top ten in a word-word occurrence format
 
     >>> my_occurrence_list = [[10, 10], [9, 9], [8, 8], [7, 7], [6, 6], [5, 5], [4, 4], [3, 3], [2, 2], [1, 1]]
     >>> print_result(my_occurrence_list)
